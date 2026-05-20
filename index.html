@@ -1,1 +1,2276 @@
+<!DOCTYPE html>
+<html lang="es" class="h-full bg-slate-50">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cierre Ejecutivo - Proyecto UKG</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Tailwind Configuration for customized premium colors -->
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        brand: {
+                            50: '#f0f7ff',
+                            100: '#e0effe',
+                            200: '#b9defe',
+                            300: '#7cc2fd',
+                            400: '#36a2fc',
+                            500: '#0c85eb',
+                            600: '#0066c7',
+                            700: '#0052a3',
+                            800: '#044687',
+                            900: '#093b6e',
+                            950: '#06254a',
+                        },
+                        accent: {
+                            50: '#f0fdfa',
+                            500: '#14b8a6',
+                            600: '#0d9488',
+                            700: '#0f766e',
+                        }
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+    <!-- Google Fonts: Inter -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <!-- Lucide Icons for clean corporate UI symbols -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <style>
+        /* Smooth scrolling and transitions */
+        html {
+            scroll-behavior: smooth;
+        }
+        .section-fade {
+            transition: opacity 0.3s ease-in-out, transform 0.3s ease-in-out;
+        }
+        .active-nav-item {
+            border-bottom-width: 2px;
+            border-color: #0c85eb;
+            color: #0c85eb;
+            font-weight: 600;
+        }
+    </style>
+</head>
+<body class="flex flex-col min-h-screen text-slate-800 font-sans antialiased">
 
+    <!-- Franja Superior Oscura para Logos -->
+    <div class="bg-slate-950 text-white py-3 px-6 shadow-md border-b border-slate-800">
+        <div class="max-w-7xl mx-auto flex items-center justify-between">
+            <!-- Logo Agencia -->
+            <div class="flex items-center space-x-3">
+                <div class="h-9 w-32 bg-slate-900 border border-slate-700 rounded flex items-center justify-center text-xs text-slate-400 font-medium overflow-hidden hover:border-brand-500 transition-colors duration-200">
+                    <img id="logo-agencia" src="assets/logos/mti-logo.png" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';" alt="Agencia" class="h-full w-full object-contain p-1">
+                    <span class="flex items-center gap-1"><i data-lucide="building-2" class="w-4 h-4 text-brand-400"></i> Logo Agencia</span>
+                </div>
+            </div>
+
+            <!-- Logo Cliente (UKG) -->
+            <div class="flex items-center space-x-3">
+                <div class="h-9 w-32 bg-slate-900 border border-slate-700 rounded flex items-center justify-center text-xs text-slate-400 font-medium overflow-hidden hover:border-brand-500 transition-colors duration-200">
+                    <img id="logo-cliente" src="assets/logos/ukg-logo.png" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';" alt="UKG" class="h-full w-full object-contain p-1">
+                    <span class="flex items-center gap-1"><i data-lucide="award" class="w-4 h-4 text-emerald-400"></i> Logo UKG</span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Navegación Principal & Cabecera -->
+    <header class="sticky top-0 z-40 bg-white/95 backdrop-blur-md border-b border-slate-200 shadow-sm">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-20">
+                <!-- Título Principal de la Landing -->
+                <div class="flex flex-col">
+                    <span class="text-xs uppercase tracking-wider font-semibold text-brand-600">INFORME DE CIERRE DE CAMPAÑA</span>
+                    <h1 class="text-xl md:text-2xl font-extrabold text-slate-900 tracking-tight">
+                        Cierre Ejecutivo<span class="text-brand-500">_Proyecto UKG</span>
+                    </h1>
+                </div>
+
+                <!-- Menú de Navegación de Escritorio -->
+                <nav class="hidden md:flex space-x-1 lg:space-x-4 h-full">
+                    <button onclick="switchTab('home')" id="nav-home" class="nav-item inline-flex items-center px-3 pt-1 border-b-2 border-transparent text-sm font-medium text-slate-600 hover:text-slate-900 hover:border-slate-300 transition-all duration-200">
+                        Home
+                    </button>
+                    <button onclick="switchTab('bbdd')" id="nav-bbdd" class="nav-item inline-flex items-center px-3 pt-1 border-b-2 border-transparent text-sm font-medium text-slate-600 hover:text-slate-900 hover:border-slate-300 transition-all duration-200">
+                        BBDD
+                    </button>
+                    <button onclick="switchTab('icp')" id="nav-icp" class="nav-item inline-flex items-center px-3 pt-1 border-b-2 border-transparent text-sm font-medium text-slate-600 hover:text-slate-900 hover:border-slate-300 transition-all duration-200">
+                        ICP
+                    </button>
+                    <button onclick="switchTab('campanas')" id="nav-campanas" class="nav-item inline-flex items-center px-3 pt-1 border-b-2 border-transparent text-sm font-medium text-slate-600 hover:text-slate-900 hover:border-slate-300 transition-all duration-200">
+                        Campañas
+                    </button>
+                    <button onclick="switchTab('perfiles')" id="nav-perfiles" class="nav-item inline-flex items-center px-3 pt-1 border-b-2 border-transparent text-sm font-medium text-slate-600 hover:text-slate-900 hover:border-slate-300 transition-all duration-200">
+                        Perfiles
+                    </button>
+                    <button onclick="switchTab('recursos')" id="nav-recursos" class="nav-item inline-flex items-center px-3 pt-1 border-b-2 border-transparent text-sm font-medium text-slate-600 hover:text-slate-900 hover:border-slate-300 transition-all duration-200">
+                        Recursos
+                    </button>
+                </nav>
+
+                <!-- Botón de Menú Móvil -->
+                <div class="flex items-center md:hidden">
+                    <button type="button" onclick="toggleMobileMenu()" class="inline-flex items-center justify-center p-2 rounded-md text-slate-500 hover:text-slate-900 hover:bg-slate-100 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-brand-500" aria-expanded="false">
+                        <span class="sr-only">Abrir menú principal</span>
+                        <i data-lucide="menu" id="menu-icon-open" class="block h-6 w-6"></i>
+                        <i data-lucide="x" id="menu-icon-close" class="hidden h-6 w-6"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Menú Móvil Desplegable -->
+        <div class="hidden md:hidden bg-white border-b border-slate-200 shadow-lg" id="mobile-menu">
+            <div class="px-2 pt-2 pb-3 space-y-1">
+                <button onclick="switchTab('home')" id="mobile-nav-home" class="mobile-nav-item block w-full text-left px-3 py-2 rounded-md text-base font-medium text-slate-700 hover:bg-slate-100 hover:text-slate-900">
+                    Home
+                </button>
+                <button onclick="switchTab('bbdd')" id="mobile-nav-bbdd" class="mobile-nav-item block w-full text-left px-3 py-2 rounded-md text-base font-medium text-slate-700 hover:bg-slate-100 hover:text-slate-900">
+                    BBDD
+                </button>
+                <button onclick="switchTab('icp')" id="mobile-nav-icp" class="mobile-nav-item block w-full text-left px-3 py-2 rounded-md text-base font-medium text-slate-700 hover:bg-slate-100 hover:text-slate-900">
+                    ICP
+                </button>
+                <button onclick="switchTab('campanas')" id="mobile-nav-campanas" class="mobile-nav-item block w-full text-left px-3 py-2 rounded-md text-base font-medium text-slate-700 hover:bg-slate-100 hover:text-slate-900">
+                    Campañas
+                </button>
+                <button onclick="switchTab('perfiles')" id="mobile-nav-perfiles" class="mobile-nav-item block w-full text-left px-3 py-2 rounded-md text-base font-medium text-slate-700 hover:bg-slate-100 hover:text-slate-900">
+                    Perfiles
+                </button>
+                <button onclick="switchTab('recursos')" id="mobile-nav-recursos" class="mobile-nav-item block w-full text-left px-3 py-2 rounded-md text-base font-medium text-slate-700 hover:bg-slate-100 hover:text-slate-900">
+                    Recursos
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <!-- Contenido Principal -->
+    <main class="flex-grow">
+        
+        <!-- ================= SECCIÓN 1: HOME ================= -->
+        <section id="section-home" class="section-fade max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10 md:py-16 mt-6 border-t-4 border-slate-900 bg-gradient-to-b from-slate-50 to-white rounded-b-3xl shadow-md relative">
+            <!-- Floating Indicator -->
+            <div class="absolute top-4 right-6 bg-slate-900 text-slate-200 text-[10px] font-bold uppercase tracking-widest px-3 py-1 rounded-full border border-slate-800 shadow-sm">
+                Módulo Inicio
+            </div>
+
+            <!-- Hero de Presentación -->
+            <div class="relative rounded-3xl overflow-hidden bg-gradient-to-br from-slate-900 via-brand-950 to-slate-900 text-white shadow-2xl p-8 md:p-16 mb-12">
+                <div class="absolute inset-0 bg-[radial-gradient(circle_at_top_right,rgba(12,133,235,0.15),transparent_45%)]"></div>
+                
+                <div class="relative max-w-3xl z-10">
+                    <span class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-semibold bg-brand-500/20 text-brand-300 border border-brand-500/30 mb-6">
+                        <i data-lucide="check-circle" class="w-3.5 h-3.5"></i> Proyecto Concluido Exitosamente
+                    </span>
+                    
+                    <h2 class="text-3xl sm:text-4xl md:text-5xl font-black tracking-tight leading-tight mb-6">
+                        Objetivos y Resultados
+                    </h2>
+                    
+                    <p class="text-base sm:text-lg text-slate-300 leading-relaxed mb-8">
+                        Bienvenido al entregable del cierre del <strong>Proyecto UKG</strong>. Este reporte dinámico consolida las bases de datos construidas, el perfil de cliente ideal impactado, las métricas clave de nuestras campañas de prospección y los recursos estratégicos generados a lo largo de la colaboración.
+                    </p>
+                    
+                    <div class="flex flex-wrap gap-4">
+                        <button onclick="switchTab('bbdd')" class="inline-flex items-center justify-center px-6 py-3 border border-transparent text-base font-medium rounded-xl text-slate-900 bg-white hover:bg-slate-100 shadow-sm transition-colors duration-200">
+                            Explorar Datos de Campaña <i data-lucide="arrow-right" class="ml-2 w-4 h-4 text-slate-900"></i>
+                        </button>
+                        <a href="#proximos-pasos" class="inline-flex items-center justify-center px-6 py-3 border border-slate-700 text-base font-medium rounded-xl text-white bg-slate-900/40 hover:bg-slate-900/80 hover:border-slate-600 transition-all duration-200">
+                            Resumen de Logros
+                        </a>
+                    </div>
+                </div>
+                
+                <!-- Ilustración / Feature visual abstracta en el Hero -->
+                <div class="mt-12 lg:mt-0 lg:absolute lg:top-1/2 lg:right-12 lg:-translate-y-1/2 w-full lg:w-96 hidden lg:block bg-slate-800/40 backdrop-blur-md border border-slate-700/50 rounded-2xl p-6 shadow-xl">
+                    <h4 class="text-xs font-bold text-slate-400 uppercase tracking-wider mb-4">Highlights del Proyecto</h4>
+                    <div class="space-y-4">
+                        <div class="flex items-start gap-3">
+                            <span class="p-2 bg-brand-500/20 text-brand-400 rounded-lg"><i data-lucide="users" class="w-4 h-4"></i></span>
+                            <div>
+                                <p class="text-sm font-semibold text-white">Target Corporativo</p>
+                                <p class="text-xs text-slate-400">Tomadores de decisión de alta relevancia.</p>
+                            </div>
+                        </div>
+                        <div class="flex items-start gap-3">
+                            <span class="p-2 bg-emerald-500/20 text-emerald-400 rounded-lg"><i data-lucide="target" class="w-4 h-4"></i></span>
+                            <div>
+                                <p class="text-sm font-semibold text-white">Criterios ICP</p>
+                                <p class="text-xs text-slate-400">Segmentación precisa de empresas B2B.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Sección de Empresas Impactadas (Preparada para logos corporativos) -->
+            <div class="mb-16">
+                <div class="flex flex-col md:flex-row md:items-end justify-between mb-8">
+                    <div>
+                        <span class="text-xs font-bold text-brand-600 uppercase tracking-widest">ALCANCE DE PROSPECCIÓN</span>
+                        <h3 class="text-2xl md:text-3xl font-extrabold text-slate-900 mt-1">Empresas Relevantes Impactadas</h3>
+                        <p class="text-slate-500 mt-2 text-sm md:text-base">Muestra de cuentas clave que formaron parte del embudo de prospección y generación de reuniones.</p>
+                    </div>
+                    <span class="text-xs font-medium text-slate-400 mt-2 md:mt-0 italic">* Logos y nombres preparados para mapeo dinámico</span>
+                </div>
+
+                <!-- Grid de Tarjetas de Empresas Preparado para Logos Locales -->
+                <div class="grid grid-cols-2 md:grid-cols-4 gap-6">
+                    <!-- Tarjeta Empresa 1 -->
+                    <div class="bg-white p-6 rounded-2xl border border-slate-200 hover:border-brand-500 hover:shadow-lg transition-all duration-300 group flex flex-col justify-between h-40">
+                        <div class="h-12 w-full flex items-center justify-start overflow-hidden">
+                            <img src="assets/logos/empresa_1.png" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';" alt="Logo Empresa 1" class="h-full object-contain">
+                            <div class="flex items-center space-x-2 text-slate-400 font-bold text-sm tracking-wide">
+                                <span class="p-1.5 bg-slate-100 rounded-lg group-hover:bg-brand-50 group-hover:text-brand-600 transition-colors"><i data-lucide="building" class="w-5 h-5"></i></span>
+                                <span class="text-xs">Corporativo Alfa</span>
+                            </div>
+                        </div>
+                        <div class="mt-4">
+                            <span class="text-xs font-bold text-slate-400 uppercase tracking-wider block">Sector</span>
+                            <span class="text-xs text-slate-600 font-medium">Retail & E-commerce</span>
+                        </div>
+                    </div>
+
+                    <!-- Tarjeta Empresa 2 -->
+                    <div class="bg-white p-6 rounded-2xl border border-slate-200 hover:border-brand-500 hover:shadow-lg transition-all duration-300 group flex flex-col justify-between h-40">
+                        <div class="h-12 w-full flex items-center justify-start overflow-hidden">
+                            <img src="assets/logos/empresa_2.png" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';" alt="Logo Empresa 2" class="h-full object-contain">
+                            <div class="flex items-center space-x-2 text-slate-400 font-bold text-sm tracking-wide">
+                                <span class="p-1.5 bg-slate-100 rounded-lg group-hover:bg-brand-50 group-hover:text-brand-600 transition-colors"><i data-lucide="factory" class="w-5 h-5"></i></span>
+                                <span class="text-xs">Industrias Delta</span>
+                            </div>
+                        </div>
+                        <div class="mt-4">
+                            <span class="text-xs font-bold text-slate-400 uppercase tracking-wider block">Sector</span>
+                            <span class="text-xs text-slate-600 font-medium">Logística y Envíos</span>
+                        </div>
+                    </div>
+
+                    <!-- Tarjeta Empresa 3 -->
+                    <div class="bg-white p-6 rounded-2xl border border-slate-200 hover:border-brand-500 hover:shadow-lg transition-all duration-300 group flex flex-col justify-between h-40">
+                        <div class="h-12 w-full flex items-center justify-start overflow-hidden">
+                            <img src="assets/logos/empresa_3.png" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';" alt="Logo Empresa 3" class="h-full object-contain">
+                            <div class="flex items-center space-x-2 text-slate-400 font-bold text-sm tracking-wide">
+                                <span class="p-1.5 bg-slate-100 rounded-lg group-hover:bg-brand-50 group-hover:text-brand-600 transition-colors"><i data-lucide="cpu" class="w-5 h-5"></i></span>
+                                <span class="text-xs">Tech Solutions</span>
+                            </div>
+                        </div>
+                        <div class="mt-4">
+                            <span class="text-xs font-bold text-slate-400 uppercase tracking-wider block">Sector</span>
+                            <span class="text-xs text-slate-600 font-medium">Tecnología SaaS</span>
+                        </div>
+                    </div>
+
+                    <!-- Tarjeta Empresa 4 -->
+                    <div class="bg-white p-6 rounded-2xl border border-slate-200 hover:border-brand-500 hover:shadow-lg transition-all duration-300 group flex flex-col justify-between h-40">
+                        <div class="h-12 w-full flex items-center justify-start overflow-hidden">
+                            <img src="assets/logos/empresa_4.png" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';" alt="Logo Empresa 4" class="h-full object-contain">
+                            <div class="flex items-center space-x-2 text-slate-400 font-bold text-sm tracking-wide">
+                                <span class="p-1.5 bg-slate-100 rounded-lg group-hover:bg-brand-50 group-hover:text-brand-600 transition-colors"><i data-lucide="heart-pulse" class="w-5 h-5"></i></span>
+                                <span class="text-xs">Sinergia Salud</span>
+                            </div>
+                        </div>
+                        <div class="mt-4">
+                            <span class="text-xs font-bold text-slate-400 uppercase tracking-wider block">Sector</span>
+                            <span class="text-xs text-slate-600 font-medium">Salud & Bienestar</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Resumen Informativo Final -->
+            <div id="proximos-pasos" class="bg-slate-100 rounded-3xl p-8 border border-slate-200">
+                <div class="max-w-3xl">
+                    <h4 class="text-lg font-bold text-slate-900 mb-3 flex items-center gap-2">
+                        <i data-lucide="info" class="text-brand-500"></i> Sobre este Reporte Ejecutivo
+                    </h4>
+                    <p class="text-slate-600 text-sm leading-relaxed mb-4">
+                        Este espacio ha sido construido para evolucionar. El menú superior te permitirá navegar a través de los diferentes hitos alcanzados en el Proyecto UKG. En las próximas fases de entrega integraremos los listados de bases de datos calificados (BBDD), la segmentación de perfiles idóneos (ICP), las estrategias de canales de contacto (Campañas) y todos los recursos entregables disponibles para descarga.
+                    </p>
+                    <div class="flex items-center space-x-4 text-xs font-semibold text-brand-600">
+                        <span>Fase Actual: Estructura & Home</span>
+                        <span class="text-slate-300">•</span>
+                        <span>Listo para Integrar Contenido</span>
+                    </div>
+                </div>
+            </div>
+
+        </section>
+
+        <!-- ================= SECCIÓN 2: BBDD ================= -->
+        <section id="section-bbdd" class="section-fade hidden max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10 md:py-16 mt-6 border-t-4 border-brand-500 bg-gradient-to-b from-brand-50/40 via-slate-50 to-white rounded-b-3xl shadow-md relative">
+            <!-- Floating Indicator -->
+            <div class="absolute top-4 right-6 bg-brand-600 text-white text-[10px] font-bold uppercase tracking-widest px-3 py-1 rounded-full border border-brand-700 shadow-sm">
+                Módulo Base de Datos
+            </div>
+
+            <!-- Encabezado de la Sección BBDD -->
+            <div class="mb-12">
+                <span class="text-xs font-bold text-brand-600 uppercase tracking-widest flex items-center gap-2">
+                    <i data-lucide="database" class="w-4 h-4"></i> Construcción de Inteligencia Comercial
+                </span>
+                <h2 class="text-3xl md:text-4xl font-extrabold text-slate-900 mt-2">Bases de Datos Desarrolladas</h2>
+                <p class="text-slate-500 mt-3 text-base md:text-lg max-w-4xl">
+                    Consolidado analítico de las audiencias construidas, validadas y enriquecidas durante el Proyecto UKG. Los datos demuestran un nivel de cumplimiento con un enfoque demográfico y estratégico alineados al ICP.
+                </p>
+            </div>
+
+            <!-- Tarjetas de Métricas Clave (Resumen General) -->
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-6 mb-12">
+                <!-- Meta Inicial -->
+                <div class="bg-white p-6 rounded-2xl border border-slate-200 shadow-sm flex flex-col justify-between">
+                    <div class="flex items-center justify-between mb-4">
+                        <span class="p-3 bg-slate-100 text-slate-600 rounded-xl"><i data-lucide="target" class="w-6 h-6"></i></span>
+                        <span class="text-xs font-semibold text-slate-400 uppercase tracking-wider">Compromiso</span>
+                    </div>
+                    <div>
+                        <span class="text-sm font-medium text-slate-500 block">Meta Inicial del Proyecto</span>
+                        <span class="text-3xl font-black text-slate-900 mt-1">800</span>
+                        <span class="text-xs text-slate-400 block mt-2">Contactos mínimos comprometidos</span>
+                    </div>
+                </div>
+
+                <!-- Contactos Totales Logrados -->
+                <div class="bg-gradient-to-br from-brand-900 via-brand-950 to-slate-900 text-white p-6 rounded-2xl shadow-xl flex flex-col justify-between md:col-span-2 relative overflow-hidden group">
+                    <div class="absolute inset-0 bg-[radial-gradient(circle_at_top_right,rgba(12,133,235,0.25),transparent_50%)]"></div>
+                    <div class="relative z-10 flex items-center justify-between mb-4">
+                        <span class="p-3 bg-brand-500/20 text-brand-300 rounded-xl border border-brand-500/30"><i data-lucide="check-square" class="w-6 h-6"></i></span>
+                        <span class="inline-flex items-center gap-1 px-2.5 py-1 rounded-full text-xs font-bold bg-emerald-500/20 text-emerald-300 border border-emerald-500/30">
+                            <i data-lucide="trending-up" class="w-3.5 h-3.5"></i> +744.5% de Logro
+                        </span>
+                    </div>
+                    <div class="relative z-10">
+                        <span class="text-sm font-medium text-brand-300 block">Contactos Totales Calificados</span>
+                        <div class="flex items-baseline space-x-2 mt-1">
+                            <span class="text-4xl md:text-5xl font-black tracking-tight text-white">6,756</span>
+                            <span class="text-xs text-slate-400">vs. 800 planeados</span>
+                        </div>
+                        <div class="w-full bg-slate-800 rounded-full h-2.5 mt-4 overflow-hidden border border-slate-700">
+                            <div class="bg-brand-500 h-2.5 rounded-full" style="width: 100%"></div>
+                        </div>
+                        <span class="text-xs text-brand-300 block mt-2 font-medium">Superación masiva de objetivos de cobertura</span>
+                    </div>
+                </div>
+
+                <!-- Empresas Totales -->
+                <div class="bg-white p-6 rounded-2xl border border-slate-200 shadow-sm flex flex-col justify-between">
+                    <div class="flex items-center justify-between mb-4">
+                        <span class="p-3 bg-emerald-50 text-emerald-600 rounded-xl"><i data-lucide="building" class="w-6 h-6"></i></span>
+                        <span class="text-xs font-semibold text-slate-400 uppercase tracking-wider">Universo de Cuentas</span>
+                    </div>
+                    <div>
+                        <span class="text-sm font-medium text-slate-500 block">Empresas Totales Mapeadas</span>
+                        <span class="text-3xl font-black text-slate-900 mt-1">1,506</span>
+                        <span class="text-xs text-slate-400 block mt-2">Promedio: 4.4 contactos por cuenta</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Distribución de Origen de Datos (MTI vs. UKG) -->
+            <div class="bg-white rounded-3xl p-8 border border-slate-200 shadow-sm mb-12">
+                <h3 class="text-xl font-bold text-slate-950 mb-6 flex items-center gap-2">
+                    <i data-lucide="git-branch" class="text-brand-500"></i> Origen Estratégico y Combinación de Bases de Datos
+                </h3>
+                <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 items-center">
+                    <!-- Barras Comparativas de Origen -->
+                    <div class="space-y-6">
+                        <!-- MTI -->
+                        <div class="bg-slate-50 p-6 rounded-2xl border border-slate-100">
+                            <div class="flex justify-between items-center mb-3">
+                                <div class="flex items-center gap-2">
+                                    <span class="w-3 h-3 rounded-full bg-brand-500"></span>
+                                    <span class="font-bold text-slate-900 text-sm">Origen MTI</span>
+                                </div>
+                                <span class="text-xs text-slate-500 font-medium">67.5% de los contactos</span>
+                            </div>
+                            <div class="grid grid-cols-2 gap-4 mb-4">
+                                <div>
+                                    <span class="text-xs text-slate-400 block font-semibold uppercase">Empresas</span>
+                                    <span class="text-xl font-extrabold text-slate-800">1,259</span>
+                                </div>
+                                <div>
+                                    <span class="text-xs text-slate-400 block font-semibold uppercase">Contactos</span>
+                                    <span class="text-xl font-extrabold text-slate-800">4,560</span>
+                                </div>
+                            </div>
+                            <div class="w-full bg-slate-200 rounded-full h-2">
+                                <div class="bg-brand-500 h-2 rounded-full" style="width: 67.5%"></div>
+                            </div>
+                        </div>
+
+                        <!-- UKG -->
+                        <div class="bg-slate-50 p-6 rounded-2xl border border-slate-100">
+                            <div class="flex justify-between items-center mb-3">
+                                <div class="flex items-center gap-2">
+                                    <span class="w-3 h-3 rounded-full bg-emerald-500"></span>
+                                    <span class="font-bold text-slate-900 text-sm">Origen UKG</span>
+                                </div>
+                                <span class="text-xs text-slate-500 font-medium">32.5% de los contactos</span>
+                            </div>
+                            <div class="grid grid-cols-2 gap-4 mb-4">
+                                <div>
+                                    <span class="text-xs text-slate-400 block font-semibold uppercase">Empresas</span>
+                                    <span class="text-xl font-extrabold text-slate-800">247</span>
+                                </div>
+                                <div>
+                                    <span class="text-xs text-slate-400 block font-semibold uppercase">Contactos</span>
+                                    <span class="text-xl font-extrabold text-slate-800">2,196</span>
+                                </div>
+                            </div>
+                            <div class="w-full bg-slate-200 rounded-full h-2">
+                                <div class="bg-emerald-50 h-2 rounded-full" style="width: 32.5%"></div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Síntesis de Calidad -->
+                    <div class="lg:pl-6">
+                        <div class="border-l-4 border-brand-500 pl-6 space-y-4">
+                            <h4 class="text-lg font-bold text-slate-900">Coherencia y Complementariedad</h4>
+                            <p class="text-slate-600 text-sm leading-relaxed">
+                                La base de datos total combinada de 1,506 empresas and 6,756 contactos representa un activo comercial invaluable. MTI actualizó contactos compartidos por UKG, eliminó duplicados y enriqueció con nuevos perfiles.
+                            </p>
+                            <div class="bg-brand-50 p-4 rounded-xl border border-brand-100 shadow-sm">
+                                <div class="flex items-center gap-2 mb-2">
+                                    <span class="text-brand-600"><i data-lucide="shield-check" class="w-5 h-5"></i></span>
+                                    <span class="text-xs font-bold text-brand-900 uppercase tracking-wider">Auditoría realizada por UKG (Yovanna)</span>
+                                </div>
+                                <div class="text-xs text-brand-800 space-y-1 pl-7">
+                                    <p class="font-bold text-sm text-brand-950 mb-1">91% de la base auditada resultó válida</p>
+                                    <p class="flex items-center gap-1.5"><span class="w-1.5 h-1.5 rounded-full bg-brand-500"></span> <strong>🇧🇷 Brasil:</strong> 82.6% de la base es válida</p>
+                                    <p class="flex items-center gap-1.5"><span class="w-1.5 h-1.5 rounded-full bg-brand-500"></span> <strong>🌎 LATAM:</strong> 99.4% de la base es válida</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Distribución Geográfica de la Base de Datos -->
+            <div class="grid grid-cols-1 lg:grid-cols-3 gap-8 mb-12">
+                <!-- Columna Izquierda: Gráfico Visual del Peso de Cada País -->
+                <div class="bg-white rounded-3xl p-8 border border-slate-200 shadow-sm lg:col-span-2">
+                    <div class="flex justify-between items-center mb-6">
+                        <h3 class="text-lg font-bold text-slate-950 flex items-center gap-2">
+                            <i data-lucide="globe-2" class="text-brand-500"></i> Distribución Geográfica y Peso de Mercado
+                        </h3>
+                        <span class="text-xs bg-slate-100 text-slate-600 px-2.5 py-1 rounded-full font-semibold">10 Países</span>
+                    </div>
+
+                    <!-- Lista de Países con Barras de Crecimiento -->
+                    <div class="space-y-4">
+                        <!-- Brasil -->
+                        <div>
+                            <div class="flex justify-between items-center text-xs font-bold mb-1.5">
+                                <span class="text-slate-800 flex items-center gap-2"><span class="font-medium text-slate-400">BR</span> 🇧🇷 Brasil (59.9%)</span>
+                                <span class="text-slate-600">708 Empresas / 4,048 Contactos</span>
+                            </div>
+                            <div class="w-full bg-slate-100 rounded-full h-3">
+                                <div class="bg-brand-600 h-3 rounded-full" style="width: 59.9%"></div>
+                            </div>
+                        </div>
+
+                        <!-- México -->
+                        <div>
+                            <div class="flex justify-between items-center text-xs font-bold mb-1.5">
+                                <span class="text-slate-800 flex items-center gap-2"><span class="font-medium text-slate-400">MX</span> 🇲🇽 México (20.0%)</span>
+                                <span class="text-slate-600">254 Empresas / 1,352 Contactos</span>
+                            </div>
+                            <div class="w-full bg-slate-100 rounded-full h-3">
+                                <div class="bg-brand-50 h-3 rounded-full" style="width: 20.0%"></div>
+                            </div>
+                        </div>
+
+                        <!-- Colombia -->
+                        <div>
+                            <div class="flex justify-between items-center text-xs font-bold mb-1.5">
+                                <span class="text-slate-800 flex items-center gap-2"><span class="font-medium text-slate-400">CO</span> 🇨🇴 Colombia (11.8%)</span>
+                                <span class="text-slate-600">178 Empresas / 795 Contactos</span>
+                            </div>
+                            <div class="w-full bg-slate-100 rounded-full h-3">
+                                <div class="bg-brand-400 h-3 rounded-full" style="width: 11.8%"></div>
+                            </div>
+                        </div>
+
+                        <!-- Chile -->
+                        <div>
+                            <div class="flex justify-between items-center text-xs font-bold mb-1.5">
+                                <span class="text-slate-800 flex items-center gap-2"><span class="font-medium text-slate-400">CL</span> 🇨🇱 Chile (4.0%)</span>
+                                <span class="text-slate-600">86 Empresas / 270 Contactos</span>
+                            </div>
+                            <div class="w-full bg-slate-100 rounded-full h-3">
+                                <div class="bg-emerald-550 h-3 rounded-full" style="width: 4.0%"></div>
+                            </div>
+                        </div>
+
+                        <!-- Argentina -->
+                        <div>
+                            <div class="flex justify-between items-center text-xs font-bold mb-1.5">
+                                <span class="text-slate-800 flex items-center gap-2"><span class="font-medium text-slate-400">AR</span> 🇦🇷 Argentina (1.2%)</span>
+                                <span class="text-slate-600">25 Empresas / 84 Contactos</span>
+                            </div>
+                            <div class="w-full bg-slate-100 rounded-full h-3">
+                                <div class="bg-slate-400 h-3 rounded-full" style="width: 1.2%"></div>
+                            </div>
+                        </div>
+
+                        <!-- Otros mercados menores agrupados -->
+                        <div class="pt-4 border-t border-slate-100">
+                            <h4 class="text-xs font-bold text-slate-400 uppercase tracking-wider mb-3">Expansión Multi-Región LatAm (Mercados Emergentes)</h4>
+                            <div class="grid grid-cols-2 md:grid-cols-5 gap-4">
+                                <div class="bg-slate-50 p-2.5 rounded-xl border border-slate-100">
+                                    <span class="text-xs font-bold text-slate-800 block">🇸🇻 El Salvador</span>
+                                    <span class="text-2xs text-slate-500 block">11 Emp / 46 Cont</span>
+                                </div>
+                                <div class="bg-slate-50 p-2.5 rounded-xl border border-slate-100">
+                                    <span class="text-xs font-bold text-slate-800 block">🇨🇷 Costa Rica</span>
+                                    <span class="text-2xs text-slate-500 block">17 Emp / 43 Cont</span>
+                                </div>
+                                <div class="bg-slate-50 p-2.5 rounded-xl border border-slate-100">
+                                    <span class="text-xs font-bold text-slate-800 block">🇵🇦 Panamá</span>
+                                    <span class="text-2xs text-slate-500 block">7 Emp / 42 Cont</span>
+                                </div>
+                                <div class="bg-slate-50 p-2.5 rounded-xl border border-slate-100">
+                                    <span class="text-xs font-bold text-slate-800 block">🇬🇹 Guatemala</span>
+                                    <span class="text-2xs text-slate-500 block">8 Emp / 41 Cont</span>
+                                </div>
+                                <div class="bg-slate-50 p-2.5 rounded-xl border border-slate-100">
+                                    <span class="text-xs font-bold text-slate-800 block">🇵🇪 Perú</span>
+                                    <span class="text-2xs text-slate-500 block">20 Emp / 35 Cont</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Columna Derecha: Tarjeta de Insights Geográficos -->
+                <div class="bg-gradient-to-tr from-slate-900 to-slate-950 text-white rounded-3xl p-8 border border-slate-800 flex flex-col justify-between">
+                    <div>
+                        <div class="w-12 h-12 bg-brand-500/10 rounded-xl flex items-center justify-center text-brand-400 mb-6 border border-brand-500/20">
+                            <i data-lucide="map" class="w-6 h-6"></i>
+                        </div>
+                        <h4 class="text-lg font-bold mb-4">Enfoque Regional</h4>
+                        <p class="text-slate-300 text-sm leading-relaxed mb-4">
+                            La concentración de un 59.9% en Brasil and un 20% en México responde a la distribución de grandes cuentas corporativas, facilitando la penetración en mercados clave de habla portuguesa e hispana.
+                        </p>
+                        <p class="text-slate-300 text-sm leading-relaxed">
+                            Aún podemos seguir enriqueciendo la nutrición en otros países.
+                        </p>
+                    </div>
+
+                    <div class="bg-slate-900 p-4 rounded-2xl border border-slate-800 mt-6 grid grid-cols-2 gap-4">
+                        <div>
+                            <span class="text-xs text-slate-400 uppercase tracking-widest block font-bold">% Total Brasil 🇧🇷</span>
+                            <span class="text-lg font-extrabold text-brand-400 mt-0.5">59.9%</span>
+                            <span class="text-[10px] text-slate-500 block">De la base</span>
+                        </div>
+                        <div class="border-l border-slate-800 pl-4">
+                            <span class="text-xs text-slate-400 uppercase tracking-widest block font-bold">% Total LatAm 🌎</span>
+                            <span class="text-lg font-extrabold text-emerald-400 mt-0.5">40.1%</span>
+                            <span class="text-[10px] text-slate-500 block">De la base</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Segmentación Estratégica: Industrias & Áreas de Decisión -->
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 mb-12">
+                
+                <!-- Principales Industrias -->
+                <div class="bg-white rounded-3xl p-8 border border-slate-200 shadow-sm flex flex-col justify-between">
+                    <div>
+                        <div class="flex justify-between items-center mb-6">
+                            <h3 class="text-lg font-bold text-slate-950 flex items-center gap-2">
+                                <i data-lucide="factory" class="text-brand-500"></i> Principales Industrias Identificadas
+                            </h3>
+                            <span class="text-2xs bg-brand-50 text-brand-600 px-2.5 py-1 rounded-full font-bold">Por Volumen</span>
+                        </div>
+                        <p class="text-slate-500 text-sm mb-6">
+                            Concentración sectorial de la base de datos, enfocada en los segmentos con mayor potencial para la adopción de las soluciones de UKG.
+                        </p>
+
+                        <!-- Listado de Industrias -->
+                        <div class="space-y-5">
+                            <!-- Retail, Comercio Minorista & Moda -->
+                            <div class="bg-slate-50 p-4 rounded-2xl border border-slate-100 hover:bg-slate-100/50 transition-colors">
+                                <div class="flex justify-between items-center mb-2">
+                                    <span class="text-sm font-bold text-slate-900">Retail, Comercio Minorista & Moda</span>
+                                    <span class="text-xs font-bold text-brand-600">36.8% del total</span>
+                                </div>
+                                <div class="flex justify-between text-xs text-slate-500 mb-2">
+                                    <span>520 Empresas</span>
+                                    <span>2,484 Contactos Calificados</span>
+                                </div>
+                                <div class="w-full bg-slate-200 h-2 rounded-full overflow-hidden">
+                                    <div class="bg-brand-500 h-2 rounded-full" style="width: 36.8%"></div>
+                                </div>
+                            </div>
+
+                            <!-- Manufactura & Production Industrial -->
+                            <div class="bg-slate-50 p-4 rounded-2xl border border-slate-100 hover:bg-slate-100/50 transition-colors">
+                                <div class="flex justify-between items-center mb-2">
+                                    <span class="text-sm font-bold text-slate-900">Manufactura & Producción Industrial</span>
+                                    <span class="text-xs font-bold text-brand-600">16.2% del total</span>
+                                </div>
+                                <div class="flex justify-between text-xs text-slate-500 mb-2">
+                                    <span>274 Empresas</span>
+                                    <span>1,091 Contactos Calificados</span>
+                                </div>
+                                <div class="w-full bg-slate-200 h-2 rounded-full overflow-hidden">
+                                    <div class="bg-brand-400 h-2 rounded-full" style="width: 16.2%"></div>
+                                </div>
+                            </div>
+
+                            <!-- Logística, Transporte & Comercio Internacional -->
+                            <div class="bg-slate-50 p-4 rounded-2xl border border-slate-100 hover:bg-slate-100/50 transition-colors">
+                                <div class="flex justify-between items-center mb-2">
+                                    <span class="text-sm font-bold text-slate-900">Logística, Transporte & Comercio Int.</span>
+                                    <span class="text-xs font-bold text-brand-600">3.6% del total</span>
+                                </div>
+                                <div class="flex justify-between text-xs text-slate-500 mb-2">
+                                    <span>64 Empresas</span>
+                                    <span>240 Contactos Calificados</span>
+                                </div>
+                                <div class="w-full bg-slate-200 h-2 rounded-full overflow-hidden">
+                                    <div class="bg-emerald-50 h-2 rounded-full" style="width: 3.6%"></div>
+                                </div>
+                            </div>
+
+                            <!-- Industria Pesada, Energía & Recursos Naturales -->
+                            <div class="bg-slate-50 p-4 rounded-2xl border border-slate-100 hover:bg-slate-100/50 transition-colors">
+                                <div class="flex justify-between items-center mb-2">
+                                    <span class="text-sm font-bold text-slate-900">Industria Pesada, Energía & Rec. Naturales</span>
+                                    <span class="text-xs font-bold text-brand-600">3.1% del total</span>
+                                </div>
+                                <div class="flex justify-between text-xs text-slate-500 mb-2">
+                                    <span>45 Empresas</span>
+                                    <span>212 Contactos Calificados</span>
+                                </div>
+                                <div class="w-full bg-slate-200 h-2 rounded-full overflow-hidden">
+                                    <div class="bg-slate-400 h-2 rounded-full" style="width: 3.1%"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Principales Áreas -->
+                <div class="bg-white rounded-3xl p-8 border border-slate-200 shadow-sm flex flex-col justify-between">
+                    <div>
+                        <div class="flex justify-between items-center mb-6">
+                            <h3 class="text-lg font-bold text-slate-950 flex items-center gap-2">
+                                <i data-lucide="user-cog" class="text-brand-500"></i> Áreas de Decisión / Roles ICP
+                            </h3>
+                            <span class="text-2xs bg-emerald-50 text-emerald-600 px-2.5 py-1 rounded-full font-bold">Multiarea</span>
+                        </div>
+                        <p class="text-slate-500 text-sm mb-6">
+                            Distribución de contactos basados en sus departamentos funcionales y relevancia.
+                        </p>
+
+                        <!-- Listado de Áreas -->
+                        <div class="space-y-5">
+                            <!-- RRHH -->
+                            <div class="bg-slate-50 p-4 rounded-2xl border border-slate-100 hover:bg-slate-100/50 transition-colors">
+                                <div class="flex justify-between items-center mb-2">
+                                    <span class="text-sm font-bold text-slate-900 flex items-center gap-2"><span class="w-2.5 h-2.5 rounded bg-brand-500"></span> Recursos Humanos (RRHH)</span>
+                                    <span class="text-xs font-bold text-brand-600">38.5% del total</span>
+                                </div>
+                                <div class="flex justify-between text-xs text-slate-500">
+                                    <span>831 Empresas</span>
+                                    <span>2,598 Contactos Directos</span>
+                                </div>
+                            </div>
+
+                            <!-- Operaciones -->
+                            <div class="bg-slate-50 p-4 rounded-2xl border border-slate-100 hover:bg-slate-100/50 transition-colors">
+                                <div class="flex justify-between items-center mb-2">
+                                    <span class="text-sm font-bold text-slate-900 flex items-center gap-2"><span class="w-2.5 h-2.5 rounded bg-brand-400"></span> Operaciones</span>
+                                    <span class="text-xs font-bold text-brand-600">25.4% del total</span>
+                                </div>
+                                <div class="flex justify-between text-xs text-slate-500">
+                                    <span>674 Empresas</span>
+                                    <span>1,715 Contactos Directos</span>
+                                </div>
+                            </div>
+
+                            <!-- Tecnología -->
+                            <div class="bg-slate-50 p-4 rounded-2xl border border-slate-100 hover:bg-slate-100/50 transition-colors">
+                                <div class="flex justify-between items-center mb-2">
+                                    <span class="text-sm font-bold text-slate-900 flex items-center gap-2"><span class="w-2.5 h-2.5 rounded bg-emerald-500"></span> Tecnología</span>
+                                    <span class="text-xs font-bold text-brand-600">19.9% del total</span>
+                                </div>
+                                <div class="flex justify-between text-xs text-slate-500">
+                                    <span>593 Empresas</span>
+                                    <span>1,344 Contactos Directos</span>
+                                </div>
+                            </div>
+
+                            <!-- Presidencia y Gerencia General -->
+                            <div class="bg-slate-50 p-4 rounded-2xl border border-slate-100 hover:bg-slate-100/50 transition-colors">
+                                <div class="flex justify-between items-center mb-2">
+                                    <span class="text-sm font-bold text-slate-900 flex items-center gap-2"><span class="w-2.5 h-2.5 rounded bg-slate-500"></span> Presidencia y Gerencia General</span>
+                                    <span class="text-xs font-bold text-brand-600">10.7% del total</span>
+                                </div>
+                                <div class="flex justify-between text-xs text-slate-500">
+                                    <span>404 Empresas</span>
+                                    <span>720 Contactos Directos</span>
+                                </div>
+                            </div>
+
+                            <!-- Finanzas -->
+                            <div class="bg-slate-50 p-4 rounded-2xl border border-slate-100 hover:bg-slate-100/50 transition-colors">
+                                <div class="flex justify-between items-center mb-2">
+                                    <span class="text-sm font-bold text-slate-400 flex items-center gap-2"><span class="w-2.5 h-2.5 rounded bg-slate-400"></span> Finanzas</span>
+                                    <span class="text-xs font-bold text-brand-600">4.8% del total</span>
+                                </div>
+                                <div class="flex justify-between text-xs text-slate-500">
+                                    <span>236 Empresas</span>
+                                    <span>323 Contactos Directos</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Whitelist y Universo Pendiente (La oportunidad estratégica de continuidad) -->
+            <div class="bg-gradient-to-br from-slate-900 via-brand-950 to-slate-900 text-white rounded-3xl p-8 md:p-12 border border-slate-800 shadow-2xl mb-12 relative overflow-hidden">
+                <div class="absolute inset-0 bg-[radial-gradient(circle_at_bottom_left,rgba(12,133,235,0.2),transparent_40%)]"></div>
+                
+                <div class="relative z-10 max-w-4xl">
+                    <span class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-semibold bg-brand-500/20 text-brand-300 border border-brand-500/30 mb-6">
+                        <i data-lucide="zap" class="w-3.5 h-3.5 text-brand-400"></i> Escalabilidad Excepcional del Proyecto
+                    </span>
+                    
+                    <h3 class="text-2xl md:text-3xl font-bold tracking-tight mb-4">La Whitelist Pendiente: Un Universo Potencial</h3>
+                    
+                    <p class="text-slate-300 text-sm md:text-base leading-relaxed mb-8">
+                        La Whitelist de UKG fue sometida a un riguroso proceso de limpieza táctica (descartando empresas en Blacklist o que ya eran Clientes), definiendo una lista final de depuración de 881 empresas estratégicas.
+                    </p>
+
+                    <!-- Métrica Principal en 2 columnas -->
+                    <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-8">
+                        
+                        <!-- Trabajado -->
+                        <div class="bg-slate-950/60 p-6 rounded-2xl border border-slate-800/80">
+                            <span class="text-xs text-slate-400 uppercase tracking-wider block font-bold mb-1">Cuentas Trabajadas (Cargadas)</span>
+                            <div class="flex items-baseline space-x-2">
+                                <span class="text-2xl font-extrabold text-brand-400">116 Cuentas</span>
+                                <span class="text-xs font-bold text-emerald-400 bg-emerald-500/10 px-2 py-0.5 rounded-md">13.1%</span>
+                            </div>
+                            <p class="text-2xs text-slate-500 mt-2">Ya integradas en las secuencias de marketing directo.</p>
+                        </div>
+
+                        <!-- Pendiente -->
+                        <div class="bg-brand-500/10 p-6 rounded-2xl border border-brand-500/20">
+                            <span class="text-xs text-brand-300 uppercase tracking-wider block font-bold mb-1">Cuentas Pendientes (Oportunidad)</span>
+                            <div class="flex items-baseline space-x-2">
+                                <span class="text-2xl font-extrabold text-white">765 Cuentas</span>
+                                <span class="text-xs font-bold text-brand-300 bg-brand-500/20 px-2 py-0.5 rounded-md">86.9%</span>
+                            </div>
+                            <p class="text-2xs text-brand-300 mt-2">Universo potencial sin contacto listo para ser nutrido.</p>
+                        </div>
+
+                        <!-- Impacto generado -->
+                        <div class="bg-slate-950/60 p-6 rounded-2xl border border-slate-800/80">
+                            <span class="text-xs text-slate-400 uppercase tracking-wider block font-bold mb-1">Volumen Generado Total</span>
+                            <div class="flex items-baseline space-x-2">
+                                <span class="text-2xl font-extrabold text-emerald-400">6,756 contactos</span>
+                            </div>
+                            <p class="text-2xs text-slate-500 mt-2">Incluso con solo el 13.1% de la Whitelist trabajada.</p>
+                        </div>
+                    </div>
+
+                    <!-- Visual de barra de avance -->
+                    <div class="space-y-2 mb-6">
+                        <div class="flex justify-between text-xs font-bold text-slate-300">
+                            <span>Saturación del Universo Whitelist</span>
+                            <span>13.1% de Cobertura</span>
+                        </div>
+                        <div class="w-full bg-slate-850 rounded-full h-3 overflow-hidden border border-slate-800 p-[1px]">
+                            <div class="bg-brand-500 h-2 rounded-full transition-all duration-500" style="width: 13.1%"></div>
+                        </div>
+                    </div>
+
+                    <div class="bg-slate-950/40 p-4 rounded-xl border border-slate-850 text-xs text-slate-400 flex items-start gap-3 leading-relaxed">
+                        <span class="text-brand-400 mt-0.5"><i data-lucide="info" class="w-4.5 h-4.5"></i></span>
+                        <span>
+                            <strong>Nota de Continuidad Estratégica:</strong> Si un 13% de avance sobre la Whitelist alimentó con éxito la totalidad del proyecto actual generando una robusta BBDD de más de 6,700 contactos, el 86.9% remanente (765 empresas) garantiza un margen de escalabilidad inmediato  y seguro para expandir el pipeline.
+                        </span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Distribución del Universo Whitelist Pendiente por País -->
+            <div class="bg-white rounded-3xl p-8 border border-slate-200 shadow-sm">
+                <div class="flex flex-col md:flex-row md:items-center justify-between mb-6">
+                    <div>
+                        <h3 class="text-lg font-bold text-slate-950 flex items-center gap-2">
+                            <i data-lucide="compass" class="text-brand-500"></i> Distribución Regional del Universo Pendiente
+                        </h3>
+                        <p class="text-slate-500 text-xs mt-1">Avance, capacidad cargada y volumen pendiente por mercado estratégico para la toma de decisiones.</p>
+                    </div>
+                    <span class="text-xs font-semibold text-brand-600 bg-brand-50 px-3 py-1 rounded-full mt-2 md:mt-0">Prioridad: MX 🇲🇽 & BR 🇧🇷</span>
+                </div>
+
+                <!-- Tabla visual ejecutiva de Whitelist -->
+                <div class="overflow-x-auto">
+                    <table class="min-w-full divide-y divide-slate-200 text-sm">
+                        <thead class="bg-slate-50">
+                            <tr>
+                                <th scope="col" class="px-6 py-4 text-left font-bold text-slate-900">País</th>
+                                <th scope="col" class="px-6 py-4 text-center font-bold text-slate-900">Total Whitelist</th>
+                                <th scope="col" class="px-6 py-4 class text-center font-bold text-slate-900">Trabajado (Cargado)</th>
+                                <th scope="col" class="px-6 py-4 text-center font-bold text-slate-900 text-brand-600 bg-brand-50/50">Potencial Pendiente</th>
+                                <th scope="col" class="px-6 py-4 text-center font-bold text-slate-900">Porcentaje de Avance</th>
+                            </tr>
+                        </thead>
+                        <tbody class="divide-y divide-slate-100 bg-white">
+                            <!-- México -->
+                            <tr class="hover:bg-slate-50/80 transition-colors">
+                                <td class="px-6 py-4 font-semibold text-slate-950 flex items-center gap-2">
+                                    <span class="w-2.5 h-2.5 rounded-full bg-brand-500"></span> 🇲🇽 México
+                                </td>
+                                <td class="px-6 py-4 text-center font-medium text-slate-600">268 cuentas</td>
+                                <td class="px-6 py-4 text-center font-medium text-slate-600">80 cuentas</td>
+                                <td class="px-6 py-4 text-center font-extrabold text-brand-700 bg-brand-50/30">188 cuentas</td>
+                                <td class="px-6 py-4 text-center">
+                                    <div class="flex items-center justify-center gap-2">
+                                        <div class="w-20 bg-slate-200 h-1.5 rounded-full overflow-hidden">
+                                            <div class="bg-brand-500 h-1.5 rounded-full" style="width: 29.8%"></div>
+                                        </div>
+                                        <span class="font-bold text-slate-800 text-xs">29.8%</span>
+                                    </div>
+                                </td>
+                            </tr>
+
+                            <!-- Brasil -->
+                            <tr class="hover:bg-slate-50/80 transition-colors">
+                                <td class="px-6 py-4 font-semibold text-slate-950 flex items-center gap-2">
+                                    <span class="w-2.5 h-2.5 rounded-full bg-emerald-500"></span> 🇧🇷 Brasil
+                                </td>
+                                <td class="px-6 py-4 text-center font-medium text-slate-600">302 cuentas</td>
+                                <td class="px-6 py-4 text-center font-medium text-slate-600">9 cuentas</td>
+                                <td class="px-6 py-4 text-center font-extrabold text-brand-700 bg-brand-50/30">293 cuentas</td>
+                                <td class="px-6 py-4 text-center">
+                                    <div class="flex items-center justify-center gap-2">
+                                        <div class="w-20 bg-slate-200 h-1.5 rounded-full overflow-hidden">
+                                            <div class="bg-emerald-500 h-1.5 rounded-full" style="width: 2.9%"></div>
+                                        </div>
+                                        <span class="font-bold text-slate-800 text-xs">2.9%</span>
+                                    </div>
+                                </td>
+                            </tr>
+
+                            <!-- Colombia -->
+                            <tr class="hover:bg-slate-50/80 transition-colors">
+                                <td class="px-6 py-4 font-semibold text-slate-950 flex items-center gap-2">
+                                    <span class="w-2.5 h-2.5 rounded-full bg-brand-300"></span> 🇨🇴 Colombia
+                                </td>
+                                <td class="px-6 py-4 text-center font-medium text-slate-600">77 cuentas</td>
+                                <td class="px-6 py-4 text-center font-medium text-slate-600">5 cuentas</td>
+                                <td class="px-6 py-4 text-center font-extrabold text-brand-700 bg-brand-50/30">72 cuentas</td>
+                                <td class="px-6 py-4 text-center">
+                                    <div class="flex items-center justify-center gap-2">
+                                        <div class="w-20 bg-slate-200 h-1.5 rounded-full overflow-hidden">
+                                            <div class="bg-brand-300 h-1.5 rounded-full" style="width: 6.5%"></div>
+                                        </div>
+                                        <span class="font-bold text-slate-800 text-xs">6.5%</span>
+                                    </div>
+                                </td>
+                            </tr>
+
+                            <!-- Chile -->
+                            <tr class="hover:bg-slate-50/80 transition-colors">
+                                <td class="px-6 py-4 font-semibold text-slate-950 flex items-center gap-2">
+                                    <span class="w-2.5 h-2.5 rounded-full bg-amber-500"></span> 🇨🇱 Chile
+                                </td>
+                                <td class="px-6 py-4 text-center font-medium text-slate-600">15 cuentas</td>
+                                <td class="px-6 py-4 text-center font-medium text-slate-600">9 cuentas</td>
+                                <td class="px-6 py-4 text-center font-extrabold text-brand-700 bg-brand-50/30">6 cuentas</td>
+                                <td class="px-6 py-4 text-center">
+                                    <div class="flex items-center justify-center gap-2">
+                                        <div class="w-20 bg-slate-200 h-1.5 rounded-full overflow-hidden">
+                                            <div class="bg-amber-500 h-1.5 rounded-full" style="width: 60%"></div>
+                                        </div>
+                                        <span class="font-bold text-slate-800 text-xs">60.0%</span>
+                                    </div>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+
+                <div class="bg-slate-50 p-4 rounded-2xl border border-slate-100 mt-6 text-xs text-slate-500 leading-relaxed">
+                    <strong>Análisis Rápido de Oportunidad de Expansión:</strong> 🇧🇷 Brasil representa la mayor reserva de valor pendiente con un 97.1% de cuentas Whitelist por explorar (293 cuentas intactas), seguido de 🇲🇽 México con un 70.2% de potencial (188 cuentas). Estos dos hubs constituyen la oportunidad de continuidad más inmediata del proyecto.
+                </div>
+            </div>
+
+        </section>
+
+        <!-- ================= SECCIÓN 3: ICP ================= -->
+        <section id="section-icp" class="section-fade hidden max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10 md:py-16 mt-6 border-t-4 border-emerald-500 bg-gradient-to-b from-emerald-50/30 via-slate-50 to-white rounded-b-3xl shadow-md relative">
+            <!-- Floating Indicator -->
+            <div class="absolute top-4 right-6 bg-emerald-600 text-white text-[10px] font-bold uppercase tracking-widest px-3 py-1 rounded-full border border-emerald-700 shadow-sm">
+                Módulo ICP Target
+            </div>
+
+            <!-- Encabezado de la Sección ICP -->
+            <div class="mb-12">
+                <span class="text-xs font-bold text-brand-600 uppercase tracking-widest flex items-center gap-2">
+                    <i data-lucide="target" class="w-4 h-4"></i> Estrategia de Prospección Enterprise
+                </span>
+                <h2 class="text-3xl md:text-4xl font-extrabold text-slate-900 mt-2">Perfil de Cliente Ideal (ICP)</h2>
+                <p class="text-slate-500 mt-3 text-base md:text-lg max-w-4xl">
+                    Definición metodológica y estratégica del target corporativo prioritario para las soluciones de Gestión de Capital Humano (HCM) y Workforce Management de UKG.
+                </p>
+            </div>
+
+            <!-- Introducción Ejecutiva -->
+            <div class="bg-white rounded-3xl p-8 border border-slate-200 shadow-sm mb-12 relative overflow-hidden">
+                <div class="absolute top-0 right-0 w-32 h-32 bg-brand-50 rounded-full -mr-16 -mt-16 opacity-50"></div>
+                <div class="relative z-10 grid grid-cols-1 lg:grid-cols-3 gap-8">
+                    <div class="lg:col-span-2 space-y-4">
+                        <span class="text-2xs font-extrabold text-brand-600 bg-brand-50 px-2.5 py-1 rounded-full uppercase">PROPÓSITO DEL PROYECTO</span>
+                        <h3 class="text-xl font-bold text-slate-950">Alineación Comercial de Alto Potencial</h3>
+                        <p class="text-slate-600 text-sm leading-relaxed">
+                            Este Perfil de Cliente Ideal (ICP) tiene como objetivo identificar y priorizar empresas con alto potencial de adopción de las soluciones de Gestión de Capital Humano (HCM) y Workforce Management de UKG.
+                        </p>
+                        <p class="text-slate-600 text-sm leading-relaxed">
+                            Al definir sectores, países y cargos clave, este ICP permite enfocar los esfuerzos comerciales hacia organizaciones con <strong class="font-semibold text-brand-600">más de 1,000 empleados</strong>, presencia regional en Latinoamérica y necesidades de digitalización en sus procesos de nómina, tiempo y asistencia.
+                        </p>
+                    </div>
+                    <div class="bg-slate-50 p-6 rounded-2xl border border-slate-100 flex flex-col justify-between">
+                        <div>
+                            <span class="text-2xs font-bold text-slate-400 uppercase tracking-wider block">Soluciones Clave</span>
+                            <div class="space-y-2.5 mt-3">
+                                <span class="flex items-center gap-2 text-xs font-semibold text-slate-700">
+                                    <span class="w-1.5 h-1.5 rounded-full bg-brand-500"></span> Workforce Management
+                                </span>
+                                <span class="flex items-center gap-2 text-xs font-semibold text-slate-700">
+                                    <span class="w-1.5 h-1.5 rounded-full bg-brand-500"></span> Nómina y Tiempo
+                                </span>
+                                <span class="flex items-center gap-2 text-xs font-semibold text-slate-700">
+                                    <span class="w-1.5 h-1.5 rounded-full bg-brand-500"></span> Control de Asistencia
+                                </span>
+                            </div>
+                        </div>
+                        <div class="pt-4 border-t border-slate-200 mt-4">
+                            <span class="text-3xs text-slate-400 block font-bold">Filtro de Tamaño</span>
+                            <span class="text-sm font-extrabold text-slate-900">&gt; 1,000 Colaboradores</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Mini Dashboard Comercial del ICP -->
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-12">
+                <!-- Ticket Promedio -->
+                <div class="bg-white p-6 rounded-2xl border border-slate-200 shadow-sm flex flex-col justify-between relative overflow-hidden">
+                    <div class="flex items-center justify-between mb-4">
+                        <span class="p-3 bg-brand-50 text-brand-600 rounded-xl"><i data-lucide="dollar-sign" class="w-6 h-6"></i></span>
+                        <span class="text-2xs font-bold text-slate-400 uppercase tracking-wider">Ticket Estimado</span>
+                    </div>
+                    <div>
+                        <span class="text-xs text-slate-400 uppercase tracking-wider block font-bold">Ticket Promedio Primer Año</span>
+                        <span class="text-2xl md:text-3xl font-black text-slate-950 mt-1">$80K - $100K USD</span>
+                        <div class="grid grid-cols-2 gap-2 mt-3 pt-3 border-t border-slate-100 text-3xs text-slate-500">
+                            <div>
+                                <span class="font-bold block text-slate-700">Licenciamiento Anual</span>
+                                <span>~$40K USD</span>
+                            </div>
+                            <div class="border-l border-slate-200 pl-2">
+                                <span class="font-bold block text-slate-700">Servicios Partner</span>
+                                <span>~$40K - $50K USD</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Ciclo de Venta -->
+                <div class="bg-white p-6 rounded-2xl border border-slate-200 shadow-sm flex flex-col justify-between">
+                    <div class="flex items-center justify-between mb-4">
+                        <span class="p-3 bg-emerald-50 text-emerald-600 rounded-xl"><i data-lucide="clock" class="w-6 h-6"></i></span>
+                        <span class="text-2xs font-bold text-slate-400 uppercase tracking-wider">Duración de Pipeline</span>
+                    </div>
+                    <div>
+                        <span class="text-xs text-slate-400 uppercase tracking-wider block font-bold">Ciclo de Venta Promedio</span>
+                        <span class="text-2xl md:text-3xl font-black text-slate-950 mt-1">9 Meses a 1 Año</span>
+                        
+                        <!-- Visual indicator cycle -->
+                        <div class="mt-4 flex items-center gap-1">
+                            <span class="h-1.5 flex-grow rounded bg-brand-500"></span>
+                            <span class="h-1.5 flex-grow rounded bg-brand-500"></span>
+                            <span class="h-1.5 flex-grow rounded bg-brand-500"></span>
+                            <span class="h-1.5 flex-grow rounded bg-slate-200"></span>
+                            <span class="text-3xs text-slate-400 font-bold ml-1">Enterprise</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Cobertura Regional Geográfica -->
+                <div class="bg-gradient-to-br from-slate-900 to-slate-950 text-white p-6 rounded-2xl shadow-xl flex flex-col justify-between">
+                    <div class="flex items-center justify-between mb-4">
+                        <span class="p-3 bg-brand-500/10 text-brand-400 rounded-xl border border-brand-500/20"><i data-lucide="globe" class="w-6 h-6"></i></span>
+                        <span class="text-3xs font-semibold bg-emerald-500/20 text-emerald-300 px-2.5 py-1 rounded-full">Foco Presencial</span>
+                    </div>
+                    <div>
+                        <span class="text-xs text-brand-300 block font-semibold uppercase">Eventos Presenciales Target</span>
+                        <div class="flex flex-wrap gap-1.5 mt-2">
+                            <span class="text-3xs font-bold bg-slate-800 text-slate-200 px-2.5 py-1 rounded-md">🇧🇷 Brasil</span>
+                            <span class="text-3xs font-bold bg-slate-800 text-slate-200 px-2.5 py-1 rounded-md">🇨🇴 Colombia</span>
+                            <span class="text-3xs font-bold bg-slate-800 text-slate-200 px-2.5 py-1 rounded-md">🇵🇦 Panamá</span>
+                            <span class="text-3xs font-bold bg-slate-800 text-slate-200 px-2.5 py-1 rounded-md">🇨🇷 Costa Rica</span>
+                        </div>
+                        <span class="text-[10px] text-slate-400 block mt-3 italic">* 🇲🇽 México y otros mercados cubiertos vía digital</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Ficha Corporativa: Características Demográficas & Company Profile -->
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 mb-12">
+                <!-- Perfil Corporativo (Company Profile) -->
+                <div class="bg-white p-8 rounded-3xl border border-slate-200 shadow-sm flex flex-col justify-between">
+                    <div>
+                        <div class="flex items-center justify-between mb-6">
+                            <h3 class="text-lg font-bold text-slate-950 flex items-center gap-2">
+                                <i data-lucide="briefcase" class="text-brand-500"></i> Perfil Demográfico de Empresa
+                            </h3>
+                            <span class="text-2xs bg-brand-50 text-brand-600 px-2.5 py-1 rounded-full font-bold">Parámetros</span>
+                        </div>
+                        <p class="text-slate-500 text-sm mb-6">
+                            Empresas de alta escala organizativa cuya fuerza laboral se encuentra geolocalizada en los países bajo cobertura comercial de este plan.
+                        </p>
+
+                        <!-- Puntos Clave de Demografía -->
+                        <div class="space-y-4">
+                            <div class="flex items-start gap-3 bg-slate-50 p-4 rounded-xl border border-slate-100">
+                                <span class="p-2 bg-brand-100 text-brand-600 rounded-lg mt-0.5"><i data-lucide="users" class="w-4 h-4"></i></span>
+                                <div>
+                                    <span class="text-xs font-extrabold text-slate-400 uppercase tracking-wider block">Fuerza Laboral</span>
+                                    <span class="text-sm font-bold text-slate-900">Más de 1,000 empleados por organización</span>
+                                </div>
+                            </div>
+
+                            <div class="flex items-start gap-3 bg-slate-50 p-4 rounded-xl border border-slate-100">
+                                <span class="p-2 bg-brand-100 text-brand-600 rounded-lg mt-0.5"><i data-lucide="navigation" class="w-4 h-4"></i></span>
+                                <div>
+                                    <span class="text-xs font-extrabold text-slate-400 uppercase tracking-wider block">Países de Enfoque Activo</span>
+                                    <span class="text-sm font-bold text-slate-900">🇧🇷 Brasil, 🇲🇽 México, 🇨🇴 Colombia, 🇵🇪 Perú, 🇨🇱 Chile y 🌎 Centroamérica</span>
+                                    <span class="text-2xs text-slate-500 block mt-0.5">Centroamérica incluye: 🇨🇷 Costa Rica, 🇬🇹 Guatemala, 🇵🇦 Panamá y 🇸🇻 El Salvador</span>
+                                </div>
+                            </div>
+
+                            <div class="flex items-start gap-3 bg-slate-50 p-4 rounded-xl border border-slate-100">
+                                <span class="p-2 bg-brand-100 text-brand-600 rounded-lg mt-0.5"><i data-lucide="target" class="w-4 h-4"></i></span>
+                                <div>
+                                    <span class="text-xs font-extrabold text-slate-400 uppercase tracking-wider block">Metas del Negocio Cliente</span>
+                                    <div class="grid grid-cols-2 gap-2 mt-1.5 text-xs text-slate-600 font-semibold">
+                                        <span class="flex items-center gap-1"><span class="w-1.5 h-1.5 rounded-full bg-emerald-500"></span> Reducción costos nómina</span>
+                                        <span class="flex items-center gap-1"><span class="w-1.5 h-1.5 rounded-full bg-emerald-500"></span> Mayor productividad</span>
+                                        <span class="flex items-center gap-1"><span class="w-1.5 h-1.5 rounded-full bg-emerald-500"></span> Cumplimiento legal</span>
+                                        <span class="flex items-center gap-1"><span class="w-1.5 h-1.5 rounded-full bg-emerald-500"></span> Mayor engagement</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Segmentación Sectorial (Target B2C vs Exclusiones) -->
+                <div class="bg-white p-8 rounded-3xl border border-slate-200 shadow-sm flex flex-col justify-between">
+                    <div>
+                        <div class="flex items-center justify-between mb-6">
+                            <h3 class="text-lg font-bold text-slate-950 flex items-center gap-2">
+                                <i data-lucide="pie-chart" class="text-brand-500"></i> Delimitación de Sectores Económicos
+                            </h3>
+                            <span class="text-2xs bg-emerald-50 text-emerald-600 px-2.5 py-1 rounded-full font-bold">Filtro de Prospección</span>
+                        </div>
+                        <p class="text-slate-500 text-sm mb-6">
+                            Clasificación de sectores aptos para prospección directa (B2C y operaciones de uso continuo) frente a verticales excluidas explícitamente.
+                        </p>
+
+                        <!-- Columnas de Selección y Exclusión -->
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                            <!-- Permitidos / Priorizados -->
+                            <div class="bg-emerald-50/50 p-4 rounded-2xl border border-emerald-100">
+                                <span class="text-xs font-bold text-emerald-800 flex items-center gap-1 mb-3">
+                                    <i data-lucide="check-circle" class="w-4 h-4 text-emerald-600"></i> Sectores Prospectados (B2C)
+                                </span>
+                                <ul class="space-y-2 text-xs font-semibold text-slate-700">
+                                    <li class="flex items-center gap-1.5"><span class="w-1 h-1 bg-emerald-500 rounded-full"></span> Retail</li>
+                                    <li class="flex items-center gap-1.5"><span class="w-1 h-1 bg-emerald-500 rounded-full"></span> Manufactura</li>
+                                    <li class="flex items-center gap-1.5"><span class="w-1 h-1 bg-emerald-500 rounded-full"></span> Servicios</li>
+                                    <li class="flex items-center gap-1.5"><span class="w-1 h-1 bg-emerald-500 rounded-full"></span> Logística</li>
+                                    <li class="flex items-center gap-1.5"><span class="w-1 h-1 bg-emerald-500 rounded-full"></span> Hoteles y Restaurantes</li>
+                                    <li class="flex items-center gap-1.5"><span class="w-1 h-1 bg-emerald-500 rounded-full"></span> Casinos</li>
+                                </ul>
+                            </div>
+
+                            <!-- Excluidos -->
+                            <div class="bg-rose-50/40 p-4 rounded-2xl border border-rose-100/60">
+                                <span class="text-xs font-bold text-rose-800 flex items-center gap-1 mb-3">
+                                    <i data-lucide="ban" class="w-4 h-4 text-rose-500"></i> Sectores Excluidos
+                                </span>
+                                <ul class="space-y-2 text-xs font-semibold text-slate-500">
+                                    <li class="flex items-center gap-1.5"><span class="w-1 h-1 bg-rose-300 rounded-full"></span> Salud</li>
+                                    <li class="flex items-center gap-1.5"><span class="w-1 h-1 bg-rose-300 rounded-full"></span> Gobierno / Público</li>
+                                    <li class="flex items-center gap-1.5"><span class="w-1 h-1 bg-rose-300 rounded-full"></span> Banca / Fintech</li>
+                                    <li class="flex items-center gap-1.5"><span class="w-1 h-1 bg-rose-300 rounded-full"></span> Servicios Financieros</li>
+                                    <li class="flex items-center gap-1.5"><span class="w-1 h-1 bg-rose-300 rounded-full"></span> Educación</li>
+                                    <li class="flex items-center gap-1.5"><span class="w-1 h-1 bg-rose-300 rounded-full"></span> Empresas Tecnológicas</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Necesidades Específicas vs. Puntos de Dolor -->
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 mb-12">
+                <!-- Necesidades Clave -->
+                <div class="bg-white rounded-3xl p-8 border border-slate-200 shadow-sm relative overflow-hidden">
+                    <div class="absolute top-0 left-0 w-2 h-full bg-emerald-500"></div>
+                    <h3 class="text-lg font-bold text-slate-950 mb-6 flex items-center gap-2">
+                        <i data-lucide="sparkles" class="text-emerald-500"></i> Necesidades Específicas del Cliente
+                    </h3>
+                    
+                    <div class="space-y-4">
+                        <div class="flex items-start gap-3">
+                            <span class="p-1.5 bg-emerald-100 text-emerald-600 rounded-lg mt-0.5"><i data-lucide="check" class="w-3.5 h-3.5"></i></span>
+                            <div>
+                                <h4 class="text-sm font-bold text-slate-900">Eficiencia Operativa</h4>
+                                <p class="text-xs text-slate-500 mt-1">Optimizar la gestión global de tiempo y asistencia de colaboradores en múltiples ubicaciones.</p>
+                            </div>
+                        </div>
+
+                        <div class="flex items-start gap-3">
+                            <span class="p-1.5 bg-emerald-100 text-emerald-600 rounded-lg mt-0.5"><i data-lucide="check" class="w-3.5 h-3.5"></i></span>
+                            <div>
+                                <h4 class="text-sm font-bold text-slate-900">Control de Costos</h4>
+                                <p class="text-xs text-slate-500 mt-1">Reducir el desperdicio financiero y fugas de capital en la dispersión de nómina.</p>
+                            </div>
+                        </div>
+
+                        <div class="flex items-start gap-3">
+                            <span class="p-1.5 bg-emerald-100 text-emerald-600 rounded-lg mt-0.5"><i data-lucide="check" class="w-3.5 h-3.5"></i></span>
+                            <div>
+                                <h4 class="text-sm font-bold text-slate-900">Cumplimiento Regulatorio</h4>
+                                <p class="text-xs text-slate-500 mt-1">Garantizar la adaptabilidad y apego a las complejas y cambiantes leyes laborales locales.</p>
+                            </div>
+                        </div>
+
+                        <div class="flex items-start gap-3">
+                            <span class="p-1.5 bg-emerald-100 text-emerald-600 rounded-lg mt-0.5"><i data-lucide="check" class="w-3.5 h-3.5"></i></span>
+                            <div>
+                                <h4 class="text-sm font-bold text-slate-900">Digitalización de Procesos</h4>
+                                <p class="text-xs text-slate-500 mt-1">Automatizar flujos manuales de planillas de asistencia, integrándolas directamente con sistemas ERP y Payroll.</p>
+                            </div>
+                        </div>
+
+                        <div class="flex items-start gap-3">
+                            <span class="p-1.5 bg-emerald-100 text-emerald-600 rounded-lg mt-0.5"><i data-lucide="check" class="w-3.5 h-3.5"></i></span>
+                            <div>
+                                <h4 class="text-sm font-bold text-slate-900">Visibilidad & Acompañamiento</h4>
+                                <p class="text-xs text-slate-500 mt-1">Obtener analíticas consolidadas en tiempo real de productividad y contar con soporte experto de transformación digital para RRHH.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Puntos de Dolor -->
+                <div class="bg-white rounded-3xl p-8 border border-slate-200 shadow-sm relative overflow-hidden">
+                    <div class="absolute top-0 left-0 w-2 h-full bg-brand-500"></div>
+                    <h3 class="text-lg font-bold text-slate-950 mb-6 flex items-center gap-2">
+                        <i data-lucide="alert-triangle" class="text-brand-500"></i> Puntos de Dolor Críticos (Pain Points)
+                    </h3>
+
+                    <div class="space-y-4">
+                        <div class="flex items-start gap-3">
+                            <span class="p-1.5 bg-brand-50 text-brand-600 rounded-lg mt-0.5"><i data-lucide="frown" class="w-3.5 h-3.5"></i></span>
+                            <div>
+                                <h4 class="text-sm font-bold text-slate-900">Alta Rotación de Personal</h4>
+                                <p class="text-xs text-slate-500 mt-1">Frecuente fricción operativa e inestabilidad en la asignación de turnos por rotación.</p>
+                            </div>
+                        </div>
+
+                        <div class="flex items-start gap-3">
+                            <span class="p-1.5 bg-brand-50 text-brand-600 rounded-lg mt-0.5"><i data-lucide="frown" class="w-3.5 h-3.5"></i></span>
+                            <div>
+                                <h4 class="text-sm font-bold text-slate-900">Pago Excesivo de Horas Extra</h4>
+                                <p class="text-xs text-slate-500 mt-1">Falta de mecanismos automatizados para prever y autorizar el uso de horas extraordinarias.</p>
+                            </div>
+                        </div>
+
+                        <div class="flex items-start gap-3">
+                            <span class="p-1.5 bg-brand-50 text-brand-600 rounded-lg mt-0.5"><i data-lucide="frown" class="w-3.5 h-3.5"></i></span>
+                            <div>
+                                <h4 class="text-sm font-bold text-slate-900">Control Manual de Asistencia</h4>
+                                <p class="text-xs text-slate-500 mt-1">Uso ineficiente de hojas de cálculo o software heredado no integrado con la nómina.</p>
+                            </div>
+                        </div>
+
+                        <div class="flex items-start gap-3">
+                            <span class="p-1.5 bg-brand-50 text-brand-600 rounded-lg mt-0.5"><i data-lucide="frown" class="w-3.5 h-3.5"></i></span>
+                            <div>
+                                <h4 class="text-sm font-bold text-slate-900">Vulnerabilidad de Cumplimiento Legal</h4>
+                                <p class="text-xs text-slate-500 mt-1">Multas y litigios recurrentes ante la incapacidad de apegarse al 100% a las leyes de cada país en LatAm.</p>
+                            </div>
+                        </div>
+
+                        <div class="flex items-start gap-3">
+                            <span class="p-1.5 bg-brand-50 text-brand-600 rounded-lg mt-0.5"><i data-lucide="frown" class="w-3.5 h-3.5"></i></span>
+                            <div>
+                                <h4 class="text-sm font-bold text-slate-900">Decisiones Reactivas</h4>
+                                <p class="text-xs text-slate-500 mt-1">Ausencia de datos unificados que impide un análisis predictivo del desempeño de colaboradores.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Mapa de Roles, Decisores & Influenciadores -->
+            <div class="bg-white rounded-3xl p-8 border border-slate-200 shadow-sm mb-12">
+                <div class="flex justify-between items-center mb-8">
+                    <h3 class="text-xl font-bold text-slate-950 flex items-center gap-2">
+                        <i data-lucide="user-check" class="text-brand-500"></i> Roles Clave en el Proceso de Decisión (Enterprise)
+                    </h3>
+                    <span class="text-2xs bg-brand-50 text-brand-600 px-2.5 py-1 rounded-full font-bold">Mapa de Empatía</span>
+                </div>
+
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                    <!-- Comprador / Tomador de Decisiones -->
+                    <div class="bg-gradient-to-b from-slate-50 to-white p-6 rounded-2xl border border-slate-100 flex flex-col justify-between h-72">
+                        <div>
+                            <div class="flex items-center gap-2.5 mb-4">
+                                <span class="p-2.5 bg-brand-500/10 text-brand-600 rounded-xl"><i data-lucide="key" class="w-5 h-5"></i></span>
+                                <div>
+                                    <h4 class="text-sm font-extrabold text-slate-900">Key Decision Makers</h4>
+                                    <span class="text-3xs font-semibold text-brand-600 uppercase tracking-wider">Aprobadores Directos</span>
+                                </div>
+                            </div>
+                            <ul class="space-y-2.5 text-xs text-slate-600 font-semibold pl-1">
+                                <li class="flex items-center gap-2"><i data-lucide="chevron-right" class="w-3 h-3 text-brand-500"></i> Directores / Gerentes de RRHH</li>
+                                <li class="flex items-center gap-2"><i data-lucide="chevron-right" class="w-3 h-3 text-brand-500"></i> Directores / Gerentes de Payroll</li>
+                                <li class="flex items-center gap-2"><i data-lucide="chevron-right" class="w-3 h-3 text-brand-500"></i> Directores / Gerentes de Operaciones</li>
+                                <li class="flex items-center gap-2"><i data-lucide="chevron-right" class="w-3 h-3 text-brand-500"></i> Directores / Gerentes de Sistemas (IT)</li>
+                            </ul>
+                        </div>
+                        <span class="text-3xs text-slate-400 block border-t border-slate-100 pt-3">Foco: Relevancia operativa directa</span>
+                    </div>
+
+                    <!-- Influenciadores clave -->
+                    <div class="bg-gradient-to-b from-slate-50 to-white p-6 rounded-2xl border border-slate-100 flex flex-col justify-between h-72">
+                        <div>
+                            <div class="flex items-center gap-2.5 mb-4">
+                                <span class="p-2.5 bg-emerald-50 text-emerald-600 rounded-xl"><i data-lucide="shuffle" class="w-5 h-5"></i></span>
+                                <div>
+                                    <h4 class="text-sm font-extrabold text-slate-900">Influenciadores</h4>
+                                    <span class="text-3xs font-semibold text-emerald-600 uppercase tracking-wider">Validadores de Viabilidad</span>
+                                </div>
+                            </div>
+                            <ul class="space-y-2.5 text-xs text-slate-600 font-semibold pl-1">
+                                <li class="flex items-center gap-2"><i data-lucide="chevron-right" class="w-3 h-3 text-emerald-500"></i> Finanzas / Control de Gestión</li>
+                                <li class="flex items-center gap-2"><i data-lucide="chevron-right" class="w-3 h-3 text-emerald-500"></i> Tecnología (Gobernanza de Datos)</li>
+                                <li class="flex items-center gap-2"><i data-lucide="chevron-right" class="w-3 h-3 text-emerald-500"></i> Legal (Políticas de Cumplimiento)</li>
+                            </ul>
+                        </div>
+                        <span class="text-3xs text-slate-400 block border-t border-slate-100 pt-3">Foco: Costo, seguridad de datos y ROI</span>
+                    </div>
+
+                    <!-- Alignment C-Level -->
+                    <div class="bg-slate-900 text-white p-6 rounded-2xl flex flex-col justify-between h-72">
+                        <div>
+                            <div class="flex items-center gap-2.5 mb-4">
+                                <span class="p-2.5 bg-white/10 text-brand-400 rounded-xl"><i data-lucide="crown" class="w-5 h-5"></i></span>
+                                <div>
+                                    <h4 class="text-sm font-extrabold text-white">Relación C-Level</h4>
+                                    <span class="text-3xs font-semibold text-brand-300 uppercase tracking-wider">Patrocinadores de Negocio</span>
+                                </div>
+                            </div>
+                            <p class="text-xs text-slate-300 leading-relaxed">
+                                Directores corporativos y presidentes enfocados en:
+                            </p>
+                            <ul class="space-y-2 mt-3 text-xs text-slate-200 font-medium pl-1">
+                                <li class="flex items-center gap-2"><span class="w-1 h-1 bg-brand-400 rounded-full"></span> Cumplimiento Legal</li>
+                                <li class="flex items-center gap-2"><span class="w-1 h-1 bg-brand-400 rounded-full"></span> Eficiencia Financiera</li>
+                                <li class="flex items-center gap-2"><span class="w-1 h-1 bg-brand-400 rounded-full"></span> Resultados Tangibles en Gestión de Talento</li>
+                            </ul>
+                        </div>
+                        <span class="text-3xs text-slate-500 block border-t border-slate-800 pt-3">Foco: Visión corporativa global</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Patrones de Compra & Insights de Prospección -->
+            <div class="bg-white rounded-3xl p-8 border border-slate-200 shadow-sm mb-12">
+                <h3 class="text-lg font-bold text-slate-950 mb-6 flex items-center gap-2">
+                    <i data-lucide="shield-check" class="text-brand-500"></i> Patrones de Compra Comunes (Insights Comerciales)
+                </h3>
+                
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+                    <!-- Cumplimiento Legal -->
+                    <div class="p-5 rounded-2xl bg-slate-50 border border-slate-100 flex flex-col justify-between hover:bg-slate-100/50 transition-colors">
+                        <div>
+                            <span class="p-2 bg-white text-slate-700 rounded-lg inline-block mb-3 border border-slate-200 shadow-2xs"><i data-lucide="gavel" class="w-4.5 h-4.5 text-brand-600"></i></span>
+                            <h4 class="text-xs font-bold text-slate-900 uppercase">Cumplimiento Operativo</h4>
+                            <p class="text-2xs text-slate-500 mt-2 leading-relaxed">Priorizan soluciones capaces de automatizar el cumplimiento legal por país reduciendo riesgos fiscales.</p>
+                        </div>
+                    </div>
+
+                    <!-- Presencia Regional -->
+                    <div class="p-5 rounded-2xl bg-slate-50 border border-slate-100 flex flex-col justify-between hover:bg-slate-100/50 transition-colors">
+                        <div>
+                            <span class="p-2 bg-white text-slate-700 rounded-lg inline-block mb-3 border border-slate-200 shadow-2xs"><i data-lucide="award" class="w-4.5 h-4.5 text-brand-600"></i></span>
+                            <h4 class="text-xs font-bold text-slate-900 uppercase">Soporte Local Certificado</h4>
+                            <p class="text-2xs text-slate-500 mt-2 leading-relaxed">Valoran partners autorizados con alcance en 🌎 LATAM y amplia trayectoria de soporte post-implementación.</p>
+                        </div>
+                    </div>
+
+                    <!-- Casos de Éxito & ROI -->
+                    <div class="p-5 rounded-2xl bg-slate-50 border border-slate-100 flex flex-col justify-between hover:bg-slate-100/50 transition-colors">
+                        <div>
+                            <span class="p-2 bg-white text-slate-700 rounded-lg inline-block mb-3 border border-slate-200 shadow-2xs"><i data-lucide="trending-up" class="w-4.5 h-4.5 text-brand-600"></i></span>
+                            <h4 class="text-xs font-bold text-slate-900 uppercase">Enfoque ROI y ROI Real</h4>
+                            <p class="text-2xs text-slate-500 mt-2 leading-relaxed">Exigen y evalúan casos reales de implementación que demuestren retornos y eficiencias tangibles en meses.</p>
+                        </div>
+                    </div>
+
+                    <!-- Venta Consultiva -->
+                    <div class="p-5 rounded-2xl bg-slate-50 border border-slate-100 flex flex-col justify-between hover:bg-slate-100/50 transition-colors">
+                        <div>
+                            <span class="p-2 bg-white text-slate-700 rounded-lg inline-block mb-3 border border-slate-200 shadow-2xs"><i data-lucide="help-circle" class="w-4.5 h-4.5 text-brand-600"></i></span>
+                            <h4 class="text-xs font-bold text-slate-900 uppercase">Enfoque Consultivo</h4>
+                            <p class="text-2xs text-slate-500 mt-2 leading-relaxed">Rechazan ofertas de tipo transaccional; prefieren esquemas consultivos adaptados a su infraestructura actual.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Detalle de Industrias Prioritarias (Análisis de Concentración de Valor) -->
+            <div class="bg-slate-900 text-white rounded-3xl p-8 md:p-12 relative overflow-hidden">
+                <div class="absolute inset-0 bg-[radial-gradient(circle_at_top_right,rgba(20,184,166,0.1),transparent_50%)]"></div>
+                
+                <div class="relative z-10">
+                    <span class="inline-flex items-center gap-1 px-3 py-1 rounded-full text-xs font-semibold bg-emerald-500/20 text-emerald-300 border border-emerald-500/30 mb-6">
+                        <i data-lucide="alert-circle" class="w-3.5 h-3.5"></i> Criterio de Selección Estratégica
+                    </span>
+                    
+                    <h3 class="text-2xl md:text-3xl font-bold mb-4">Sectores Priorizados: ¿Por qué estos segmentos?</h3>
+                    <p class="text-slate-300 text-sm md:text-base max-w-4xl leading-relaxed mb-8">
+                        Se priorizan aquellos sectores que presentan de manera combinada tres características operativas determinantes: <strong class="text-white font-bold">alta rotación de personal</strong>, <strong class="text-white font-bold">esquemas de operación continua (24/7)</strong> y <strong class="text-white font-bold">gran cantidad de colaboradores distribuidos en distintas ubicaciones o turnos complejos</strong>.
+                    </p>
+
+                    <!-- Lista con 3 columnas de Industrias -->
+                    <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                        <!-- Retail -->
+                        <div class="bg-slate-950/60 p-6 rounded-2xl border border-slate-800">
+                            <span class="p-2.5 bg-brand-500/10 text-brand-400 rounded-xl inline-block mb-4"><i data-lucide="shopping-bag" class="w-5 h-5"></i></span>
+                            <h4 class="text-sm font-bold mb-2">Retail y Comercio Minorista</h4>
+                            <p class="text-2xs text-slate-400 leading-relaxed mb-4">Puntos de venta de alta complejidad operativa, flujos constantes de turnos dinámicos y personal estacional.</p>
+                            <div class="flex flex-wrap gap-1 text-[10px] text-brand-300 font-semibold">
+                                <span>• Supermercados</span>
+                                <span>• Conveniencia</span>
+                                <span>• Moda</span>
+                                <span>• Consumo Masivo</span>
+                            </div>
+                        </div>
+
+                        <!-- Servicios y Logística -->
+                        <div class="bg-slate-950/60 p-6 rounded-2xl border border-slate-800">
+                            <span class="p-2.5 bg-emerald-500/10 text-emerald-400 rounded-xl inline-block mb-4"><i data-lucide="truck" class="w-5 h-5"></i></span>
+                            <h4 class="text-sm font-bold mb-2">Servicios y Logística</h4>
+                            <p class="text-2xs text-slate-400 leading-relaxed mb-4">Operación descentralizada que requiere monitorear la asistencia en múltiples centros de distribución y rutas.</p>
+                            <div class="flex flex-wrap gap-1 text-[10px] text-emerald-300 font-semibold">
+                                <span>• Operadores</span>
+                                <span>• Hotelería</span>
+                                <span>• Restaurantes</span>
+                                <span>• Casinos</span>
+                            </div>
+                        </div>
+
+                        <!-- Manufactura -->
+                        <div class="bg-slate-950/60 p-6 rounded-2xl border border-slate-800">
+                            <span class="p-2.5 bg-slate-800 text-slate-200 rounded-xl inline-block mb-4"><i data-lucide="factory" class="w-5 h-5"></i></span>
+                            <h4 class="text-sm font-bold mb-2">Manufactura e Industria Pesada</h4>
+                            <p class="text-2xs text-slate-400 leading-relaxed mb-4">Líneas de producción estrictas que no pueden detenerse y donde la planificación de turnos es crítica para el rendimiento.</p>
+                            <div class="flex flex-wrap gap-1 text-[10px] text-slate-400 font-semibold">
+                                <span>• Plantas Industriales</span>
+                                <span>• Múltiples turnos</span>
+                                <span>• Operación Regulada</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </section>
+
+        <!-- ================= SECCIÓN 4: CAMPAÑAS ================= -->
+        <section id="section-campanas" class="section-fade hidden max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10 md:py-16 mt-6 border-t-4 border-slate-850 bg-gradient-to-b from-slate-900 via-slate-950 to-slate-900 rounded-b-3xl shadow-md relative text-slate-100">
+            <!-- Floating Indicator -->
+            <div class="absolute top-4 right-6 bg-brand-500/15 border border-brand-500/30 text-brand-300 text-[10px] font-bold uppercase tracking-widest px-3 py-1 rounded-full shadow-sm flex items-center gap-1.5">
+                <span class="w-1.5 h-1.5 rounded-full bg-brand-400 animate-pulse"></span> Command Center Activo
+            </div>
+
+            <!-- Introducción de Campaña (Bloque Hero Interno) -->
+            <div class="max-w-4xl mb-12 relative z-10">
+                <span class="text-xs font-bold text-brand-400 uppercase tracking-widest block mb-2">OPERACIÓN REGIONAL MULTICANAL ENTERPRISE</span>
+                <h2 class="text-3xl md:text-5xl font-black text-white tracking-tight leading-none mb-6">Generación de Demanda y Prospección Activa</h2>
+                <p class="text-slate-400 text-sm md:text-base leading-relaxed mb-6">
+                    La estrategia de campañas fue desarrollada mediante una operación de prospección multicanal orientada a la generación de demanda, nurturing, aceleración comercial, posicionamiento y conversión de cuentas estratégicas. La ejecución combinó secuencias automatizadas e interacciones directas bajo una segmentación avanzada por país, rol, industria y pain points.
+                </p>
+                <div class="flex flex-wrap gap-3">
+                    <span class="px-3 py-1 bg-slate-900 border border-slate-800 rounded-lg text-xs font-semibold text-slate-300 flex items-center gap-1.5"><i data-lucide="check" class="w-3.5 h-3.5 text-brand-400"></i> Prospección 1:1</span>
+                    <span class="px-3 py-1 bg-slate-900 border border-slate-800 rounded-lg text-xs font-semibold text-slate-300 flex items-center gap-1.5"><i data-lucide="sliders" class="w-3.5 h-3.5 text-brand-400"></i> Nurturing Automatizado</span>
+                    <span class="px-3 py-1 bg-slate-900 border border-slate-800 rounded-lg text-xs font-semibold text-slate-300 flex items-center gap-1.5"><i data-lucide="video" class="w-3.5 h-3.5 text-brand-400"></i> Flujos Webinar 6x1</span>
+                </div>
+            </div>
+
+            <!-- Recuadro 1: Ecosistema Multicanal (Flujo de Prospección) -->
+            <div class="bg-slate-900/40 border border-slate-850 rounded-3xl p-6 md:p-8 mb-12 shadow-xl">
+                <h3 class="text-xl font-bold text-white mb-6 flex items-center gap-2">
+                    <i data-lucide="git-pull-request" class="text-brand-400"></i> Flujo del Ecosistema de Prospección
+                </h3>
+                <div class="grid grid-cols-1 md:grid-cols-5 gap-4 relative">
+                    
+                    <!-- Card LinkedIn -->
+                    <div class="bg-slate-900/60 backdrop-blur-md p-5 rounded-2xl border border-slate-800 flex flex-col justify-between hover:border-brand-500 hover:shadow-brand-500/10 hover:shadow-lg transition-all duration-300 group">
+                        <div>
+                            <div class="flex justify-between items-center mb-4">
+                                <span class="p-3 bg-[#0077b5]/15 text-[#0077b5] rounded-xl"><i data-lucide="linkedin" class="w-6 h-6"></i></span>
+                                <span class="text-[9px] font-bold bg-[#0077b5]/10 text-[#0077b5] px-2 py-0.5 rounded-full">LinkedIn</span>
+                            </div>
+                            <h4 class="text-base font-bold text-white mb-2">Relacionamiento Inicial</h4>
+                            <p class="text-2xs text-slate-400 leading-relaxed">Conexión 1er y 2do grado para apertura del canal comercial, segmentado por roles.</p>
+                        </div>
+                        <div class="text-[9px] font-semibold text-brand-400 mt-4 border-t border-slate-800/80 pt-2 flex items-center gap-1">Paso 1: Apertura <i data-lucide="arrow-right" class="w-3 h-3"></i></div>
+                    </div>
+
+                    <!-- Card Klenty -->
+                    <div class="bg-slate-900/60 backdrop-blur-md p-5 rounded-2xl border border-slate-800 flex flex-col justify-between hover:border-[#6366f1] hover:shadow-[#6366f1]/10 hover:shadow-lg transition-all duration-300 group">
+                        <div>
+                            <div class="flex justify-between items-center mb-4">
+                                <span class="p-3 bg-indigo-500/15 text-indigo-400 rounded-xl"><i data-lucide="mail" class="w-6 h-6"></i></span>
+                                <span class="text-[9px] font-bold bg-indigo-500/10 text-indigo-400 px-2 py-0.5 rounded-full">Klenty</span>
+                            </div>
+                            <h4 class="text-base font-bold text-white mb-2">Nurturing y Correos</h4>
+                            <p class="text-2xs text-slate-400 leading-relaxed">Automatización de secuencias de correos estructuradas por país, consecuencias de dolores y convocatoria.</p>
+                        </div>
+                        <div class="text-[9px] font-semibold text-indigo-400 mt-4 border-t border-slate-800/80 pt-2 flex items-center gap-1">Paso 2: Automatización <i data-lucide="arrow-right" class="w-3 h-3"></i></div>
+                    </div>
+
+                    <!-- Card Envialo Simple -->
+                    <div class="bg-slate-900/60 backdrop-blur-md p-5 rounded-2xl border border-slate-800 flex flex-col justify-between hover:border-[#38bdf8] hover:shadow-[#38bdf8]/10 hover:shadow-lg transition-all duration-300 group">
+                        <div>
+                            <div class="flex justify-between items-center mb-4">
+                                <span class="p-3 bg-[#38bdf8]/15 text-[#38bdf8] rounded-xl"><i data-lucide="layout-template" class="w-6 h-6"></i></span>
+                                <span class="text-[9px] font-bold bg-[#38bdf8]/10 text-[#38bdf8] px-2 py-0.5 rounded-full">Envíalo Simple</span>
+                            </div>
+                            <h4 class="text-base font-bold text-white mb-2">Brazo Visual</h4>
+                            <p class="text-2xs text-slate-400 leading-relaxed">Campañas masivas visuales, invitaciones institucionales a webinars y registro de eventos.</p>
+                        </div>
+                        <div class="text-[9px] font-semibold text-[#38bdf8] mt-4 border-t border-slate-800/80 pt-2 flex items-center gap-1">Paso 3: Difusión <i data-lucide="arrow-right" class="w-3 h-3"></i></div>
+                    </div>
+
+                    <!-- Card Call -->
+                    <div class="bg-slate-900/60 backdrop-blur-md p-5 rounded-2xl border border-slate-800 flex flex-col justify-between hover:border-[#22c55e] hover:shadow-[#22c55e]/10 hover:shadow-lg transition-all duration-300 group">
+                        <div>
+                            <div class="flex justify-between items-center mb-4">
+                                <span class="p-3 bg-emerald-500/15 text-emerald-400 rounded-xl"><i data-lucide="phone" class="w-6 h-6"></i></span>
+                                <span class="text-[9px] font-bold bg-emerald-500/10 text-emerald-400 px-2 py-0.5 rounded-full">Llamados</span>
+                            </div>
+                            <h4 class="text-base font-bold text-white mb-2">Aceleración Push</h4>
+                            <p class="text-2xs text-slate-400 leading-relaxed">Contacto directo para perfiles interesados (IQLs), ausentes a eventos y seguimiento comercial.</p>
+                        </div>
+                        <div class="text-[9px] font-semibold text-emerald-400 mt-4 border-t border-slate-800/80 pt-2 flex items-center gap-1">Paso 4: Conversión <i data-lucide="arrow-right" class="w-3 h-3"></i></div>
+                    </div>
+
+                    <!-- Card WhatsApp -->
+                    <div class="bg-slate-900/60 backdrop-blur-md p-5 rounded-2xl border border-slate-800 flex flex-col justify-between hover:border-[#128c7e] hover:shadow-[#128c7e]/10 hover:shadow-lg transition-all duration-300 group">
+                        <div>
+                            <div class="flex justify-between items-center mb-4">
+                                <span class="p-3 bg-[#128c7e]/15 text-[#25d366] rounded-xl"><i data-lucide="message-square" class="w-6 h-6"></i></span>
+                                <span class="text-[9px] font-bold bg-[#128c7e]/10 text-[#25d366] px-2 py-0.5 rounded-full">WhatsApp</span>
+                            </div>
+                            <h4 class="text-base font-bold text-white mb-2">Cierre & Continuidad</h4>
+                            <p class="text-2xs text-slate-400 leading-relaxed">FUP ágil post contacto por otros canales -webinar, confirmaciones directas y envío de grabaciones tácticas.</p>
+                        </div>
+                        <div class="text-[9px] font-semibold text-[#25d366] mt-4 border-t border-slate-800/80 pt-2 flex items-center gap-1">Paso 5: Agendamiento <i data-lucide="check" class="w-3 h-3"></i></div>
+                    </div>
+
+                </div>
+            </div>
+
+            <!-- Recuadro 2: Detalle Tecnológico de Canales (LinkedIn Outreach hasta Estrategia Integrada) -->
+            <div class="bg-slate-900/20 border border-slate-800/80 rounded-3xl p-6 md:p-8 mb-12 shadow-lg">
+                <h3 class="text-lg font-bold text-slate-300 mb-6 flex items-center gap-2">
+                    <i data-lucide="cpu" class="text-indigo-400"></i> Detalle de Infraestructura de Canales
+                </h3>
+                <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
+                    
+                    <!-- Columna Izquierda: LinkedIn, Klenty y Envíalo Simple -->
+                    <div class="space-y-6">
+                        <!-- LinkedIn Card -->
+                        <div class="bg-slate-950/40 p-6 rounded-2xl border border-slate-800/80 hover:bg-slate-900/60 transition-colors">
+                            <div class="flex items-center gap-3 mb-4">
+                                <span class="p-2 bg-[#0077b5]/10 text-[#0077b5] rounded-xl"><i data-lucide="linkedin" class="w-6 h-6"></i></span>
+                                <div>
+                                    <h4 class="text-base font-bold text-white">LinkedIn Outreach</h4>
+                                    <span class="text-3xs text-slate-500 uppercase tracking-widest font-bold">Relacionamiento Estratégico</span>
+                                </div>
+                            </div>
+                            <p class="text-xs text-slate-400 leading-relaxed mb-4">
+                                Utilizado como el canal insignia para mapear y establecer la primera conexión de confianza con tomadores de decisión corporativos (1er grado directos y secuencias de 2do grado para eventos de contenido).
+                            </p>
+                            <div class="grid grid-cols-2 gap-3 text-2xs text-slate-300">
+                                <div class="bg-slate-950 p-2.5 rounded-lg border border-slate-850">
+                                    <span class="text-slate-500 block font-bold">Campañas de Nurturing</span>
+                                    <span class="font-medium text-slate-300 mt-1 block">Secuencias estructuradas por toques de 1 a 3 contactos.</span>
+                                </div>
+                                <div class="bg-slate-950 p-2.5 rounded-lg border border-slate-850">
+                                    <span class="text-slate-500 block font-bold">Segmentación de Roles</span>
+                                    <span class="font-medium text-slate-300 mt-1 block">Estrategias personalizadas por área y cargo clave.</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Klenty Card -->
+                        <div class="bg-slate-950/40 p-6 rounded-2xl border border-slate-800/80 hover:bg-slate-900/60 transition-colors">
+                            <div class="flex items-center gap-3 mb-4">
+                                <span class="p-2 bg-indigo-500/10 text-indigo-400 rounded-xl"><i data-lucide="mail" class="w-6 h-6"></i></span>
+                                <div>
+                                    <h4 class="text-base font-bold text-white">Klenty Email Automation</h4>
+                                    <span class="text-3xs text-indigo-400 uppercase tracking-widest font-bold">Nurturing Automatizado</span>
+                                </div>
+                            </div>
+                            <p class="text-xs text-slate-400 leading-relaxed mb-4">
+                                Motor automatizado para el envío de secuencias de correos enfocados en las consecuencias de los dolores sectoriales clave, además de gestionar todo el embudo de comunicación de webinars.
+                            </p>
+                            <div class="grid grid-cols-2 gap-3 text-2xs text-slate-300">
+                                <div class="bg-slate-950 p-2.5 rounded-lg border border-slate-850">
+                                    <span class="text-indigo-400 block font-bold">Secuencias de Dolores</span>
+                                    <span class="font-medium text-slate-300 mt-1 block">Hasta 4 toques optimizados por consecuencias operativas.</span>
+                                </div>
+                                <div class="bg-slate-950 p-2.5 rounded-lg border border-slate-850">
+                                    <span class="text-indigo-400 block font-bold">Estrategia Webinars</span>
+                                    <span class="font-medium text-slate-300 mt-1 block">Secuencias por proximidad al evento y campañas post-webinar.</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Envíalo Simple Card -->
+                        <div class="bg-slate-950/40 p-6 rounded-2xl border border-slate-800/80 hover:bg-slate-900/60 transition-colors">
+                            <div class="flex items-center gap-3 mb-4">
+                                <span class="p-2 bg-[#38bdf8]/10 text-[#38bdf8] rounded-xl"><i data-lucide="layout-template" class="w-6 h-6"></i></span>
+                                <div>
+                                    <h4 class="text-base font-bold text-white">Envíalo Simple</h4>
+                                    <span class="text-3xs text-[#38bdf8] uppercase tracking-widest font-bold">Brazo Visual e Institucional</span>
+                                </div>
+                            </div>
+                            <p class="text-xs text-slate-400 leading-relaxed mb-4">
+                                Empleado para campañas visuales de alto formato, envío de convocatorias masivas a webinars corporativos y distribución de boletines de servicios.
+                            </p>
+                            <div class="bg-slate-950 p-3 rounded-lg border border-slate-800 text-2xs">
+                                <span class="text-[#38bdf8] block font-bold">Campañas de Registro a Eventos</span>
+                                <span class="font-medium text-slate-300 mt-1 block">Diseño de piezas adaptables para medir interaciones, Click, Aperturas, Copartidos.</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Columna Derecha: Call, WhatsApp e Integración Directa -->
+                    <div class="space-y-6">
+                        <!-- Call Card -->
+                        <div class="bg-slate-950/40 p-6 rounded-2xl border border-slate-800/80 hover:bg-slate-900/60 transition-colors">
+                            <div class="flex items-center gap-3 mb-4">
+                                <span class="p-2 bg-emerald-500/10 text-emerald-400 rounded-xl"><i data-lucide="phone" class="w-6 h-6"></i></span>
+                                <div>
+                                    <h4 class="text-base font-bold text-white">Aceleración por Llamados</h4>
+                                    <span class="text-3xs text-emerald-400 uppercase tracking-widest font-bold">Frente de Conversión Activa</span>
+                                </div>
+                            </div>
+                            <p class="text-xs text-slate-400 leading-relaxed mb-4">
+                                La gestión telefónica estructurada permitió recuperar oportunidades calientes, asegurando el contacto final con perfiles que mostraron alta intención de compra pero no concretaron vía digital.
+                            </p>
+                            <div class="grid grid-cols-2 gap-3 text-2xs text-slate-300">
+                                <div class="bg-slate-950 p-2.5 rounded-lg border border-slate-850">
+                                    <span class="text-emerald-400 block font-bold">Llamadas IQL (Interés)</span>
+                                    <span class="font-medium text-slate-300 mt-1 block">Seguimiento a contactos que iniciaron agendamiento sin completar.</span>
+                                </div>
+                                <div class="bg-slate-950 p-2.5 rounded-lg border border-slate-850">
+                                    <span class="text-emerald-400 block font-bold">Recuperación No-Shows</span>
+                                    <span class="font-medium text-slate-300 mt-1 block">Contacto activo con ausentes a webinars para reprogramación.</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- WhatsApp Card -->
+                        <div class="bg-slate-950/40 p-6 rounded-2xl border border-slate-800/80 hover:bg-slate-900/60 transition-colors">
+                            <div class="flex items-center gap-3 mb-4">
+                                <span class="p-2 bg-[#128c7e]/10 text-[#25d366] rounded-xl"><i data-lucide="message-square" class="w-6 h-6"></i></span>
+                                <div>
+                                    <h4 class="text-base font-bold text-white">WhatsApp Direct Business</h4>
+                                    <span class="text-3xs text-[#25d366] uppercase tracking-widest font-bold">Seguimiento de Agilidad</span>
+                                </div>
+                            </div>
+                            <p class="text-xs text-slate-400 leading-relaxed mb-4">
+                                Canal táctico preferencial para acelerar el agendamiento final de reuniones y distribuir material nurturing o grabaciones de valor post-evento de forma directa.
+                            </p>
+                            <div class="bg-slate-950 p-3 rounded-lg border border-slate-800 text-2xs">
+                                <span class="text-[#25d366] block font-bold">Campañas Post-Webinar</span>
+                                <span class="font-medium text-slate-300 mt-1 block">Envío directo de la grabación, capsulas, infografias de servicios y de eventos.</span>
+                            </div>
+                        </div>
+
+                        <!-- Visual de command center/Dashboard representativo -->
+                        <div class="bg-gradient-to-br from-[#1e1b4b] to-slate-950 p-6 rounded-2xl border border-brand-500/10 text-center relative overflow-hidden flex flex-col justify-center items-center h-48">
+                            <div class="absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(99,102,241,0.15),transparent_60%)]"></div>
+                            <div class="relative z-10">
+                                <div class="w-10 h-10 bg-brand-500/20 text-brand-400 rounded-full flex items-center justify-center mx-auto mb-3 border border-brand-500/30 animate-pulse">
+                                    <i data-lucide="radar" class="w-5 h-5"></i>
+                                </div>
+                                <h4 class="text-xs font-bold text-white uppercase tracking-wider">Estrategia Integrada Operando</h4>
+                                <p class="text-[10px] text-slate-400 mt-1.5 max-w-xs mx-auto">Cada prospecto fue impactado a través de flujos coordinados de hasta 6 toques combinados para asegurar su interés.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+
+            <!-- Recuadro 3: Dashboards de Campañas Ejecutadas - Acordeón por Fuente -->
+            <div class="bg-slate-900/30 border border-slate-850 rounded-3xl p-6 md:p-8 mb-12 shadow-md">
+                <div class="mb-6 flex flex-col md:flex-row md:items-center justify-between">
+                    <div>
+                        <h3 class="text-xl font-bold text-white flex items-center gap-2">
+                            <i data-lucide="bar-chart-3" class="text-brand-400"></i> Campañas Ejecutadas por Fuente
+                        </h3>
+                        <p class="text-slate-400 text-xs mt-1">Haz clic en cada fuente para desplegar la comparación directa de campañas en LATAM y Brasil.</p>
+                    </div>
+                    <span class="text-3xs text-emerald-400 font-bold uppercase tracking-widest px-2.5 py-1 bg-emerald-500/10 rounded-full border border-emerald-500/20 mt-2 md:mt-0">Datos Consolidados</span>
+                </div>
+
+                <div class="space-y-4">
+                    <!-- Accordion Item 1: LinkedIn -->
+                    <div class="border border-slate-800 rounded-2xl overflow-hidden bg-slate-950/40">
+                        <button onclick="toggleAccordion('acc-linkedin')" class="w-full flex items-center justify-between p-5 bg-slate-900/60 hover:bg-slate-900 transition-colors text-left focus:outline-none">
+                            <span class="flex items-center gap-3">
+                                <span class="p-2.5 bg-[#0077b5]/10 text-[#0077b5] rounded-xl"><i data-lucide="linkedin" class="w-5 h-5"></i></span>
+                                <span class="font-bold text-white text-base">LinkedIn Outreach</span>
+                            </span>
+                            <i data-lucide="chevron-down" id="icon-acc-linkedin" class="w-5 h-5 text-slate-400 transition-transform duration-200"></i>
+                        </button>
+                        <div id="acc-linkedin" class="hidden p-6 border-t border-slate-850">
+                            <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                                <!-- LATAM -->
+                                <div>
+                                    <h4 class="text-xs font-bold text-slate-400 uppercase tracking-widest mb-3 flex items-center gap-1.5">🌎 LinkedIn - LATAM</h4>
+                                    <div class="space-y-2 text-xs">
+                                        <div class="flex justify-between items-center bg-slate-900/40 p-2.5 rounded-lg border border-slate-850">
+                                            <span class="text-slate-300">General Servicios</span>
+                                            <span class="font-bold text-white">5 campañas</span>
+                                        </div>
+                                        <div class="flex justify-between items-center bg-slate-900/40 p-2.5 rounded-lg border border-slate-850">
+                                            <span class="text-slate-300">Por Área RRHH</span>
+                                            <span class="font-bold text-white">5 campañas</span>
+                                        </div>
+                                        <div class="flex justify-between items-center bg-slate-900/40 p-2.5 rounded-lg border border-slate-850">
+                                            <span class="text-slate-300">Área Operaciones</span>
+                                            <span class="font-bold text-white">4 campañas</span>
+                                        </div>
+                                        <div class="flex justify-between items-center bg-slate-900/40 p-2.5 rounded-lg border border-slate-850">
+                                            <span class="text-slate-300">Área TI</span>
+                                            <span class="font-bold text-white">3 campañas</span>
+                                        </div>
+                                        <div class="flex justify-between items-center bg-slate-900/40 p-2.5 rounded-lg border border-slate-850">
+                                            <span class="text-slate-300">Presidencia / Gerencia General</span>
+                                            <span class="font-bold text-white">3 campañas</span>
+                                        </div>
+                                        <div class="flex justify-between items-center bg-slate-900/40 p-2.5 rounded-lg border border-slate-850">
+                                            <span class="text-slate-300">2do Grado Webinar</span>
+                                            <span class="font-bold text-white">4 campañas</span>
+                                        </div>
+                                    </div>
+                                </div>
+                                <!-- Brasil -->
+                                <div>
+                                    <h4 class="text-xs font-bold text-emerald-400 uppercase tracking-widest mb-3 flex items-center gap-1.5">🇧🇷 LinkedIn - BRASIL</h4>
+                                    <div class="space-y-2 text-xs">
+                                        <div class="flex justify-between items-center bg-slate-900/40 p-2.5 rounded-lg border border-slate-850">
+                                            <span class="text-slate-300">General Servicios</span>
+                                            <span class="font-bold text-white">3 campañas</span>
+                                        </div>
+                                        <div class="flex justify-between items-center bg-slate-900/40 p-2.5 rounded-lg border border-slate-850 border-emerald-500/20">
+                                            <span class="text-emerald-300 font-medium">Reforma Laboral</span>
+                                            <span class="font-bold text-emerald-400">3 campañas</span>
+                                        </div>
+                                        <div class="flex justify-between items-center bg-slate-900/40 p-2.5 rounded-lg border border-slate-850">
+                                            <span class="text-slate-300">Por Área RRHH</span>
+                                            <span class="font-bold text-white">6 campañas</span>
+                                        </div>
+                                        <div class="flex justify-between items-center bg-slate-900/40 p-2.5 rounded-lg border border-slate-850">
+                                            <span class="text-slate-300">Área Operaciones</span>
+                                            <span class="font-bold text-white">4 campañas</span>
+                                        </div>
+                                        <div class="flex justify-between items-center bg-slate-900/40 p-2.5 rounded-lg border border-slate-850">
+                                            <span class="text-slate-300">Área TI</span>
+                                            <span class="font-bold text-white">2 campañas</span>
+                                        </div>
+                                        <div class="flex justify-between items-center bg-slate-900/40 p-2.5 rounded-lg border border-slate-850">
+                                            <span class="text-slate-300">Presidencia / Gerencia General</span>
+                                            <span class="font-bold text-white">2 campañas</span>
+                                        </div>
+                                        <div class="flex justify-between items-center bg-slate-900/40 p-2.5 rounded-lg border border-slate-850">
+                                            <span class="text-slate-300">2do Grado Webinar</span>
+                                            <span class="font-bold text-white">4 campañas</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Accordion Item 2: Klenty Correo -->
+                    <div class="border border-slate-800 rounded-2xl overflow-hidden bg-slate-950/40">
+                        <button onclick="toggleAccordion('acc-klenty')" class="w-full flex items-center justify-between p-5 bg-slate-900/60 hover:bg-slate-900 transition-colors text-left focus:outline-none">
+                            <span class="flex items-center gap-3">
+                                <span class="p-2.5 bg-indigo-500/10 text-indigo-400 rounded-xl"><i data-lucide="mail" class="w-5 h-5"></i></span>
+                                <span class="font-bold text-white text-base">Klenty Correo Outreach</span>
+                            </span>
+                            <i data-lucide="chevron-down" id="icon-acc-klenty" class="w-5 h-5 text-slate-400 transition-transform duration-200"></i>
+                        </button>
+                        <div id="acc-klenty" class="hidden p-6 border-t border-slate-850">
+                            <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                                <!-- LATAM -->
+                                <div>
+                                    <h4 class="text-xs font-bold text-slate-400 uppercase tracking-widest mb-3 flex items-center gap-1.5">🌎 Klenty - LATAM</h4>
+                                    <div class="space-y-2 text-xs">
+                                        <div class="flex justify-between items-center bg-slate-900/40 p-3 rounded-lg border border-slate-850">
+                                            <span class="text-slate-300">Nurturing secuencias</span>
+                                            <span class="font-bold text-white">4 campañas</span>
+                                        </div>
+                                        <div class="flex justify-between items-center bg-slate-900/40 p-3 rounded-lg border border-slate-850">
+                                            <span class="text-slate-300">Convocatoria Eventos</span>
+                                            <span class="font-bold text-white">5 campañas</span>
+                                        </div>
+                                    </div>
+                                </div>
+                                <!-- Brasil -->
+                                <div>
+                                    <h4 class="text-xs font-bold text-emerald-400 uppercase tracking-widest mb-3 flex items-center gap-1.5">🇧🇷 Klenty - BRASIL</h4>
+                                    <div class="space-y-2 text-xs">
+                                        <div class="flex justify-between items-center bg-slate-900/40 p-2.5 rounded-lg border border-slate-850">
+                                            <span class="text-slate-300">Nurturing secuencia general</span>
+                                            <span class="font-bold text-white">2 campañas</span>
+                                        </div>
+                                        <div class="flex justify-between items-center bg-slate-900/40 p-2.5 rounded-lg border border-slate-850 border-emerald-500/20">
+                                            <span class="text-emerald-300 font-medium">Secuencias Reforma Laboral</span>
+                                            <span class="font-bold text-emerald-400">3 campañas</span>
+                                        </div>
+                                        <div class="flex justify-between items-center bg-slate-900/40 p-2.5 rounded-lg border border-slate-850">
+                                            <span class="text-slate-300">Cuentas específicas</span>
+                                            <span class="font-bold text-white">3 campañas</span>
+                                        </div>
+                                        <div class="flex justify-between items-center bg-slate-900/40 p-2.5 rounded-lg border border-slate-850">
+                                            <span class="text-slate-300">Convocatoria Eventos</span>
+                                            <span class="font-bold text-white">5 campañas</span>
+                                        </div>
+                                    </div>
+                                    <div class="bg-emerald-500/5 p-3 rounded-xl border border-emerald-500/10 text-center mt-3 text-3xs font-bold text-emerald-300 leading-relaxed">
+                                        Campaña Post Webinar grabación: <span class="text-slate-300 font-medium">Secuencias de continuidad y nurturing posterior al evento</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Accordion Item 3: Envíalo Simple -->
+                    <div class="border border-slate-800 rounded-2xl overflow-hidden bg-slate-950/40">
+                        <button onclick="toggleAccordion('acc-envialosimple')" class="w-full flex items-center justify-between p-5 bg-slate-900/60 hover:bg-slate-900 transition-colors text-left focus:outline-none">
+                            <span class="flex items-center gap-3">
+                                <span class="p-2.5 bg-[#38bdf8]/10 text-[#38bdf8] rounded-xl"><i data-lucide="layout-template" class="w-5 h-5"></i></span>
+                                <span class="font-bold text-white text-base">Envíalo Simple</span>
+                            </span>
+                            <i data-lucide="chevron-down" id="icon-acc-envialosimple" class="w-5 h-5 text-slate-400 transition-transform duration-200"></i>
+                        </button>
+                        <div id="acc-envialosimple" class="hidden p-6 border-t border-slate-850">
+                            <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                                <!-- LATAM -->
+                                <div>
+                                    <h4 class="text-xs font-bold text-slate-400 uppercase tracking-widest mb-3 flex items-center gap-1.5">🌎 Envíalo Simple - LATAM</h4>
+                                    <div class="space-y-2 text-xs">
+                                        <div class="flex justify-between items-center bg-slate-900/40 p-3 rounded-lg border border-slate-850">
+                                            <span class="text-slate-300">Visual General Servicios</span>
+                                            <span class="font-bold text-white">2 campañas</span>
+                                        </div>
+                                        <div class="flex justify-between items-center bg-slate-900/40 p-3 rounded-lg border border-slate-850">
+                                            <span class="text-slate-300">Visual Invitaciones Eventos</span>
+                                            <span class="font-bold text-white">4 campañas</span>
+                                        </div>
+                                    </div>
+                                </div>
+                                <!-- Brasil -->
+                                <div>
+                                    <h4 class="text-xs font-bold text-emerald-400 uppercase tracking-widest mb-3 flex items-center gap-1.5">🇧🇷 Envíalo Simple - BRASIL</h4>
+                                    <div class="space-y-2 text-xs">
+                                        <div class="flex justify-between items-center bg-slate-900/40 p-3 rounded-lg border border-slate-850">
+                                            <span class="text-slate-300">Visual General Servicios</span>
+                                            <span class="font-bold text-white">2 campañas</span>
+                                        </div>
+                                        <div class="flex justify-between items-center bg-slate-900/40 p-3 rounded-lg border border-slate-850">
+                                            <span class="text-slate-300">Visual Invitaciones Eventos</span>
+                                            <span class="font-bold text-white">5 campañas</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Accordion Item 4: WhatsApp -->
+                    <div class="border border-slate-800 rounded-2xl overflow-hidden bg-slate-950/40">
+                        <button onclick="toggleAccordion('acc-whatsapp')" class="w-full flex items-center justify-between p-5 bg-slate-900/60 hover:bg-slate-900 transition-colors text-left focus:outline-none">
+                            <span class="flex items-center gap-3">
+                                <span class="p-2.5 bg-[#128c7e]/10 text-[#25d366] rounded-xl"><i data-lucide="message-square" class="w-5 h-5"></i></span>
+                                <span class="font-bold text-white text-base">WhatsApp Outreach</span>
+                            </span>
+                            <i data-lucide="chevron-down" id="icon-acc-whatsapp" class="w-5 h-5 text-slate-400 transition-transform duration-200"></i>
+                        </button>
+                        <div id="acc-whatsapp" class="hidden p-6 border-t border-slate-850">
+                            <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                                <!-- LATAM -->
+                                <div>
+                                    <h4 class="text-xs font-bold text-slate-400 uppercase tracking-widest mb-3 flex items-center gap-1.5">🌎 WhatsApp - LATAM</h4>
+                                    <div class="bg-slate-900/40 p-4 rounded-xl border border-slate-850 text-xs text-slate-400 leading-relaxed">
+                                        <span class="font-bold text-slate-300 block mb-2">Canal de Agilidad:</span>
+                                        Utilizado principalmente para contacto 1:1, recordatorios rápidos y aceleración final de confirmaciones comerciales.
+                                    </div>
+                                </div>
+                                <!-- Brasil -->
+                                <div>
+                                    <h4 class="text-xs font-bold text-emerald-400 uppercase tracking-widest mb-3 flex items-center gap-1.5">🇧🇷 WhatsApp - BRASIL</h4>
+                                    <div class="space-y-2 text-xs">
+                                        <div class="bg-slate-900/40 p-3 rounded-lg border border-slate-850 border-emerald-500/15 text-[10px] leading-relaxed text-slate-300 space-y-1.5">
+                                            <p class="font-bold text-emerald-400">Campaña Post Webinar grabación:</p>
+                                            <ul class="list-disc list-inside text-3xs text-slate-400 space-y-1">
+                                                <li>Seguimiento posterior al evento</li>
+                                                <li>Envío de grabación táctica</li>
+                                                <li>Continuidad comercial / agendamiento</li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Sección de Continuidad de Proyecto -->
+            <div class="bg-gradient-to-r from-slate-900 via-slate-950 to-slate-900 rounded-3xl p-8 border border-slate-800 relative overflow-hidden z-10 shadow-lg">
+                <div class="absolute inset-0 bg-[radial-gradient(circle_at_top_right,rgba(16,185,129,0.05),transparent_40%)]"></div>
+                <div class="relative z-10">
+                    
+                    <div class="flex flex-col md:flex-row md:items-center justify-between mb-8">
+                        <div>
+                            <span class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-semibold bg-emerald-500/15 text-emerald-400 border border-emerald-500/25 mb-4">
+                                <span class="w-2 h-2 rounded-full bg-emerald-400 animate-pulse"></span> Continuidad de Proyecto
+                            </span>
+                            <h3 class="text-xl md:text-2xl font-bold text-white">Campañas Pausadas</h3>
+                        </div>
+                    </div>
+
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                        <!-- Card 2do Toque -->
+                        <div class="bg-slate-950/80 p-6 rounded-2xl border border-slate-900 hover:border-brand-500/30 transition-all duration-300">
+                            <div class="flex items-center gap-3 mb-4">
+                                <span class="p-2 bg-brand-500/10 text-brand-400 rounded-xl"><i data-lucide="hourglass" class="w-5 h-5"></i></span>
+                                <div>
+                                    <h4 class="text-sm font-bold text-white">2do Toque Post Webinar</h4>
+                                    <span class="text-3xs text-slate-500 uppercase tracking-wider font-semibold">Continuidad de Contacto</span>
+                                </div>
+                            </div>
+                            <p class="text-xs text-slate-400 leading-relaxed mb-4">
+                                Diseñado para nutrir y reactivar de manera progresiva a los líderes de opinión y directores que asistieron al evento Fim da Escala 6x1 en Brasil, proveyendo un canal directo de soporte y consultoría sobre las soluciones HCM.
+                            </p>
+                            <div class="flex items-center gap-2 text-2xs font-bold text-slate-300">
+                                <span class="w-2 h-2 rounded-full bg-brand-500"></span> Proceso de envío activo vía Klenty & WhatsApp
+                            </div>
+                        </div>
+
+                        <!-- Card Nuevos Materiales -->
+                        <div class="bg-slate-950/80 p-6 rounded-2xl border border-slate-900 hover:border-emerald-500/30 transition-all duration-300">
+                            <div class="flex items-center gap-3 mb-4">
+                                <span class="p-2 bg-emerald-500/10 text-emerald-400 rounded-xl"><i data-lucide="book-open" class="w-5 h-5"></i></span>
+                                <div>
+                                    <h4 class="text-sm font-bold text-white">Nuevos Materiales Listos</h4>
+                                    <span class="text-3xs text-slate-500 uppercase tracking-wider font-semibold">Capsulas, Onepage</span>
+                                </div>
+                            </div>
+                            <p class="text-xs text-slate-400 leading-relaxed mb-4">
+                                Elaboración y refinamiento de herramientas y recursos visuales para agilizar el cierre del pipeline: Cápsulas de contenido educativo adaptadas a mercados de LatAm y un OnePage corporativo interactivo del negocio de UKG.
+                            </p>
+                            <div class="flex items-center gap-2 text-2xs font-bold text-emerald-400">
+                                <span class="w-2 h-2 rounded-full bg-emerald-500 animate-pulse"></span> Listos para descarga y distribución
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+
+        </section>
+
+        <!-- ================= SECCIÓN 5: PERFILES ================= -->
+        <section id="section-perfiles" class="section-fade hidden max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
+            <div class="text-center py-20 bg-white rounded-3xl border border-dashed border-slate-300 shadow-sm">
+                <div class="w-16 h-16 bg-brand-50 rounded-2xl flex items-center justify-center mx-auto mb-6 text-brand-500">
+                    <i data-lucide="user-check" class="w-8 h-8"></i>
+                </div>
+                <h3 class="text-2xl font-extrabold text-slate-900 mb-2">Sección: Perfiles</h3>
+                <p class="text-slate-500 max-w-md mx-auto mb-6 text-sm">
+                    Análisis detallado de los perfiles de tomadores de decisión (Buyer Personas), cargos objetivo y mapas de empatía de los contactos clave.
+                </p>
+                <div class="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full text-xs font-medium bg-amber-50 text-amber-800 border border-amber-200">
+                    <span class="w-1.5 h-1.5 rounded-full bg-amber-500 animate-pulse"></span> Estructura lista para desarrollo
+                </div>
+            </div>
+        </section>
+
+        <!-- ================= SECCIÓN 6: RECURSOS ================= -->
+        <section id="section-recursos" class="section-fade hidden max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10 md:py-16 mt-6 border-t-4 border-indigo-500 bg-gradient-to-b from-indigo-50/40 via-slate-50 to-white rounded-b-3xl shadow-md relative">
+            <!-- Floating Indicator -->
+            <div class="absolute top-4 right-6 bg-indigo-600 text-white text-[10px] font-bold uppercase tracking-widest px-3 py-1 rounded-full border border-indigo-750 shadow-sm">
+                Hub Corporativo
+            </div>
+
+            <!-- Encabezado de la Sección Recursos -->
+            <div class="mb-10">
+                <span class="text-xs font-bold text-indigo-600 uppercase tracking-widest flex items-center gap-2">
+                    <i data-lucide="folder-git" class="w-4 h-4"></i> Centro de Recursos de Alto Desempeño
+                </span>
+                <h2 class="text-3xl md:text-4xl font-extrabold text-slate-900 mt-2">Recursos y Entregables del Proyecto</h2>
+                <p class="text-slate-500 mt-3 text-base md:text-lg max-w-3xl">
+                    Accede de forma rápida e interactiva a todas las bases de datos unificadas, materiales creativos de marca y herramientas comerciales diseñadas para la optimización de la prospección UKG.
+                </p>
+            </div>
+
+            <!-- Barra de Herramientas del Resource Center (Buscador y Filtros Dinámicos) -->
+            <div class="bg-white/80 backdrop-blur-md rounded-2xl p-4 border border-slate-200/85 mb-10 flex flex-col md:flex-row items-center justify-between gap-4 shadow-sm">
+                <!-- Botones de Filtrado -->
+                <div class="flex flex-wrap gap-2 w-full md:w-auto">
+                    <button onclick="filterResources('todos')" id="filter-todos" class="resource-filter-btn px-4 py-2 rounded-xl text-xs font-bold transition-all bg-indigo-600 text-white shadow-sm hover:bg-indigo-700">
+                        Todos los Recursos
+                    </button>
+                    <button onclick="filterResources('datos')" id="filter-datos" class="resource-filter-btn px-4 py-2 rounded-xl text-xs font-bold transition-all bg-slate-100 text-slate-600 hover:bg-slate-200/80">
+                        Bases de Datos
+                    </button>
+                    <button onclick="filterResources('materiales')" id="filter-materiales" class="resource-filter-btn px-4 py-2 rounded-xl text-xs font-bold transition-all bg-slate-100 text-slate-600 hover:bg-slate-200/80">
+                        Materiales y Copies
+                    </button>
+                    <button onclick="filterResources('webinars')" id="filter-webinars" class="resource-filter-btn px-4 py-2 rounded-xl text-xs font-bold transition-all bg-slate-100 text-slate-600 hover:bg-slate-200/80">
+                        Webinars & Landings
+                    </button>
+                </div>
+                
+                <!-- Buscador de Recursos -->
+                <div class="relative w-full md:w-80">
+                    <span class="absolute inset-y-0 left-0 flex items-center pl-3 text-slate-400">
+                        <i data-lucide="search" class="w-4 h-4"></i>
+                    </span>
+                    <input onkeyup="searchResource(this.value)" type="text" placeholder="Buscar material o recurso..." class="w-full pl-9 pr-4 py-2 text-xs border border-slate-200 rounded-xl bg-slate-50/50 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500 focus:bg-white transition-all text-slate-800 font-medium">
+                </div>
+            </div>
+
+            <!-- Grid de Recursos (Resource Cards) -->
+            <div id="resources-container" class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-8">
+                
+                <!-- Recurso 1: BBDD -->
+                <div data-resource-category="datos" class="resource-card group bg-white p-6 rounded-3xl border border-slate-200 hover:border-indigo-500/50 hover:shadow-xl hover:-translate-y-1 transition-all duration-300 flex flex-col justify-between h-[250px] relative overflow-hidden">
+                    <div class="absolute top-0 right-0 w-24 h-24 bg-indigo-50 rounded-bl-full -mr-6 -mt-6 transition-all group-hover:bg-indigo-100/50 opacity-40"></div>
+                    <div>
+                        <div class="flex items-center justify-between mb-4">
+                            <span class="p-3 bg-indigo-50 text-indigo-600 rounded-2xl group-hover:bg-indigo-600 group-hover:text-white transition-all duration-300 shadow-xs"><i data-lucide="database" class="w-7 h-7"></i></span>
+                            <span class="text-[10px] font-extrabold uppercase bg-emerald-50 text-emerald-700 px-2.5 py-1 rounded-full border border-emerald-100 flex items-center gap-1">
+                                <span class="w-1.5 h-1.5 rounded-full bg-emerald-500 animate-pulse"></span> Google Sheets
+                            </span>
+                        </div>
+                        <h3 class="text-lg font-bold text-slate-900 group-hover:text-indigo-600 transition-colors">Acceso a la BBDD</h3>
+                        <p class="text-xs text-slate-500 mt-2 leading-relaxed max-w-[90%]">
+                            Base de datos consolidada del proyecto con empresas, contactos, segmentaciones y registros trabajados durante las campañas.
+                        </p>
+                    </div>
+                    <div class="pt-4 border-t border-slate-100 flex items-center justify-between mt-auto">
+                        <span class="text-2xs text-slate-400 font-semibold uppercase tracking-wide">ID: BBDD_UKG_2026</span>
+                        <a href="https://docs.google.com/spreadsheets/d/10kxs8eYvV6ZkIYI-EHcVleya0l-cStG9vYjBS2zQn0M/edit?usp=drive_link" target="_blank" rel="noopener noreferrer" class="inline-flex items-center justify-center px-4 py-2 border border-slate-200 text-xs font-bold rounded-xl text-slate-700 bg-slate-50 group-hover:bg-indigo-600 group-hover:text-white group-hover:border-indigo-600 shadow-sm transition-all duration-300">
+                            Abrir Planilla <i data-lucide="external-link" class="ml-1.5 w-3.5 h-3.5"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Recurso 2: Brand UKG -->
+                <div data-resource-category="materiales" class="resource-card group bg-white p-6 rounded-3xl border border-slate-200 hover:border-indigo-500/50 hover:shadow-xl hover:-translate-y-1 transition-all duration-300 flex flex-col justify-between h-[250px] relative overflow-hidden">
+                    <div class="absolute top-0 right-0 w-24 h-24 bg-violet-50 rounded-bl-full -mr-6 -mt-6 transition-all group-hover:bg-violet-100/50 opacity-40"></div>
+                    <div>
+                        <div class="flex items-center justify-between mb-4">
+                            <span class="p-3 bg-violet-50 text-violet-600 rounded-2xl group-hover:bg-indigo-600 group-hover:text-white transition-all duration-300 shadow-xs"><i data-lucide="award" class="w-7 h-7"></i></span>
+                            <span class="text-[10px] font-extrabold uppercase bg-indigo-50 text-indigo-700 px-2.5 py-1 rounded-full border border-indigo-100 flex items-center gap-1">
+                                <i data-lucide="folder" class="w-3.5 h-3.5"></i> Google Drive
+                            </span>
+                        </div>
+                        <h3 class="text-lg font-bold text-slate-900 group-hover:text-indigo-600 transition-colors">Brand UKG</h3>
+                        <p class="text-xs text-slate-500 mt-2 leading-relaxed max-w-[90%]">
+                            Repositorio de materiales de marca, lineamientos visuales y recursos corporativos de UKG utilizados durante el proyecto.
+                        </p>
+                    </div>
+                    <div class="pt-4 border-t border-slate-100 flex items-center justify-between mt-auto">
+                        <span class="text-2xs text-slate-400 font-semibold uppercase tracking-wide">ID: BRAND_KIT_UKG</span>
+                        <a href="https://drive.google.com/drive/u/9/folders/1h1znEZvJ8ryPtvg5kFxpCSed3Jy_QN__" target="_blank" rel="noopener noreferrer" class="inline-flex items-center justify-center px-4 py-2 border border-slate-200 text-xs font-bold rounded-xl text-slate-700 bg-slate-50 group-hover:bg-indigo-600 group-hover:text-white group-hover:border-indigo-600 shadow-sm transition-all duration-300">
+                            Explorar Carpeta <i data-lucide="folder-open" class="ml-1.5 w-3.5 h-3.5"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Recurso 3: Parrillas de contenidos y materiales -->
+                <div data-resource-category="materiales" class="resource-card group bg-white p-6 rounded-3xl border border-slate-200 hover:border-indigo-500/50 hover:shadow-xl hover:-translate-y-1 transition-all duration-300 flex flex-col justify-between h-[250px] relative overflow-hidden">
+                    <div class="absolute top-0 right-0 w-24 h-24 bg-blue-50 rounded-bl-full -mr-6 -mt-6 transition-all group-hover:bg-blue-100/50 opacity-40"></div>
+                    <div>
+                        <div class="flex items-center justify-between mb-4">
+                            <span class="p-3 bg-blue-50 text-blue-600 rounded-2xl group-hover:bg-indigo-600 group-hover:text-white transition-all duration-300 shadow-xs"><i data-lucide="layout-template" class="w-7 h-7"></i></span>
+                            <span class="text-[10px] font-extrabold uppercase bg-indigo-50 text-indigo-700 px-2.5 py-1 rounded-full border border-indigo-100 flex items-center gap-1">
+                                <i data-lucide="folder" class="w-3.5 h-3.5"></i> Google Drive
+                            </span>
+                        </div>
+                        <h3 class="text-lg font-bold text-slate-900 group-hover:text-indigo-600 transition-colors">Parrillas de Contenidos y Materiales</h3>
+                        <p class="text-xs text-slate-500 mt-2 leading-relaxed max-w-[90%]">
+                            Acceso a contenidos desarrollados, piezas, copies, materiales comerciales y recursos utilizados para campañas y outreach.
+                        </p>
+                    </div>
+                    <div class="pt-4 border-t border-slate-100 flex items-center justify-between mt-auto">
+                        <span class="text-2xs text-slate-400 font-semibold uppercase tracking-wide">ID: MEDIA_PLANNER</span>
+                        <a href="https://drive.google.com/drive/u/9/folders/1KZAFuGDlEm02VASkGdziJACpnu4gd1qx" target="_blank" rel="noopener noreferrer" class="inline-flex items-center justify-center px-4 py-2 border border-slate-200 text-xs font-bold rounded-xl text-slate-700 bg-slate-50 group-hover:bg-indigo-600 group-hover:text-white group-hover:border-indigo-600 shadow-sm transition-all duration-300">
+                            Explorar Contenidos <i data-lucide="folder-open" class="ml-1.5 w-3.5 h-3.5"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Recurso 4: Webinar Brasil -->
+                <div data-resource-category="webinars" class="resource-card group bg-white p-6 rounded-3xl border border-slate-200 hover:border-indigo-500/50 hover:shadow-xl hover:-translate-y-1 transition-all duration-300 flex flex-col justify-between h-[250px] relative overflow-hidden">
+                    <div class="absolute top-0 right-0 w-24 h-24 bg-fuchsia-50 rounded-bl-full -mr-6 -mt-6 transition-all group-hover:bg-fuchsia-100/50 opacity-40"></div>
+                    <div>
+                        <div class="flex items-center justify-between mb-4">
+                            <span class="p-3 bg-fuchsia-50 text-fuchsia-600 rounded-2xl group-hover:bg-indigo-600 group-hover:text-white transition-all duration-300 shadow-xs"><i data-lucide="video" class="w-7 h-7"></i></span>
+                            <span class="text-[10px] font-extrabold uppercase bg-fuchsia-50 text-fuchsia-700 px-2.5 py-1 rounded-full border border-fuchsia-100 flex items-center gap-1">
+                                <span class="w-1.5 h-1.5 rounded-full bg-fuchsia-500 animate-pulse"></span> Webinar BR 🇧🇷
+                            </span>
+                        </div>
+                        <h3 class="text-lg font-bold text-slate-900 group-hover:text-indigo-600 transition-colors">Webinar Brasil - Fim da escala 6x1</h3>
+                        <p class="text-xs text-slate-500 mt-2 leading-relaxed max-w-[90%]">
+                            Landing y materiales relacionados con el webinar desarrollado para el mercado de Brasil enfocado en la transición del modelo 6x1.
+                        </p>
+                    </div>
+                    <div class="pt-4 border-t border-slate-100 flex items-center justify-between mt-auto">
+                        <span class="text-2xs text-slate-400 font-semibold uppercase tracking-wide">ID: WEB_TRANSITION_6X1</span>
+                        <a href="https://mti-selling.github.io/UKG-webinar-Fim-da-escala-6x1/" target="_blank" rel="noopener noreferrer" class="inline-flex items-center justify-center px-4 py-2 border border-slate-200 text-xs font-bold rounded-xl text-slate-700 bg-slate-50 group-hover:bg-indigo-600 group-hover:text-white group-hover:border-indigo-600 shadow-sm transition-all duration-300">
+                            Abrir Landing <i data-lucide="globe" class="ml-1.5 w-3.5 h-3.5"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Recurso 5: Carpeta Completa del Proyecto -->
+                <div data-resource-category="materiales" class="resource-card group bg-white p-6 rounded-3xl border border-slate-200 hover:border-indigo-500/50 hover:shadow-xl hover:-translate-y-1 transition-all duration-300 flex flex-col justify-between h-[250px] relative overflow-hidden">
+                    <div class="absolute top-0 right-0 w-24 h-24 bg-indigo-50 rounded-bl-full -mr-6 -mt-6 transition-all group-hover:bg-indigo-100/50 opacity-40"></div>
+                    <div>
+                        <div class="flex items-center justify-between mb-4">
+                            <span class="p-3 bg-indigo-50 text-indigo-600 rounded-2xl group-hover:bg-indigo-600 group-hover:text-white transition-all duration-300 shadow-xs"><i data-lucide="folder-git" class="w-7 h-7"></i></span>
+                            <span class="text-[10px] font-extrabold uppercase bg-indigo-50 text-indigo-700 px-2.5 py-1 rounded-full border border-indigo-100 flex items-center gap-1">
+                                <i data-lucide="folder" class="w-3.5 h-3.5"></i> Google Drive
+                            </span>
+                        </div>
+                        <h3 class="text-lg font-bold text-slate-900 group-hover:text-indigo-600 transition-colors">Carpeta Completa del proyecto</h3>
+                        <p class="text-xs text-slate-500 mt-2 leading-relaxed max-w-[90%]">
+                            Acceso al directorio raíz con todas las carpetas, informes, bases de datos y entregables consolidados del Proyecto UKG.
+                        </p>
+                    </div>
+                    <div class="pt-4 border-t border-slate-100 flex items-center justify-between mt-auto">
+                        <span class="text-2xs text-slate-400 font-semibold uppercase tracking-wide">ID: ROOT_DIR_UKG</span>
+                        <a href="https://drive.google.com/drive/u/9/folders/1CxiuRv_XIOEHq1X4MO0XAndl4oVkzSTh" target="_blank" rel="noopener noreferrer" class="inline-flex items-center justify-center px-4 py-2 border border-slate-200 text-xs font-bold rounded-xl text-slate-700 bg-slate-50 group-hover:bg-indigo-600 group-hover:text-white group-hover:border-indigo-600 shadow-sm transition-all duration-300">
+                            Abrir Directorio <i data-lucide="folder-open" class="ml-1.5 w-3.5 h-3.5"></i>
+                        </a>
+                    </div>
+                </div>
+
+            </div>
+
+        </section>
+
+    </main>
+
+    <!-- Footer Corporativo -->
+    <footer class="bg-slate-900 text-slate-400 border-t border-slate-800 py-10 mt-auto">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col md:flex-row items-center justify-between text-sm">
+            <div class="flex items-center space-x-2 text-white font-semibold mb-4 md:mb-0">
+                <div class="w-6 h-6 bg-brand-600 rounded flex items-center justify-center text-xs font-bold text-white">U</div>
+                <span>Cierre_UKG</span>
+            </div>
+            <p>&copy; 2026. Reporte de Rendimiento B2B Confidencial para UKG.</p>
+        </div>
+    </footer>
+
+    <!-- Scripts para Interactividad y Control de Menú / Tabs -->
+    <script>
+        // Inicializar Iconos Lucide
+        lucide.createIcons();
+
+        // Control del Menú Móvil
+        function toggleMobileMenu() {
+            const menu = document.getElementById('mobile-menu');
+            const openIcon = document.getElementById('menu-icon-open');
+            const closeIcon = document.getElementById('menu-icon-close');
+            
+            if (menu.classList.contains('hidden')) {
+                menu.classList.remove('hidden');
+                openIcon.classList.add('hidden');
+                closeIcon.classList.remove('hidden');
+            } else {
+                menu.classList.add('hidden');
+                openIcon.classList.remove('hidden');
+                closeIcon.classList.add('hidden');
+            }
+        }
+
+        // Lógica de Acordeones de la Sección de Campañas
+        function toggleAccordion(id) {
+            const item = document.getElementById(id);
+            const icon = document.getElementById(`icon-${id}`);
+            
+            if (item.classList.contains('hidden')) {
+                item.classList.remove('hidden');
+                if (icon) icon.classList.add('rotate-180');
+            } else {
+                item.classList.add('hidden');
+                if (icon) icon.classList.remove('rotate-180');
+            }
+        }
+
+        // Navegación Interactiva SPA (Single Page Application)
+        function switchTab(tabId) {
+            // Lista de todas las secciones
+            const sections = ['home', 'bbdd', 'icp', 'campanas', 'perfiles', 'recursos'];
+            
+            sections.forEach(sec => {
+                const sectionEl = document.getElementById(`section-${sec}`);
+                const navBtn = document.getElementById(`nav-${sec}`);
+                const mobileNavBtn = document.getElementById(`mobile-nav-${sec}`);
+
+                if (sec === tabId) {
+                    // Mostrar sección activa
+                    sectionEl.classList.remove('hidden');
+                    // Efecto de fade-in
+                    setTimeout(() => {
+                        sectionEl.classList.add('opacity-100', 'translate-y-0');
+                    }, 50);
+
+                    // Estilo de botón activo
+                    if (navBtn) {
+                        navBtn.classList.add('active-nav-item');
+                        navBtn.classList.remove('text-slate-600', 'border-transparent');
+                    }
+                    if (mobileNavBtn) {
+                        mobileNavBtn.classList.add('bg-brand-50', 'text-brand-600', 'font-semibold');
+                        mobileNavBtn.classList.remove('text-slate-700', 'hover:bg-slate-100');
+                    }
+                } else {
+                    // Ocultar sección inactiva
+                    sectionEl.classList.add('hidden');
+                    sectionEl.classList.remove('opacity-100', 'translate-y-0');
+
+                    // Quitar estilo activo
+                    if (navBtn) {
+                        navBtn.classList.remove('active-nav-item');
+                        navBtn.classList.add('text-slate-600', 'border-transparent');
+                    }
+                    if (mobileNavBtn) {
+                        mobileNavBtn.classList.remove('bg-brand-50', 'text-brand-600', 'font-semibold');
+                        mobileNavBtn.classList.remove('text-slate-700', 'hover:bg-slate-100');
+                    }
+                }
+            });
+
+            // Re-ejecutar renderizado de iconos Lucide para asegurar que se muestren en la pestaña activada
+            setTimeout(() => {
+                lucide.createIcons();
+            }, 60);
+
+            // Cerrar menú móvil si está abierto
+            const mobileMenu = document.getElementById('mobile-menu');
+            if (!mobileMenu.classList.contains('hidden')) {
+                toggleMobileMenu();
+            }
+
+            // Desplazar el scroll hacia arriba para una óptima lectura
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+
+        // Buscador Inteligente en Tiempo Real de la Sección Recursos
+        function searchResource(query) {
+            const cards = document.querySelectorAll('.resource-card');
+            const lowerQuery = query.toLowerCase().trim();
+            
+            cards.forEach(card => {
+                const title = card.querySelector('h3').textContent.toLowerCase();
+                const description = card.querySelector('p').textContent.toLowerCase();
+                
+                if (title.includes(lowerQuery) || description.includes(lowerQuery)) {
+                    card.classList.remove('hidden');
+                } else {
+                    card.classList.add('hidden');
+                }
+            });
+        }
+
+        // Filtro por Categorías en Tiempo Real de la Sección Recursos
+        function filterResources(category) {
+            const cards = document.querySelectorAll('.resource-card');
+            
+            // Actualizar estilo visual del botón activo de filtro
+            const filterButtons = document.querySelectorAll('.resource-filter-btn');
+            filterButtons.forEach(btn => {
+                btn.classList.remove('bg-indigo-600', 'text-white', 'shadow-sm');
+                btn.classList.add('bg-slate-100', 'text-slate-600');
+            });
+            
+            const activeButton = document.getElementById(`filter-${category}`);
+            if (activeButton) {
+                activeButton.classList.remove('bg-slate-100', 'text-slate-600');
+                activeButton.classList.add('bg-indigo-600', 'text-white', 'shadow-sm');
+            }
+
+            // Mostrar u ocultar tarjetas de acuerdo a la categoría seleccionada
+            cards.forEach(card => {
+                const cardCat = card.getAttribute('data-resource-category');
+                if (category === 'todos' || cardCat === category) {
+                    card.classList.remove('hidden');
+                } else {
+                    card.classList.add('hidden');
+                }
+            });
+        }
+
+        // Configurar la pestaña activa inicial en Home al cargar
+        window.addEventListener('DOMContentLoaded', () => {
+            switchTab('home');
+        });
+    </script>
+</body>
+</html>
