@@ -68,9 +68,9 @@
         <div class="max-w-7xl mx-auto flex items-center justify-between">
             <!-- Logo Agencia -->
             <div class="flex items-center space-x-3">
-                <div class="h-9 w-32 bg-slate-900 border border-slate-700 rounded flex items-center justify-center text-xs text-slate-400 font-medium overflow-hidden hover:border-brand-500 transition-colors duration-200">
-                    <img id="logo-agencia" src="assets/logos/mti-logo.png" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';" alt="Agencia" class="h-full w-full object-contain p-1">
-                    <span class="flex items-center gap-1"><i data-lucide="building-2" class="w-4 h-4 text-brand-400"></i> Logo Agencia</span>
+                <div class="h-11 w-36 bg-slate-900 border border-slate-700 rounded flex items-center justify-center text-xs text-slate-400 font-medium overflow-hidden hover:border-brand-500 transition-colors duration-200">
+                    <img id="logo-agencia" src="assets/logos/mti-logo.png" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';" alt="Agencia" class="h-full w-full object-contain">
+                    <span style="display: none;" class="flex items-center gap-1"><i data-lucide="building-2" class="w-4 h-4 text-brand-400"></i> Logo Agencia</span>
                 </div>
             </div>
 
@@ -78,7 +78,7 @@
             <div class="flex items-center space-x-3">
                 <div class="h-9 w-32 bg-slate-900 border border-slate-700 rounded flex items-center justify-center text-xs text-slate-400 font-medium overflow-hidden hover:border-brand-500 transition-colors duration-200">
                     <img id="logo-cliente" src="assets/logos/ukg-logo.png" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';" alt="UKG" class="h-full w-full object-contain p-1">
-                    <span class="flex items-center gap-1"><i data-lucide="award" class="w-4 h-4 text-emerald-400"></i> Logo UKG</span>
+                    <span style="display: none;" class="flex items-center gap-1"><i data-lucide="award" class="w-4 h-4 text-emerald-400"></i> Logo UKG</span>
                 </div>
             </div>
         </div>
@@ -1022,7 +1022,7 @@
                 <div class="bg-gradient-to-br from-slate-900 to-slate-950 text-white p-6 rounded-2xl shadow-xl flex flex-col justify-between">
                     <div class="flex items-center justify-between mb-4">
                         <span class="p-3 bg-brand-500/10 text-brand-400 rounded-xl border border-brand-500/20"><i data-lucide="globe" class="w-6 h-6"></i></span>
-                        <span class="text-3xs font-semibold bg-emerald-500/20 text-emerald-300 px-2.5 py-1 rounded-full">Foco Presencial</span>
+                        <span class="text-3xs font-semibold bg-emerald-500/20 text-emerald-300 px-2 py-0.5 rounded-full">Foco Presencial</span>
                     </div>
                     <div>
                         <span class="text-xs text-brand-300 block font-semibold uppercase">Eventos Presenciales Target</span>
@@ -1281,8 +1281,8 @@
                             </div>
                             <ul class="space-y-2.5 text-xs text-slate-600 font-semibold pl-1">
                                 <li class="flex items-center gap-2"><i data-lucide="chevron-right" class="w-3 h-3 text-emerald-500"></i> Finanzas / Control de Gestión</li>
-                                <li class="flex items-center gap-2"><i data-lucide="chevron-right" class="w-3 h-3 text-emerald-500"></i> Tecnología (Gobernanza de Datos)</li>
-                                <li class="flex items-center gap-2"><i data-lucide="chevron-right" class="w-3 h-3 text-emerald-500"></i> Legal (Políticas de Cumplimiento)</li>
+                                <li class="flex items-center gap-2"><i data-lucide="chevron-right" class="w-3 h-3 text-emerald-550"></i> Tecnología (Gobernanza de Datos)</li>
+                                <li class="flex items-center gap-2"><i data-lucide="chevron-right" class="w-3 h-3 text-emerald-550"></i> Legal (Políticas de Cumplimiento)</li>
                             </ul>
                         </div>
                         <span class="text-3xs text-slate-400 block border-t border-slate-100 pt-3">Foco: Costo, seguridad de datos y ROI</span>
@@ -1368,7 +1368,7 @@
                     
                     <h3 class="text-2xl md:text-3xl font-bold mb-4">Sectores Priorizados: ¿Por qué estos segmentos?</h3>
                     <p class="text-slate-300 text-sm md:text-base max-w-4xl leading-relaxed mb-8">
-                        Se priorizan aquellos sectores que presentan de manera combinada tres características operativas determinantes: <strong class="text-white font-bold">alta rotación de personal</strong>, <strong class="text-white font-bold">esquemas de operación continua (24/7)</strong> y <strong class="text-white font-bold">gran cantidad de colaboradores distribuidos en distintas ubicaciones o turnos complejos</strong>.
+                        Se priorizan aquellos sectores que presentan de manera combinada tres características operativas determinantes: <strong class="text-white font-bold">alta rotación de personal</strong>, <strong class="text-white font-bold">esquemas de operation continua (24/7)</strong> and <strong class="text-white font-bold">gran cantidad de colaboradores distribuidos en distintas ubicaciones o turnos complejos</strong>.
                     </p>
 
                     <!-- Lista con 3 columnas de Industrias -->
@@ -1932,19 +1932,433 @@
         </section>
 
         <!-- ================= SECCIÓN 5: PERFILES ================= -->
-        <section id="section-perfiles" class="section-fade hidden max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
-            <div class="text-center py-20 bg-white rounded-3xl border border-dashed border-slate-300 shadow-sm">
-                <div class="w-16 h-16 bg-brand-50 rounded-2xl flex items-center justify-center mx-auto mb-6 text-brand-500">
-                    <i data-lucide="user-check" class="w-8 h-8"></i>
-                </div>
-                <h3 class="text-2xl font-extrabold text-slate-900 mb-2">Sección: Perfiles</h3>
-                <p class="text-slate-500 max-w-md mx-auto mb-6 text-sm">
-                    Análisis detallado de los perfiles de tomadores de decisión (Buyer Personas), cargos objetivo y mapas de empatía de los contactos clave.
+        <section id="section-perfiles" class="section-fade hidden max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10 md:py-16 mt-6 border-t-4 border-amber-500 bg-gradient-to-b from-slate-900 via-slate-950 to-slate-900 rounded-b-3xl shadow-md relative text-slate-100 animate-fade-in">
+            <!-- Floating Indicator -->
+            <div class="absolute top-4 right-6 bg-amber-500/15 border border-amber-500/30 text-amber-300 text-[10px] font-bold uppercase tracking-widest px-3 py-1 rounded-full shadow-sm flex items-center gap-1.5">
+                <span class="w-1.5 h-1.5 rounded-full bg-amber-400 animate-pulse"></span> Social Selling Center
+            </div>
+
+            <!-- Encabezado de la Sección Perfiles -->
+            <div class="mb-12">
+                <span class="text-xs font-bold text-amber-400 uppercase tracking-widest flex items-center gap-2">
+                    <i data-lucide="trending-up" class="w-4 h-4"></i> Marca Personal & Social Selling
+                </span>
+                <h2 class="text-3xl md:text-4xl font-extrabold text-white mt-2">LinkedIn Growth & Performance Hub</h2>
+                <p class="text-slate-400 mt-3 text-base md:text-lg max-w-4xl">
+                    Análisis de posicionamiento corporativo y tracción orgánica de los perfiles ejecutivos de Sergio y Jorge. Este módulo expone el alcance, engagement y evolución del SSI como aceleradores de confianza comercial.
                 </p>
-                <div class="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full text-xs font-medium bg-amber-50 text-amber-800 border border-amber-200">
-                    <span class="w-1.5 h-1.5 rounded-full bg-amber-500 animate-pulse"></span> Estructura lista para desarrollo
+            </div>
+
+            <!-- Introducción Estratégica -->
+            <div class="bg-slate-950/40 rounded-3xl p-6 md:p-8 border border-slate-850 mb-12 relative overflow-hidden shadow-xl">
+                <div class="relative z-10 grid grid-cols-1 lg:grid-cols-3 gap-8">
+                    <div class="lg:col-span-2 space-y-4">
+                        <span class="text-2xs font-extrabold text-amber-400 bg-amber-500/10 px-2.5 py-1 rounded-full uppercase border border-amber-500/25">Propósito Operacional</span>
+                        <h3 class="text-xl font-bold text-white">Fortalecimiento de Confianza y Autoridad B2B</h3>
+                        <p class="text-slate-400 text-xs md:text-sm leading-relaxed">
+                            Los perfiles utilizados en la operación fueron trabajados estratégicamente para fortalecer el posicionamiento comercial, networking, visibilidad, social selling, la interacción directa con cuentas objetivo y la generación de conversaciones de valor.
+                        </p>
+                        <p class="text-slate-400 text-xs md:text-sm leading-relaxed">
+                            La estrategia de marca personal incluyó un crecimiento controlado de la red, campañas de conexión personalizadas, generación de contenido estratégico y nurturing continuo vía LinkedIn InMail. Directamente ligado a nuestro ICP
+                        </p>
+                    </div>
+                    <div class="bg-slate-900/60 p-5 rounded-2xl border border-slate-800 flex flex-col justify-between">
+                        <div>
+                            <span class="text-3xs text-slate-500 uppercase tracking-widest block font-bold">Frentes Clave</span>
+                            <div class="space-y-2 mt-3 text-xs font-semibold text-slate-300">
+                                <p class="flex items-center gap-1.5"><span class="w-1.5 h-1.5 bg-amber-500 rounded-full"></span> Conexiones Cualitativas</p>
+                                <p class="flex items-center gap-1.5"><span class="w-1.5 h-1.5 bg-amber-500 rounded-full"></span> Creator Mode Activo</p>
+                                <p class="flex items-center gap-1.5"><span class="w-1.5 h-1.5 bg-amber-500 rounded-full"></span> Nurturing Orgánico 1:1</p>
+                            </div>
+                        </div>
+                        <div class="pt-4 border-t border-slate-800 mt-4 text-[11px] text-slate-400 leading-tight">
+                            Enfoque: Humanizar la prospección corporativa y generar puentes de conversación.
+                        </div>
+                    </div>
                 </div>
             </div>
+
+            <!-- Evolución Mensual de KPIs LinkedIn (Dashboard Interactivo - Posicionado arriba con fondo cósmico diferenciado) -->
+            <div class="bg-gradient-to-br from-[#090728] via-[#0d0a3d] to-slate-950 border border-indigo-500/30 rounded-3xl p-6 md:p-8 mb-12 shadow-2xl relative overflow-hidden shadow-indigo-950/20">
+                <div class="absolute inset-0 bg-[radial-gradient(circle_at_top_right,rgba(99,102,241,0.08),transparent_50%)]"></div>
+                <div class="relative z-10">
+                    <div class="mb-8 flex flex-col lg:flex-row lg:items-center justify-between gap-4">
+                        <div>
+                            <h3 class="text-xl font-bold text-white flex items-center gap-2">
+                                <i data-lucide="line-chart" class="text-[#818cf8]"></i> Evolución Mensual de KPIs LinkedIn
+                            </h3>
+                            <p class="text-slate-400 text-xs mt-1">Monitorea el crecimiento progresivo de la red comercial acumulada mes por mes en el proyecto.</p>
+                        </div>
+                        
+                        <!-- Month Selector Buttons -->
+                        <div class="flex flex-wrap gap-1.5 bg-slate-950 p-1.5 rounded-xl border border-slate-800">
+                            <button onclick="changeProfileKPI('dec')" id="btn-kpi-dec" class="p-btn-month px-3 py-1.5 rounded-lg text-2xs font-bold transition-all bg-slate-900 text-slate-400 hover:text-white">Dic</button>
+                            <button onclick="changeProfileKPI('jan')" id="btn-kpi-jan" class="p-btn-month px-3 py-1.5 rounded-lg text-2xs font-bold transition-all bg-slate-900 text-slate-400 hover:text-white">Ene</button>
+                            <button onclick="changeProfileKPI('feb')" id="btn-kpi-feb" class="p-btn-month px-3 py-1.5 rounded-lg text-2xs font-bold transition-all bg-slate-900 text-slate-400 hover:text-white">Feb</button>
+                            <button onclick="changeProfileKPI('mar')" id="btn-kpi-mar" class="p-btn-month px-3 py-1.5 rounded-lg text-2xs font-bold transition-all bg-slate-900 text-slate-400 hover:text-white">Mar</button>
+                            <button onclick="changeProfileKPI('apr')" id="btn-kpi-apr" class="p-btn-month px-3 py-1.5 rounded-lg text-2xs font-bold transition-all bg-slate-900 text-slate-400 hover:text-white">Abr</button>
+                            <button onclick="changeProfileKPI('may')" id="btn-kpi-may" class="p-btn-month px-3 py-1.5 rounded-lg text-2xs font-bold transition-all bg-brand-600 text-white shadow-md shadow-brand-500/10">May (Final)</button>
+                        </div>
+                    </div>
+
+                    <!-- KPI Visual Metrics Card -->
+                    <div class="grid grid-cols-1 lg:grid-cols-3 gap-6 mb-6">
+                        
+                        <!-- Columna Totales Acumulados -->
+                        <div class="bg-slate-950/70 p-6 rounded-2xl border border-slate-850 flex flex-col justify-between">
+                            <div>
+                                <span class="text-3xs text-brand-400 font-extrabold uppercase tracking-widest block mb-4">Métricas Consolidadas</span>
+                                <div class="space-y-4">
+                                    <div>
+                                        <span class="text-slate-500 text-2xs block">Conexiones Enviadas</span>
+                                        <span id="kpi-total-enviadas" class="text-2xl font-black text-white">3,306</span>
+                                    </div>
+                                    <div class="grid grid-cols-2 gap-2 pt-2 border-t border-slate-900">
+                                        <div>
+                                            <span class="text-slate-500 text-3xs block">Nuevos Contactos</span>
+                                            <span id="kpi-total-contactos" class="text-lg font-bold text-white">1,287</span>
+                                        </div>
+                                        <div class="border-l border-slate-800 pl-3">
+                                            <span class="text-slate-500 text-3xs block">Respuestas Directas</span>
+                                            <span id="kpi-total-respuestas" class="text-lg font-bold text-white">401</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="mt-6 pt-4 border-t border-slate-900 flex justify-between items-center text-xs">
+                                <div class="text-center flex-1">
+                                    <span class="text-slate-500 text-3xs block">Tasa de Aceptación</span>
+                                    <span id="kpi-total-aceptacion" class="font-extrabold text-emerald-400 bg-emerald-500/10 px-2 py-0.5 rounded-md inline-block mt-1">39%</span>
+                                </div>
+                                <div class="border-l border-slate-800 h-6"></div>
+                                <div class="text-center flex-1">
+                                    <span class="text-slate-500 text-3xs block">Tasa de Respuesta</span>
+                                    <span id="kpi-total-respuesta" class="font-extrabold text-brand-400 bg-brand-500/10 px-2 py-0.5 rounded-md inline-block mt-1">31%</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Columna Sergio KPI -->
+                        <div class="bg-slate-950/30 p-6 rounded-2xl border border-slate-850 flex flex-col justify-between hover:border-slate-800 transition-colors">
+                            <div>
+                                <span class="text-3xs text-slate-500 font-extrabold uppercase tracking-widest block mb-4">Sergio - Performance</span>
+                                <div class="space-y-4">
+                                    <div>
+                                        <span class="text-slate-500 text-2xs block">Conexiones Enviadas</span>
+                                        <span id="kpi-sergio-enviadas" class="text-2xl font-black text-white">1,960</span>
+                                    </div>
+                                    <div class="grid grid-cols-2 gap-2 pt-2 border-t border-slate-900">
+                                        <div>
+                                            <span class="text-slate-500 text-3xs block">Nuevos Contactos</span>
+                                            <span id="kpi-sergio-contactos" class="text-lg font-bold text-white">846</span>
+                                        </div>
+                                        <div class="border-l border-slate-800 pl-3">
+                                            <span class="text-slate-500 text-3xs block">Respuestas</span>
+                                            <span id="kpi-sergio-respuestas" class="text-lg font-bold text-white">235</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="mt-6 pt-4 border-t border-slate-900 flex justify-between items-center text-xs">
+                                <div class="text-center flex-1">
+                                    <span class="text-slate-500 text-3xs block">Tasa de Aceptación</span>
+                                    <span id="kpi-sergio-aceptacion" class="font-extrabold text-emerald-400 bg-emerald-500/10 px-2 py-0.5 rounded-md inline-block mt-1">43%</span>
+                                </div>
+                                <div class="border-l border-slate-850 h-6"></div>
+                                <div class="text-center flex-1">
+                                    <span class="text-slate-500 text-3xs block">Tasa de Respuesta</span>
+                                    <span id="kpi-sergio-respuesta" class="font-extrabold text-brand-400 bg-brand-500/10 px-2 py-0.5 rounded-md inline-block mt-1">28%</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Columna Jorge KPI -->
+                        <div class="bg-slate-950/30 p-6 rounded-2xl border border-slate-850 flex flex-col justify-between hover:border-slate-800 transition-colors">
+                            <div>
+                                <span class="text-3xs text-slate-500 font-extrabold uppercase tracking-widest block mb-4">Jorge - Performance</span>
+                                <div class="space-y-4">
+                                    <div>
+                                        <span class="text-slate-500 text-2xs block">Conexiones Enviadas</span>
+                                        <span id="kpi-jorge-enviadas" class="text-2xl font-black text-white">1,346</span>
+                                    </div>
+                                    <div class="grid grid-cols-2 gap-2 pt-2 border-t border-slate-900">
+                                        <div>
+                                            <span class="text-slate-500 text-3xs block">Nuevos Contactos</span>
+                                            <span id="kpi-jorge-contactos" class="text-lg font-bold text-white">441</span>
+                                        </div>
+                                        <div class="border-l border-slate-800 pl-3">
+                                            <span class="text-slate-500 text-3xs block">Respuestas</span>
+                                            <span id="kpi-jorge-respuestas" class="text-lg font-bold text-white">166</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="mt-6 pt-4 border-t border-slate-900 flex justify-between items-center text-xs">
+                                <div class="text-center flex-1">
+                                    <span class="text-slate-500 text-3xs block">Tasa de Aceptación</span>
+                                    <span id="kpi-jorge-aceptacion" class="font-extrabold text-emerald-400 bg-emerald-500/10 px-2 py-0.5 rounded-md inline-block mt-1">33%</span>
+                                </div>
+                                <div class="border-l border-slate-850 h-6"></div>
+                                <div class="text-center flex-1">
+                                    <span class="text-slate-500 text-3xs block">Tasa de Respuesta</span>
+                                    <span id="kpi-jorge-respuesta" class="font-extrabold text-brand-400 bg-brand-500/10 px-2 py-0.5 rounded-md inline-block mt-1">38%</span>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+
+                    <!-- Nota Histórica de Tasas Consolidadas -->
+                    <div class="bg-slate-950/80 p-4 rounded-xl border border-slate-850 text-xs text-slate-300 flex items-start gap-3 leading-relaxed">
+                        <span class="text-indigo-400 mt-0.5"><i data-lucide="award" class="w-4.5 h-4.5"></i></span>
+                        <div class="w-full">
+                            <p class="font-bold text-[#818cf8] mb-1.5 uppercase tracking-wide text-2xs">Hitos Históricos de Performance General</p>
+                            <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                                <div class="flex items-center gap-2">
+                                    <span class="w-2 h-2 rounded-full bg-emerald-400"></span>
+                                    <span><strong>Mejor Tasa de Aceptación:</strong> <span class="text-emerald-400 font-extrabold">39%</span> lograda de forma sostenida en <strong>Abril y Mayo</strong>.</span>
+                                </div>
+                                <div class="flex items-center gap-2">
+                                    <span class="w-2 h-2 rounded-full bg-brand-400"></span>
+                                    <span><strong>Mejor Tasa de Respuesta:</strong> <span class="text-brand-400 font-extrabold">35%</span> alcanzada en el mes de <strong>Enero</strong>.</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- BLOQUES DE MÉTRICAS INDIVIDUALES (Sergio y Jorge una debajo de otra) -->
+            <div class="space-y-16">
+                
+                <!-- BLOQUE COMPLETO DE SERGIO -->
+                <div class="bg-slate-950/40 border border-slate-850 rounded-3xl p-6 md:p-8 shadow-xl">
+                    <div class="flex items-center justify-between mb-8 pb-4 border-b border-slate-800/80">
+                        <span class="text-sm font-black text-brand-400 tracking-wider uppercase flex items-center gap-1.5">
+                            <span class="w-2 h-2 bg-brand-500 rounded-full"></span> Análisis Individual: Sergio
+                        </span>
+                        <span class="text-2xs text-slate-500 italic">🇧🇷 Mercado Brasil / LATAM</span>
+                    </div>
+
+                    <!-- Ficha de Perfil -->
+                    <div class="flex flex-col md:flex-row gap-6 items-center mb-8 bg-slate-900/40 p-6 rounded-2xl border border-slate-800">
+                        <!-- Photo container -->
+                        <div class="w-32 h-32 md:w-36 md:h-36 rounded-2xl bg-slate-950 border-2 border-brand-500/20 p-1 shrink-0 relative overflow-hidden group">
+                            <img src="assets/logos/Sergio.jpeg" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';" alt="Sergio" class="object-cover w-full h-full rounded-xl">
+                            <!-- Fallback avatar -->
+                            <div class="hidden w-full h-full rounded-xl bg-slate-900 items-center justify-center text-brand-400 font-extrabold text-2xl">
+                                S
+                            </div>
+                        </div>
+                        <div class="space-y-3 text-center md:text-left flex-grow">
+                            <span class="text-3xs font-bold bg-brand-500/10 text-brand-400 border border-brand-500/20 px-2.5 py-1 rounded-full uppercase tracking-wider">Channel Sales Manager Brasil</span>
+                            <h3 class="text-2xl font-bold text-white">Sergio</h3>
+                            <p class="text-xs text-slate-400 leading-relaxed">
+                                Especialista de relacionamiento de alta escala enfocado en cuentas del sector Retail y Manufactura LatAm. Lideró el frente de atracción y nurturing.
+                            </p>
+                        </div>
+                    </div>
+
+                    <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
+                        <!-- Evolución SSI -->
+                        <div class="bg-slate-950/60 p-6 rounded-2xl border border-slate-800/80 flex flex-col justify-between">
+                            <div>
+                                <h4 class="text-xs font-bold text-slate-400 uppercase tracking-widest mb-6 flex items-center gap-2">
+                                    <i data-lucide="award" class="text-brand-400"></i> Evolución SSI (Social Selling Index)
+                                </h4>
+                                <div class="space-y-4">
+                                    <!-- SSI Inicial -->
+                                    <div>
+                                        <div class="flex justify-between text-xs font-semibold text-slate-400 mb-1.5">
+                                            <span>SSI Inicial</span>
+                                            <span>62 / 100</span>
+                                        </div>
+                                        <div class="w-full bg-slate-900 rounded-full h-2">
+                                            <div class="bg-slate-700 h-2 rounded-full" style="width: 62%"></div>
+                                        </div>
+                                    </div>
+                                    <!-- SSI Actual -->
+                                    <div>
+                                        <div class="flex justify-between text-xs font-bold text-brand-400 mb-1.5">
+                                            <span>SSI Actual</span>
+                                            <span>70 / 100</span>
+                                        </div>
+                                        <div class="w-full bg-slate-900 rounded-full h-3">
+                                            <div class="bg-brand-500 h-3 rounded-full shadow-[0_0_8px_rgba(12,133,235,0.4)]" style="width: 70%"></div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="text-3xs text-slate-500 mt-6 pt-4 border-t border-slate-850 leading-relaxed">
+                                El perfil de Sergio se consolida en el <strong>top 2% de su sector</strong> en LinkedIn, incrementando exponencialmente su autoridad e influencia orgánica sobre directores de Recursos Humanos. Crecimiento neto de <span class="text-emerald-400 font-bold">+8 puntos</span>.
+                            </div>
+                        </div>
+
+                        <!-- Performance de Contenido -->
+                        <div class="bg-slate-950/60 p-6 rounded-2xl border border-slate-800/80">
+                            <h4 class="text-xs font-bold text-slate-400 uppercase tracking-widest mb-6 flex items-center gap-2">
+                                <i data-lucide="eye" class="text-brand-400"></i> Rendimiento de Contenido Orgánico
+                            </h4>
+                            
+                            <div class="grid grid-cols-2 gap-4 mb-6">
+                                <div class="bg-slate-900/30 p-3 rounded-xl border border-slate-850">
+                                    <span class="text-slate-500 text-3xs uppercase block">Impresiones Orgánicas</span>
+                                    <span class="text-base font-black text-white">13,790</span>
+                                    <span class="text-[9px] text-emerald-400 font-bold block mt-1 flex items-center gap-0.5"><i data-lucide="arrow-up" class="w-3 h-3"></i> +68.1%</span>
+                                </div>
+                                <div class="bg-slate-900/30 p-3 rounded-xl border border-slate-850">
+                                    <span class="text-slate-500 text-3xs uppercase block">Miembros Alcanzados</span>
+                                    <span class="text-base font-black text-white">3,715</span>
+                                    <span class="text-[9px] text-emerald-400 font-bold block mt-1 flex items-center gap-0.5"><i data-lucide="arrow-up" class="w-3 h-3"></i> +120.5%</span>
+                                </div>
+                            </div>
+
+                            <!-- Sergio Top Post -->
+                            <div class="bg-slate-900/40 p-4 rounded-xl border border-slate-850 mb-4">
+                                <span class="text-3xs font-extrabold text-slate-500 uppercase tracking-widest block mb-1">Mejor Publicación del Proyecto</span>
+                                <blockquote class="text-xs text-slate-300 italic mb-3 leading-relaxed pl-2 border-l-2 border-brand-500">
+                                    “Este foi um ano cheio de grandes desafios para todos nós na UKG”
+                                </blockquote>
+                                <div class="grid grid-cols-3 gap-2 text-center text-3xs border-t border-slate-850/60 pt-2 text-slate-400">
+                                    <div>
+                                        <span>Impresiones: <strong>747</strong></span>
+                                    </div>
+                                    <div class="border-l border-slate-800">
+                                        <span>Alcance: <strong>355</strong></span>
+                                    </div>
+                                    <div class="border-l border-slate-800">
+                                        <span>Interacciones: <strong class="text-emerald-400">36</strong></span>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Contenedor Cuadrado para Captura de Pantalla del Post de Sergio -->
+                            <div class="border border-slate-800 bg-slate-950 p-1.5 rounded-xl flex flex-col items-center justify-center relative overflow-hidden group h-32 hover:border-brand-500/40 transition-colors">
+                                <img src="assets/logos/PostSergio.png" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';" alt="Publicación Sergio" class="object-contain w-full h-full rounded-lg">
+                                <div class="hidden flex-col items-center justify-center text-slate-500 text-center text-2xs p-3">
+                                    <i data-lucide="image" class="w-5 h-5 mb-1.5 text-slate-600"></i>
+                                    <span>[Captura PostSergio.png]</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- BLOQUE COMPLETO DE JORGE -->
+                <div class="bg-slate-950/40 border border-slate-850 rounded-3xl p-6 md:p-8 shadow-xl">
+                    <div class="flex items-center justify-between mb-8 pb-4 border-b border-slate-800/80">
+                        <span class="text-sm font-black text-amber-400 tracking-wider uppercase flex items-center gap-1.5">
+                            <span class="w-2 h-2 bg-amber-500 rounded-full"></span> Análisis Individual: Jorge
+                        </span>
+                        <span class="text-2xs text-slate-500 italic">🌎 Mercado LATAM</span>
+                    </div>
+
+                    <!-- Ficha de Perfil -->
+                    <div class="flex flex-col md:flex-row gap-6 items-center mb-8 bg-slate-900/40 p-6 rounded-2xl border border-slate-800">
+                        <!-- Photo container -->
+                        <div class="w-32 h-32 md:w-36 md:h-36 rounded-2xl bg-slate-950 border-2 border-amber-500/20 p-1 shrink-0 relative overflow-hidden group">
+                            <img src="assets/logos/Jorge.jpeg" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';" alt="Jorge" class="object-cover w-full h-full rounded-xl">
+                            <!-- Fallback avatar -->
+                            <div class="hidden w-full h-full rounded-xl bg-slate-900 items-center justify-center text-amber-400 font-extrabold text-2xl">
+                                J
+                            </div>
+                        </div>
+                        <div class="space-y-3 text-center md:text-left flex-grow">
+                            <span class="text-3xs font-bold bg-amber-500/10 text-amber-400 border border-amber-500/20 px-2.5 py-1 rounded-full uppercase tracking-wider">Channel Sales Manager Latam</span>
+                            <h3 class="text-2xl font-bold text-white">Jorge</h3>
+                            <p class="text-xs text-slate-400 leading-relaxed">
+                                Socio estratégico de posicionamiento enterprise y tomadores de decisión C-Level. Condujo la tracción y conexión en cuentas de la región andina.
+                            </p>
+                        </div>
+                    </div>
+
+                    <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
+                        <!-- Evolución SSI -->
+                        <div class="bg-slate-950/60 p-6 rounded-2xl border border-slate-800/80 flex flex-col justify-between">
+                            <div>
+                                <h4 class="text-xs font-bold text-slate-400 uppercase tracking-widest mb-6 flex items-center gap-2">
+                                    <i data-lucide="award" class="text-amber-500"></i> Evolución SSI (Social Selling Index)
+                                </h4>
+                                <div class="space-y-4">
+                                    <!-- SSI Inicial -->
+                                    <div>
+                                        <div class="flex justify-between text-xs font-semibold text-slate-400 mb-1.5">
+                                            <span>SSI Inicial</span>
+                                            <span>42 / 100</span>
+                                        </div>
+                                        <div class="w-full bg-slate-900 rounded-full h-2">
+                                            <div class="bg-slate-700 h-2 rounded-full" style="width: 42%"></div>
+                                        </div>
+                                    </div>
+                                    <!-- SSI Actual -->
+                                    <div>
+                                        <div class="flex justify-between text-xs font-bold text-amber-400 mb-1.5">
+                                            <span>SSI Actual</span>
+                                            <span>64 / 100</span>
+                                        </div>
+                                        <div class="w-full bg-slate-900 rounded-full h-3">
+                                            <div class="bg-amber-50 h-3 rounded-full shadow-[0_0_8px_rgba(245,158,11,0.4)]" style="width: 64%"></div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="text-3xs text-slate-500 mt-6 pt-4 border-t border-slate-850 leading-relaxed">
+                                Jorge obtuvo un crecimiento récord de <strong>+22 puntos</strong> en su SSI, posicionándose rápidamente en el <strong>top 4% de su sector</strong> y mejorando la tasa de aceptación en cuentas frías.
+                            </div>
+                        </div>
+
+                        <!-- Performance de Contenido -->
+                        <div class="bg-slate-950/60 p-6 rounded-2xl border border-slate-800/80">
+                            <h4 class="text-xs font-bold text-slate-400 uppercase tracking-widest mb-6 flex items-center gap-2">
+                                <i data-lucide="eye" class="text-amber-500"></i> Rendimiento de Contenido Orgánico
+                            </h4>
+                            
+                            <div class="grid grid-cols-2 gap-4 mb-6">
+                                <div class="bg-slate-900/30 p-3 rounded-xl border border-slate-850">
+                                    <span class="text-slate-500 text-3xs uppercase block">Impresiones Orgánicas</span>
+                                    <span class="text-base font-black text-white">12,549</span>
+                                    <span class="text-[9px] text-emerald-400 font-bold block mt-1 flex items-center gap-0.5"><i data-lucide="arrow-up" class="w-3 h-3"></i> +101.9%</span>
+                                </div>
+                                <div class="bg-slate-900/30 p-3 rounded-xl border border-slate-850">
+                                    <span class="text-slate-500 text-3xs uppercase block">Miembros Alcanzados</span>
+                                    <span class="text-base font-black text-white">3,638</span>
+                                    <span class="text-[9px] text-slate-500 block mt-1 font-semibold italic">Tracción Estable</span>
+                                </div>
+                            </div>
+
+                            <!-- Jorge Top Post -->
+                            <div class="bg-slate-900/40 p-4 rounded-xl border border-slate-850 mb-4">
+                                <span class="text-3xs font-extrabold text-slate-500 uppercase tracking-widest block mb-1">Mejor Publicación del Proyecto</span>
+                                <blockquote class="text-xs text-slate-300 italic mb-3 leading-relaxed pl-2 border-l-2 border-amber-500">
+                                    “Wrapping up this incredible experience at the #UKG President’s Club FY25”
+                                </blockquote>
+                                <div class="grid grid-cols-3 gap-2 text-center text-3xs border-t border-slate-850/60 pt-2 text-slate-400">
+                                    <div>
+                                        <span>Impresiones: <strong>2,599</strong></span>
+                                    </div>
+                                    <div class="border-l border-slate-800">
+                                        <span>Alcance: <strong>1,283</strong></span>
+                                    </div>
+                                    <div class="border-l border-slate-800">
+                                        <span>Interacciones: <strong class="text-amber-400">112</strong></span>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Contenedor Cuadrado para Captura de Pantalla del Post de Jorge -->
+                            <div class="border border-slate-800 bg-slate-950 p-1.5 rounded-xl flex flex-col items-center justify-center relative overflow-hidden group h-32 hover:border-amber-500/40 transition-colors">
+                                <img src="assets/logos/PostJorge.png" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';" alt="Publicación Jorge" class="object-contain w-full h-full rounded-lg">
+                                <div class="hidden flex-col items-center justify-center text-slate-500 text-center text-2xs p-3">
+                                    <i data-lucide="image" class="w-5 h-5 mb-1.5 text-slate-600"></i>
+                                    <span>[Captura PostJorge.png]</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
         </section>
 
         <!-- ================= SECCIÓN 6: RECURSOS ================= -->
@@ -2265,6 +2679,81 @@
                     card.classList.add('hidden');
                 }
             });
+        }
+
+        // Datos Mensuales de Performance de Perfiles LinkedIn
+        const profileKPIDataset = {
+            dec: {
+                total: { env: '1,329', con: '332', res: '85', ace: '25%', rep: '26%' },
+                sergio: { env: '679', con: '180', res: '51', ace: '27%', rep: '28%' },
+                jorge: { env: '650', con: '152', res: '34', ace: '23%', rep: '22%' }
+            },
+            jan: {
+                total: { env: '1,885', con: '483', res: '167', ace: '26%', rep: '35%' },
+                sergio: { env: '1,038', con: '287', res: '98', ace: '28%', rep: '34%' },
+                jorge: { env: '847', con: '196', res: '69', ace: '23%', rep: '35%' }
+            },
+            feb: {
+                total: { env: '2,179', con: '736', res: '248', ace: '34%', rep: '34%' },
+                sergio: { env: '1,122', con: '428', res: '143', ace: '38%', rep: '33%' },
+                jorge: { env: '1,057', con: '308', res: '105', ace: '29%', rep: '34%' }
+            },
+            mar: {
+                total: { env: '2,719', con: '1,019', res: '333', ace: '38%', rep: '33%' },
+                sergio: { env: '1,563', con: '647', res: '195', ace: '41%', rep: '30%' },
+                jorge: { env: '1,156', con: '372', res: '138', ace: '32%', rep: '37%' }
+            },
+            apr: {
+                total: { env: '3,095', con: '1,218', res: '388', ace: '39%', rep: '32%' },
+                sergio: { env: '1,806', con: '807', res: '228', ace: '45%', rep: '28%' },
+                jorge: { env: '1,289', con: '411', res: '160', ace: '32%', rep: '39%' }
+            },
+            may: {
+                total: { env: '3,306', con: '1,287', res: '401', ace: '39%', rep: '31%' },
+                sergio: { env: '1,960', con: '846', res: '235', ace: '43%', rep: '28%' },
+                jorge: { env: '1,346', con: '441', res: '166', ace: '33%', rep: '38%' }
+            }
+        };
+
+        // Función dinámica de actualización de KPIs mensuales (Pestaña Perfiles)
+        function changeProfileKPI(month) {
+            // Actualizar estilo visual del botón activo de mes
+            const monthButtons = document.querySelectorAll('.p-btn-month');
+            monthButtons.forEach(btn => {
+                btn.classList.remove('bg-brand-600', 'text-white', 'shadow-md', 'shadow-brand-500/10');
+                btn.classList.add('bg-slate-900', 'text-slate-400');
+            });
+            
+            const selectedButton = document.getElementById(`btn-kpi-${month}`);
+            if (selectedButton) {
+                selectedButton.classList.remove('bg-slate-900', 'text-slate-400');
+                selectedButton.classList.add('bg-brand-600', 'text-white', 'shadow-md', 'shadow-brand-500/10');
+            }
+
+            // Actualizar valores de texto
+            const data = profileKPIDataset[month];
+            if (data) {
+                // Totales
+                document.getElementById('kpi-total-enviadas').innerText = data.total.env;
+                document.getElementById('kpi-total-contactos').innerText = data.total.con;
+                document.getElementById('kpi-total-respuestas').innerText = data.total.res;
+                document.getElementById('kpi-total-aceptacion').innerText = data.total.ace;
+                document.getElementById('kpi-total-respuesta').innerText = data.total.rep;
+
+                // Sergio
+                document.getElementById('kpi-sergio-enviadas').innerText = data.sergio.env;
+                document.getElementById('kpi-sergio-contactos').innerText = data.sergio.con;
+                document.getElementById('kpi-sergio-respuestas').innerText = data.sergio.res;
+                document.getElementById('kpi-sergio-aceptacion').innerText = data.sergio.ace;
+                document.getElementById('kpi-sergio-respuesta').innerText = data.sergio.rep;
+
+                // Jorge
+                document.getElementById('kpi-jorge-enviadas').innerText = data.jorge.env;
+                document.getElementById('kpi-jorge-contactos').innerText = data.jorge.con;
+                document.getElementById('kpi-jorge-respuestas').innerText = data.jorge.res;
+                document.getElementById('kpi-jorge-aceptacion').innerText = data.jorge.ace;
+                document.getElementById('kpi-jorge-respuesta').innerText = data.jorge.rep;
+            }
         }
 
         // Configurar la pestaña activa inicial en Home al cargar
