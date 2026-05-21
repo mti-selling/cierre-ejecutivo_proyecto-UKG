@@ -154,153 +154,588 @@
         </div>
     </header>
 
-    <!-- Contenido Principal -->
+     <!-- Contenido Principal -->
     <main class="flex-grow">
         
-        <!-- ================= SECCIÓN 1: HOME ================= -->
-        <section id="section-home" class="section-fade max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10 md:py-16 mt-6 border-t-4 border-slate-900 bg-gradient-to-b from-slate-50 to-white rounded-b-3xl shadow-md relative">
-            <!-- Floating Indicator -->
-            <div class="absolute top-4 right-6 bg-slate-900 text-slate-200 text-[10px] font-bold uppercase tracking-widest px-3 py-1 rounded-full border border-slate-800 shadow-sm">
-                Módulo Inicio
+        <section id="section-home" class="section-fade max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10 md:py-16 mt-6 border-t-4 border-slate-900 bg-white rounded-3xl shadow-sm mb-12">
+            
+            <!-- Encabezado Limpio -->
+            <div class="mb-10 text-center md:text-left">
+                <span class="text-xs font-bold text-slate-500 uppercase tracking-widest flex items-center justify-center md:justify-start gap-2 mb-3">
+                    <i data-lucide="bar-chart-2" class="w-4 h-4 text-brand-500"></i> Executive Performance Dashboard
+                </span>
+                <h2 class="text-4xl md:text-5xl font-black text-slate-900 tracking-tight leading-tight">
+                    Resultados del Proyecto al 15-05
+                </h2>
+                <p class="text-slate-500 mt-4 text-base md:text-lg max-w-3xl leading-relaxed">
+                    Resumen consolidado de generación de demanda y pipeline de reuniones B2B. El proyecto demuestra un fuerte avance comercial, penetración en cuentas estratégicas y continuidad operativa en la región.
+                </p>
             </div>
 
-            <!-- Hero de Presentación -->
-            <div class="relative rounded-3xl overflow-hidden bg-gradient-to-br from-slate-900 via-brand-950 to-slate-900 text-white shadow-2xl p-8 md:p-16 mb-12">
-                <div class="absolute inset-0 bg-[radial-gradient(circle_at_top_right,rgba(12,133,235,0.15),transparent_45%)]"></div>
+            <!-- HERO MQL BAR (El único bloque oscuro destacado) -->
+            <div class="bg-slate-950 rounded-3xl p-8 md:p-12 text-white shadow-2xl relative overflow-hidden mb-12">
+                <div class="absolute inset-0 bg-[radial-gradient(circle_at_top_right,rgba(12,133,235,0.2),transparent_60%)]"></div>
                 
-                <div class="relative max-w-3xl z-10">
-                    <span class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-semibold bg-brand-500/20 text-brand-300 border border-brand-500/30 mb-6">
-                        <i data-lucide="check-circle" class="w-3.5 h-3.5"></i> Proyecto Concluido Exitosamente
-                    </span>
-                    
-                    <h2 class="text-3xl sm:text-4xl md:text-5xl font-black tracking-tight leading-tight mb-6">
-                        Objetivos y Resultados
-                    </h2>
-                    
-                    <p class="text-base sm:text-lg text-slate-300 leading-relaxed mb-8">
-                        Bienvenido al entregable del cierre del <strong>Proyecto UKG</strong>. Este reporte dinámico consolida las bases de datos construidas, el perfil de cliente ideal impactado, las métricas clave de nuestras campañas de prospección y los recursos estratégicos generados a lo largo de la colaboración.
-                    </p>
-                    
-                    <div class="flex flex-wrap gap-4">
-                        <button onclick="switchTab('bbdd')" class="inline-flex items-center justify-center px-6 py-3 border border-transparent text-base font-medium rounded-xl text-slate-900 bg-white hover:bg-slate-100 shadow-sm transition-colors duration-200">
-                            Explorar Datos de Campaña <i data-lucide="arrow-right" class="ml-2 w-4 h-4 text-slate-900"></i>
-                        </button>
-                        <a href="#proximos-pasos" class="inline-flex items-center justify-center px-6 py-3 border border-slate-700 text-base font-medium rounded-xl text-white bg-slate-900/40 hover:bg-slate-900/80 hover:border-slate-600 transition-all duration-200">
-                            Resumen de Logros
-                        </a>
+                <div class="relative z-10 flex flex-col md:flex-row items-center justify-between gap-8">
+                    <div class="w-full md:w-1/3">
+                        <span class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-bold bg-brand-500/20 text-brand-300 border border-brand-500/30 mb-4">
+                            <i data-lucide="target" class="w-3.5 h-3.5"></i> Objetivo Principal
+                        </span>
+                        <h3 class="text-3xl md:text-4xl font-black tracking-tight leading-none mb-2">Entregables <br><span class="text-brand-400">MQL</span></h3>
+                        <p class="text-xs text-slate-400 font-medium">Provenientes de la generación previa de 98 IQLs a lo largo de la operación regional.</p>
                     </div>
-                </div>
-                
-                <!-- Ilustración / Feature visual abstracta en el Hero -->
-                <div class="mt-12 lg:mt-0 lg:absolute lg:top-1/2 lg:right-12 lg:-translate-y-1/2 w-full lg:w-96 hidden lg:block bg-slate-800/40 backdrop-blur-md border border-slate-700/50 rounded-2xl p-6 shadow-xl">
-                    <h4 class="text-xs font-bold text-slate-400 uppercase tracking-wider mb-4">Highlights del Proyecto</h4>
-                    <div class="space-y-4">
-                        <div class="flex items-start gap-3">
-                            <span class="p-2 bg-brand-500/20 text-brand-400 rounded-lg"><i data-lucide="users" class="w-4 h-4"></i></span>
-                            <div>
-                                <p class="text-sm font-semibold text-white">Target Corporativo</p>
-                                <p class="text-xs text-slate-400">Tomadores de decisión de alta relevancia.</p>
+                    
+                    <div class="w-full md:w-2/3">
+                        <div class="flex justify-between items-end mb-3">
+                            <span class="text-sm font-bold text-slate-300 uppercase tracking-widest">Resultado Alcanzado</span>
+                            <div class="text-right">
+                                <span class="text-5xl md:text-6xl font-black text-white leading-none">40</span>
+                                <span class="text-xl font-bold text-slate-500">/ 45 MQL</span>
                             </div>
                         </div>
-                        <div class="flex items-start gap-3">
-                            <span class="p-2 bg-emerald-500/20 text-emerald-400 rounded-lg"><i data-lucide="target" class="w-4 h-4"></i></span>
-                            <div>
-                                <p class="text-sm font-semibold text-white">Criterios ICP</p>
-                                <p class="text-xs text-slate-400">Segmentación precisa de empresas B2B.</p>
-                            </div>
+                        
+                        <!-- Premium Progress Bar -->
+                        <div class="w-full bg-slate-800/80 rounded-full h-4 overflow-hidden border border-slate-700/50 p-[2px] shadow-inner">
+                            <div class="bg-gradient-to-r from-brand-600 to-brand-400 h-full rounded-full shadow-[0_0_15px_rgba(56,189,248,0.5)]" style="width: 88.8%"></div>
                         </div>
                     </div>
                 </div>
             </div>
 
-            <!-- Sección de Empresas Impactadas (Preparada para logos corporativos) -->
-            <div class="mb-16">
-                <div class="flex flex-col md:flex-row md:items-end justify-between mb-8">
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 mb-12">
+                <!-- Origen de los MQL -->
+                <div class="bg-white p-8 rounded-3xl border border-slate-200 shadow-sm flex flex-col justify-between">
                     <div>
-                        <span class="text-xs font-bold text-brand-600 uppercase tracking-widest">ALCANCE DE PROSPECCIÓN</span>
-                        <h3 class="text-2xl md:text-3xl font-extrabold text-slate-900 mt-1">Empresas Relevantes Impactadas</h3>
-                        <p class="text-slate-500 mt-2 text-sm md:text-base">Muestra de cuentas clave que formaron parte del embudo de prospección y generación de reuniones.</p>
+                        <h3 class="text-lg font-bold text-slate-900 mb-6 flex items-center gap-2">
+                            <i data-lucide="pie-chart" class="text-brand-500"></i> Origen de los MQL Generados
+                        </h3>
+                        
+                        <div class="space-y-4">
+                            <div class="bg-slate-50 p-5 rounded-2xl border border-slate-100 flex items-center justify-between">
+                                <div class="flex items-center gap-3">
+                                    <span class="p-2.5 bg-brand-100 text-brand-600 rounded-xl"><i data-lucide="users" class="w-5 h-5"></i></span>
+                                    <div>
+                                        <span class="text-xs font-bold text-slate-400 uppercase tracking-wider block">Prospección Directa</span>
+                                        <span class="text-sm font-bold text-slate-900">Canales Activos</span>
+                                    </div>
+                                </div>
+                                <span class="text-2xl font-black text-slate-900">28 <span class="text-xs font-medium text-slate-500">Reuniones</span></span>
+                            </div>
+
+                            <div class="bg-slate-50 p-5 rounded-2xl border border-slate-100 flex items-center justify-between">
+                                <div class="flex items-center gap-3">
+                                    <span class="p-2.5 bg-indigo-100 text-indigo-600 rounded-xl"><i data-lucide="video" class="w-5 h-5"></i></span>
+                                    <div>
+                                        <span class="text-xs font-bold text-slate-400 uppercase tracking-wider block">Webinar & Nurturing</span>
+                                        <span class="text-sm font-bold text-slate-900">Asistentes & IQLs</span>
+                                    </div>
+                                </div>
+                                <span class="text-2xl font-black text-slate-900">12 <span class="text-xs font-medium text-slate-500">Asistentes</span></span>
+                            </div>
+                        </div>
                     </div>
-                    <span class="text-xs font-medium text-slate-400 mt-2 md:mt-0 italic">* Logos y nombres preparados para mapeo dinámico</span>
                 </div>
 
-                <!-- Grid de Tarjetas de Empresas Preparado para Logos Locales -->
-                <div class="grid grid-cols-2 md:grid-cols-4 gap-6">
-                    <!-- Tarjeta Empresa 1 -->
-                    <div class="bg-white p-6 rounded-2xl border border-slate-200 hover:border-brand-500 hover:shadow-lg transition-all duration-300 group flex flex-col justify-between h-40">
-                        <div class="h-12 w-full flex items-center justify-start overflow-hidden">
-                            <img src="assets/logos/empresa_1.png" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';" alt="Logo Empresa 1" class="h-full object-contain">
-                            <div class="flex items-center space-x-2 text-slate-400 font-bold text-sm tracking-wide">
-                                <span class="p-1.5 bg-slate-100 rounded-lg group-hover:bg-brand-50 group-hover:text-brand-600 transition-colors"><i data-lucide="building" class="w-5 h-5"></i></span>
-                                <span class="text-xs">Corporativo Alfa</span>
-                            </div>
+                <!-- Pipeline Activo -->
+                <div class="bg-gradient-to-br from-slate-50 to-slate-100 p-8 rounded-3xl border border-slate-200 shadow-sm flex flex-col justify-between">
+                    <div>
+                        <div class="flex justify-between items-start mb-6">
+                            <h3 class="text-lg font-bold text-slate-900 flex items-center gap-2">
+                                <i data-lucide="activity" class="text-emerald-500"></i> Pipeline Activo
+                            </h3>
+                            <span class="bg-emerald-50 text-emerald-600 border border-emerald-100 px-3 py-1 rounded-full text-xs font-bold flex items-center gap-1.5 shadow-sm">
+                                <span class="w-1.5 h-1.5 rounded-full bg-emerald-500 animate-pulse"></span> Oportunidades
+                            </span>
                         </div>
-                        <div class="mt-4">
-                            <span class="text-xs font-bold text-slate-400 uppercase tracking-wider block">Sector</span>
-                            <span class="text-xs text-slate-600 font-medium">Retail & E-commerce</span>
+                        
+                        <div class="mb-6">
+                            <span class="text-4xl font-black text-slate-900">45</span>
+                            <span class="text-sm font-semibold text-slate-500 block">Cuentas trabajándose para avanzar a reunión</span>
                         </div>
-                    </div>
 
-                    <!-- Tarjeta Empresa 2 -->
-                    <div class="bg-white p-6 rounded-2xl border border-slate-200 hover:border-brand-500 hover:shadow-lg transition-all duration-300 group flex flex-col justify-between h-40">
-                        <div class="h-12 w-full flex items-center justify-start overflow-hidden">
-                            <img src="assets/logos/empresa_2.png" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';" alt="Logo Empresa 2" class="h-full object-contain">
-                            <div class="flex items-center space-x-2 text-slate-400 font-bold text-sm tracking-wide">
-                                <span class="p-1.5 bg-slate-100 rounded-lg group-hover:bg-brand-50 group-hover:text-brand-600 transition-colors"><i data-lucide="factory" class="w-5 h-5"></i></span>
-                                <span class="text-xs">Industrias Delta</span>
+                        <div class="grid grid-cols-2 gap-4 border-t border-slate-200 pt-6">
+                            <div>
+                                <span class="text-2xl font-extrabold text-slate-800">28</span>
+                                <span class="text-[10px] font-bold text-slate-500 uppercase tracking-wider block mt-1">Cuentas en proceso avanzado (Prospección)</span>
                             </div>
-                        </div>
-                        <div class="mt-4">
-                            <span class="text-xs font-bold text-slate-400 uppercase tracking-wider block">Sector</span>
-                            <span class="text-xs text-slate-600 font-medium">Logística y Envíos</span>
-                        </div>
-                    </div>
-
-                    <!-- Tarjeta Empresa 3 -->
-                    <div class="bg-white p-6 rounded-2xl border border-slate-200 hover:border-brand-500 hover:shadow-lg transition-all duration-300 group flex flex-col justify-between h-40">
-                        <div class="h-12 w-full flex items-center justify-start overflow-hidden">
-                            <img src="assets/logos/empresa_3.png" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';" alt="Logo Empresa 3" class="h-full object-contain">
-                            <div class="flex items-center space-x-2 text-slate-400 font-bold text-sm tracking-wide">
-                                <span class="p-1.5 bg-slate-100 rounded-lg group-hover:bg-brand-50 group-hover:text-brand-600 transition-colors"><i data-lucide="cpu" class="w-5 h-5"></i></span>
-                                <span class="text-xs">Tech Solutions</span>
+                            <div class="border-l border-slate-200 pl-4">
+                                <span class="text-2xl font-extrabold text-slate-800">17</span>
+                                <span class="text-[10px] font-bold text-slate-500 uppercase tracking-wider block mt-1">Registrados no asistentes (Webinar)</span>
                             </div>
-                        </div>
-                        <div class="mt-4">
-                            <span class="text-xs font-bold text-slate-400 uppercase tracking-wider block">Sector</span>
-                            <span class="text-xs text-slate-600 font-medium">Tecnología SaaS</span>
-                        </div>
-                    </div>
-
-                    <!-- Tarjeta Empresa 4 -->
-                    <div class="bg-white p-6 rounded-2xl border border-slate-200 hover:border-brand-500 hover:shadow-lg transition-all duration-300 group flex flex-col justify-between h-40">
-                        <div class="h-12 w-full flex items-center justify-start overflow-hidden">
-                            <img src="assets/logos/empresa_4.png" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';" alt="Logo Empresa 4" class="h-full object-contain">
-                            <div class="flex items-center space-x-2 text-slate-400 font-bold text-sm tracking-wide">
-                                <span class="p-1.5 bg-slate-100 rounded-lg group-hover:bg-brand-50 group-hover:text-brand-600 transition-colors"><i data-lucide="heart-pulse" class="w-5 h-5"></i></span>
-                                <span class="text-xs">Sinergia Salud</span>
-                            </div>
-                        </div>
-                        <div class="mt-4">
-                            <span class="text-xs font-bold text-slate-400 uppercase tracking-wider block">Sector</span>
-                            <span class="text-xs text-slate-600 font-medium">Salud & Bienestar</span>
                         </div>
                     </div>
                 </div>
             </div>
 
-            <!-- Resumen Informativo Final -->
-            <div id="proximos-pasos" class="bg-slate-100 rounded-3xl p-8 border border-slate-200">
-                <div class="max-w-3xl">
-                    <h4 class="text-lg font-bold text-slate-900 mb-3 flex items-center gap-2">
-                        <i data-lucide="info" class="text-brand-500"></i> Sobre este Reporte Ejecutivo
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-12">
+                
+                <!-- MQL por País -->
+                <div class="bg-white p-6 rounded-3xl border border-slate-200 shadow-sm">
+                    <h4 class="text-xs font-extrabold text-slate-400 uppercase tracking-widest mb-4 flex items-center gap-2">
+                        <i data-lucide="map-pin" class="w-4 h-4 text-slate-400"></i> MQLs Generados
                     </h4>
-                    <p class="text-slate-600 text-sm leading-relaxed mb-4">
-                        Este espacio ha sido construido para evaluar y visualizar los entregables del Proyecto UKG. El menú superior te permitirá navegar a través de los diferentes hitos alcanzados. El contenido de cada sección se actualiza dinámicamente bajo demanda para una óptima lectura ejecutiva.
-                    </p>
-                    <div class="flex items-center space-x-4 text-xs font-semibold text-brand-600">
-                        <span>Estado: Consolidado Completo</span>
-                        <span class="text-slate-300">•</span>
-                        <span>Listo para Entrega Final</span>
+                    <ul class="space-y-3">
+                        <li class="flex justify-between items-center text-sm"><span class="font-semibold text-slate-700">🇧🇷 Brasil</span><span class="font-bold text-slate-900">15</span></li>
+                        <li class="flex justify-between items-center text-sm"><span class="font-semibold text-slate-700">🇨🇴 Colombia</span><span class="font-bold text-slate-900">6</span></li>
+                        <li class="flex justify-between items-center text-sm"><span class="font-semibold text-slate-700">🇲🇽 México</span><span class="font-bold text-slate-900">3</span></li>
+                        <li class="flex justify-between items-center text-sm"><span class="font-semibold text-slate-700">🇨🇱 Chile</span><span class="font-bold text-slate-900">2</span></li>
+                        <li class="flex justify-between items-center text-sm"><span class="font-semibold text-slate-700">🇵🇪 Perú</span><span class="font-bold text-slate-900">1</span></li>
+                        <li class="flex justify-between items-center text-sm"><span class="font-semibold text-slate-700">🇵🇦 Panamá</span><span class="font-bold text-slate-900">1</span></li>
+                    </ul>
+                    <div class="mt-4 pt-4 border-t border-slate-100">
+                        <span class="text-[10px] font-bold text-brand-600 bg-brand-50 px-2.5 py-1 rounded-md inline-block">
+                            +12 asistentes provenientes del Webinar Brasil
+                        </span>
+                    </div>
+                </div>
+
+                <!-- Reuniones por Industria -->
+                <div class="bg-white p-6 rounded-3xl border border-slate-200 shadow-sm">
+                    <h4 class="text-xs font-extrabold text-slate-400 uppercase tracking-widest mb-4 flex items-center gap-2">
+                        <i data-lucide="factory" class="w-4 h-4 text-slate-400"></i> Por Industria
+                    </h4>
+                    <ul class="space-y-3">
+                        <li class="flex justify-between items-center text-sm"><span class="font-semibold text-slate-700 truncate pr-2">Retail & Moda</span><span class="font-bold text-slate-900">12</span></li>
+                        <li class="flex justify-between items-center text-sm"><span class="font-semibold text-slate-700 truncate pr-2">Manufactura & Industrial</span><span class="font-bold text-slate-900">12</span></li>
+                        <li class="flex justify-between items-center text-sm"><span class="font-semibold text-slate-700 truncate pr-2">Tecnología & Telecom</span><span class="font-bold text-slate-900">2</span></li>
+                        <li class="flex justify-between items-center text-sm"><span class="font-semibold text-slate-700 truncate pr-2">Logística & Transporte</span><span class="font-bold text-slate-900">1</span></li>
+                        <li class="flex justify-between items-center text-sm"><span class="font-semibold text-slate-700 truncate pr-2">Automotriz & Aeroespacial</span><span class="font-bold text-slate-900">1</span></li>
+                    </ul>
+                </div>
+
+                <!-- Reuniones por Área -->
+                <div class="bg-white p-6 rounded-3xl border border-slate-200 shadow-sm">
+                    <h4 class="text-xs font-extrabold text-slate-400 uppercase tracking-widest mb-4 flex items-center gap-2">
+                        <i data-lucide="users" class="w-4 h-4 text-slate-400"></i> Por Área Decisora
+                    </h4>
+                    <ul class="space-y-3">
+                        <li class="flex justify-between items-center text-sm"><span class="font-semibold text-slate-700 truncate pr-2">RRHH</span><span class="font-bold text-slate-900">16</span></li>
+                        <li class="flex justify-between items-center text-sm"><span class="font-semibold text-slate-700 truncate pr-2">Operaciones</span><span class="font-bold text-slate-900">6</span></li>
+                        <li class="flex justify-between items-center text-sm"><span class="font-semibold text-slate-700 truncate pr-2">Presidencia y Gerencia</span><span class="font-bold text-slate-900">3</span></li>
+                        <li class="flex justify-between items-center text-sm"><span class="font-semibold text-slate-700 truncate pr-2">Tecnología</span><span class="font-bold text-slate-900">2</span></li>
+                        <li class="flex justify-between items-center text-sm"><span class="font-semibold text-slate-700 truncate pr-2">Finanzas</span><span class="font-bold text-slate-900">1</span></li>
+                    </ul>
+                </div>
+
+            </div>
+
+            <div class="mb-12">
+                <div class="flex items-center gap-3 mb-6">
+                    <span class="p-2 bg-emerald-50 text-emerald-600 rounded-lg border border-emerald-100"><i data-lucide="zap" class="w-5 h-5"></i></span>
+                    <h3 class="text-xl font-bold text-slate-900">Cuentas que avanzaron a Demo / Oportunidad</h3>
+                </div>
+                
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                    <!-- Avance Industria -->
+                    <div class="bg-white p-5 rounded-2xl border border-emerald-500/30 shadow-sm">
+                        <span class="text-2xs font-bold text-emerald-600 uppercase tracking-widest block mb-3 border-b border-slate-100 pb-2">Por Industria</span>
+                        <ul class="space-y-2 text-xs">
+                            <li class="flex justify-between"><span class="font-medium text-slate-700">Retail & Moda</span><span class="font-bold text-slate-900">3</span></li>
+                            <li class="flex justify-between"><span class="font-medium text-slate-700">Manufactura</span><span class="font-bold text-slate-900">2</span></li>
+                            <li class="flex justify-between"><span class="font-medium text-slate-700">Automotriz</span><span class="font-bold text-slate-900">1</span></li>
+                        </ul>
+                    </div>
+                    <!-- Avance País -->
+                    <div class="bg-white p-5 rounded-2xl border border-emerald-500/30 shadow-sm">
+                        <span class="text-2xs font-bold text-emerald-600 uppercase tracking-widest block mb-3 border-b border-slate-100 pb-2">Por País</span>
+                        <ul class="space-y-2 text-xs">
+                            <li class="flex justify-between"><span class="font-medium text-slate-700">🇧🇷 Brasil</span><span class="font-bold text-slate-900">3</span></li>
+                            <li class="flex justify-between"><span class="font-medium text-slate-700">🇲🇽 México</span><span class="font-bold text-slate-900">2</span></li>
+                            <li class="flex justify-between"><span class="font-medium text-slate-700">🇨🇴 Colombia</span><span class="font-bold text-slate-900">1</span></li>
+                        </ul>
+                    </div>
+                    <!-- Avance Área -->
+                    <div class="bg-white p-5 rounded-2xl border border-emerald-500/30 shadow-sm">
+                        <span class="text-2xs font-bold text-emerald-600 uppercase tracking-widest block mb-3 border-b border-slate-100 pb-2">Por Área</span>
+                        <ul class="space-y-2 text-xs">
+                            <li class="flex justify-between"><span class="font-medium text-slate-700">RRHH</span><span class="font-bold text-slate-900">5</span></li>
+                            <li class="flex justify-between"><span class="font-medium text-slate-700">Presidencia / Gerencia</span><span class="font-bold text-slate-900">1</span></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <div class="mb-16">
+                <h3 class="text-xl font-bold text-slate-900 mb-6 flex items-center gap-2">
+                    <i data-lucide="list-checks" class="text-brand-500"></i> Empresas con Reuniones Agendadas
+                </h3>
+                
+                <div class="bg-white border border-slate-200 rounded-3xl overflow-hidden shadow-sm">
+                    <div class="overflow-x-auto no-scrollbar">
+                        <table class="min-w-full divide-y divide-slate-200 text-sm whitespace-nowrap">
+                            <thead class="bg-slate-50">
+                                <tr>
+                                    <th scope="col" class="px-6 py-4 text-left font-bold text-slate-900 uppercase tracking-wider text-xs">País</th>
+                                    <th scope="col" class="px-6 py-4 text-left font-bold text-slate-900 uppercase tracking-wider text-xs">Empresa</th>
+                                    <th scope="col" class="px-6 py-4 text-right font-bold text-slate-900 uppercase tracking-wider text-xs">Estado de Oportunidad</th>
+                                </tr>
+                            </thead>
+                            <tbody class="divide-y divide-slate-100 bg-white">
+                                <!-- Brasil rows -->
+                                <tr class="hover:bg-slate-50 transition-colors">
+                                    <td class="px-6 py-3 font-medium text-slate-600">🇧🇷 Brasil</td>
+                                    <td class="px-6 py-3">
+                                        <div class="flex items-center gap-3">
+                                            <div class="w-8 h-8 rounded bg-slate-100 flex-shrink-0 border border-slate-200 overflow-hidden p-0.5"><img src="assets/logos/Logo1.png" alt="Logo" class="w-full h-full object-contain" onerror="this.style.display='none'"></div>
+                                            <span class="font-bold text-slate-900">Bemol</span>
+                                        </div>
+                                    </td>
+                                    <td class="px-6 py-3 text-right"><span class="text-xs font-semibold text-slate-500 bg-slate-100 px-3 py-1 rounded-full">Reunión Confirmada</span></td>
+                                </tr>
+                                <tr class="hover:bg-slate-50 transition-colors">
+                                    <td class="px-6 py-3 font-medium text-slate-600">🇧🇷 Brasil</td>
+                                    <td class="px-6 py-3">
+                                        <div class="flex items-center gap-3">
+                                            <div class="w-8 h-8 rounded bg-slate-100 flex-shrink-0 border border-slate-200 overflow-hidden p-0.5"><img src="assets/logos/Logo2.png" alt="Logo" class="w-full h-full object-contain" onerror="this.style.display='none'"></div>
+                                            <span class="font-bold text-slate-900">Casa do Pão de Queijo</span>
+                                        </div>
+                                    </td>
+                                    <td class="px-6 py-3 text-right"><span class="text-xs font-semibold text-slate-500 bg-slate-100 px-3 py-1 rounded-full">Reunión Confirmada</span></td>
+                                </tr>
+                                <tr class="hover:bg-slate-50 transition-colors">
+                                    <td class="px-6 py-3 font-medium text-slate-600">🇧🇷 Brasil</td>
+                                    <td class="px-6 py-3">
+                                        <div class="flex items-center gap-3">
+                                            <div class="w-8 h-8 rounded bg-slate-100 flex-shrink-0 border border-slate-200 overflow-hidden p-0.5"><img src="assets/logos/Logo3.png" alt="Logo" class="w-full h-full object-contain" onerror="this.style.display='none'"></div>
+                                            <span class="font-bold text-slate-900">Cencosud Brasil</span>
+                                        </div>
+                                    </td>
+                                    <td class="px-6 py-3 text-right"><span class="text-xs font-semibold text-slate-500 bg-slate-100 px-3 py-1 rounded-full">Reunión Confirmada</span></td>
+                                </tr>
+                                <tr class="hover:bg-slate-50/80 bg-emerald-50/20 transition-colors">
+                                    <td class="px-6 py-3 font-medium text-slate-600">🇧🇷 Brasil</td>
+                                    <td class="px-6 py-3">
+                                        <div class="flex items-center gap-3">
+                                            <div class="w-8 h-8 rounded bg-white flex-shrink-0 border border-slate-200 overflow-hidden p-0.5 shadow-sm"><img src="assets/logos/Logo4.png" alt="Logo" class="w-full h-full object-contain" onerror="this.style.display='none'"></div>
+                                            <span class="font-bold text-slate-900">Grupo RedeMix Supermercados</span>
+                                        </div>
+                                    </td>
+                                    <td class="px-6 py-3 text-right">
+                                        <span class="inline-flex items-center text-xs font-extrabold text-emerald-500 bg-emerald-500/10 border border-emerald-500/20 shadow-[0_0_10px_rgba(16,185,129,0.3)] px-3 py-1 rounded-full">
+                                            <span class="w-1.5 h-1.5 rounded-full bg-emerald-500 animate-pulse mr-1.5"></span> Demo / Oportunidad
+                                        </span>
+                                    </td>
+                                </tr>
+                                <tr class="hover:bg-slate-50 transition-colors">
+                                    <td class="px-6 py-3 font-medium text-slate-600">🇧🇷 Brasil</td>
+                                    <td class="px-6 py-3">
+                                        <div class="flex items-center gap-3">
+                                            <div class="w-8 h-8 rounded bg-slate-100 flex-shrink-0 border border-slate-200 overflow-hidden p-0.5"><img src="assets/logos/Logo5.png" alt="Logo" class="w-full h-full object-contain" onerror="this.style.display='none'"></div>
+                                            <span class="font-bold text-slate-900">Bimbo do Brasil</span>
+                                        </div>
+                                    </td>
+                                    <td class="px-6 py-3 text-right"><span class="text-xs font-semibold text-slate-500 bg-slate-100 px-3 py-1 rounded-full">Reunión Confirmada</span></td>
+                                </tr>
+                                <tr class="hover:bg-slate-50/80 bg-emerald-50/20 transition-colors">
+                                    <td class="px-6 py-3 font-medium text-slate-600">🇧🇷 Brasil</td>
+                                    <td class="px-6 py-3">
+                                        <div class="flex items-center gap-3">
+                                            <div class="w-8 h-8 rounded bg-white flex-shrink-0 border border-slate-200 overflow-hidden p-0.5 shadow-sm"><img src="assets/logos/Logo6.png" alt="Logo" class="w-full h-full object-contain" onerror="this.style.display='none'"></div>
+                                            <span class="font-bold text-slate-900">Adimax</span>
+                                        </div>
+                                    </td>
+                                    <td class="px-6 py-3 text-right">
+                                        <span class="inline-flex items-center text-xs font-extrabold text-emerald-500 bg-emerald-500/10 border border-emerald-500/20 shadow-[0_0_10px_rgba(16,185,129,0.3)] px-3 py-1 rounded-full">
+                                            <span class="w-1.5 h-1.5 rounded-full bg-emerald-500 animate-pulse mr-1.5"></span> Demo / Oportunidad
+                                        </span>
+                                    </td>
+                                </tr>
+                                <tr class="hover:bg-slate-50 transition-colors">
+                                    <td class="px-6 py-3 font-medium text-slate-600">🇧🇷 Brasil</td>
+                                    <td class="px-6 py-3">
+                                        <div class="flex items-center gap-3">
+                                            <div class="w-8 h-8 rounded bg-slate-100 flex-shrink-0 border border-slate-200 overflow-hidden p-0.5"><img src="assets/logos/Logo7.png" alt="Logo" class="w-full h-full object-contain" onerror="this.style.display='none'"></div>
+                                            <span class="font-bold text-slate-900">Midea Group</span>
+                                        </div>
+                                    </td>
+                                    <td class="px-6 py-3 text-right"><span class="text-xs font-semibold text-slate-500 bg-slate-100 px-3 py-1 rounded-full">Reunión Confirmada</span></td>
+                                </tr>
+                                <tr class="hover:bg-slate-50 transition-colors">
+                                    <td class="px-6 py-3 font-medium text-slate-600">🇧🇷 Brasil</td>
+                                    <td class="px-6 py-3">
+                                        <div class="flex items-center gap-3">
+                                            <div class="w-8 h-8 rounded bg-slate-100 flex-shrink-0 border border-slate-200 overflow-hidden p-0.5"><img src="assets/logos/Logo8.png" alt="Logo" class="w-full h-full object-contain" onerror="this.style.display='none'"></div>
+                                            <span class="font-bold text-slate-900">Aramis</span>
+                                        </div>
+                                    </td>
+                                    <td class="px-6 py-3 text-right"><span class="text-xs font-semibold text-slate-500 bg-slate-100 px-3 py-1 rounded-full">Reunión Confirmada</span></td>
+                                </tr>
+                                <tr class="hover:bg-slate-50/80 bg-emerald-50/20 transition-colors">
+                                    <td class="px-6 py-3 font-medium text-slate-600">🇧🇷 Brasil</td>
+                                    <td class="px-6 py-3">
+                                        <div class="flex items-center gap-3">
+                                            <div class="w-8 h-8 rounded bg-white flex-shrink-0 border border-slate-200 overflow-hidden p-0.5 shadow-sm"><img src="assets/logos/Logo9.png" alt="Logo" class="w-full h-full object-contain" onerror="this.style.display='none'"></div>
+                                            <span class="font-bold text-slate-900">Cinpal</span>
+                                        </div>
+                                    </td>
+                                    <td class="px-6 py-3 text-right">
+                                        <span class="inline-flex items-center text-xs font-extrabold text-emerald-500 bg-emerald-500/10 border border-emerald-500/20 shadow-[0_0_10px_rgba(16,185,129,0.3)] px-3 py-1 rounded-full">
+                                            <span class="w-1.5 h-1.5 rounded-full bg-emerald-500 animate-pulse mr-1.5"></span> Demo / Oportunidad
+                                        </span>
+                                    </td>
+                                </tr>
+                                <tr class="hover:bg-slate-50 transition-colors">
+                                    <td class="px-6 py-3 font-medium text-slate-600">🇧🇷 Brasil</td>
+                                    <td class="px-6 py-3">
+                                        <div class="flex items-center gap-3">
+                                            <div class="w-8 h-8 rounded bg-slate-100 flex-shrink-0 border border-slate-200 overflow-hidden p-0.5"><img src="assets/logos/Logo10.png" alt="Logo" class="w-full h-full object-contain" onerror="this.style.display='none'"></div>
+                                            <span class="font-bold text-slate-900">ASTRA</span>
+                                        </div>
+                                    </td>
+                                    <td class="px-6 py-3 text-right"><span class="text-xs font-semibold text-slate-500 bg-slate-100 px-3 py-1 rounded-full">Reunión Confirmada</span></td>
+                                </tr>
+                                <tr class="hover:bg-slate-50 transition-colors">
+                                    <td class="px-6 py-3 font-medium text-slate-600">🇧🇷 Brasil</td>
+                                    <td class="px-6 py-3">
+                                        <div class="flex items-center gap-3">
+                                            <div class="w-8 h-8 rounded bg-slate-100 flex-shrink-0 border border-slate-200 overflow-hidden p-0.5"><img src="assets/logos/Logo11.png" alt="Logo" class="w-full h-full object-contain" onerror="this.style.display='none'"></div>
+                                            <span class="font-bold text-slate-900">Claro Brasil</span>
+                                        </div>
+                                    </td>
+                                    <td class="px-6 py-3 text-right"><span class="text-xs font-semibold text-slate-500 bg-slate-100 px-3 py-1 rounded-full">Reunión Confirmada</span></td>
+                                </tr>
+                                <tr class="hover:bg-slate-50 transition-colors">
+                                    <td class="px-6 py-3 font-medium text-slate-600">🇧🇷 Brasil</td>
+                                    <td class="px-6 py-3">
+                                        <div class="flex items-center gap-3">
+                                            <div class="w-8 h-8 rounded bg-slate-100 flex-shrink-0 border border-slate-200 overflow-hidden p-0.5"><img src="assets/logos/Logo12.png" alt="Logo" class="w-full h-full object-contain" onerror="this.style.display='none'"></div>
+                                            <span class="font-bold text-slate-900">Claro Brasil</span>
+                                        </div>
+                                    </td>
+                                    <td class="px-6 py-3 text-right"><span class="text-xs font-semibold text-slate-500 bg-slate-100 px-3 py-1 rounded-full">Reunión Confirmada</span></td>
+                                </tr>
+                                <tr class="hover:bg-slate-50 transition-colors">
+                                    <td class="px-6 py-3 font-medium text-slate-600">🇧🇷 Brasil</td>
+                                    <td class="px-6 py-3">
+                                        <div class="flex items-center gap-3">
+                                            <div class="w-8 h-8 rounded bg-slate-100 flex-shrink-0 border border-slate-200 overflow-hidden p-0.5"><img src="assets/logos/Logo13.png" alt="Logo" class="w-full h-full object-contain" onerror="this.style.display='none'"></div>
+                                            <span class="font-bold text-slate-900">Maravilhas do Lar</span>
+                                        </div>
+                                    </td>
+                                    <td class="px-6 py-3 text-right"><span class="text-xs font-semibold text-slate-500 bg-slate-100 px-3 py-1 rounded-full">Reunión Confirmada</span></td>
+                                </tr>
+                                <tr class="hover:bg-slate-50 transition-colors">
+                                    <td class="px-6 py-3 font-medium text-slate-600">🇧🇷 Brasil</td>
+                                    <td class="px-6 py-3">
+                                        <div class="flex items-center gap-3">
+                                            <div class="w-8 h-8 rounded bg-slate-100 flex-shrink-0 border border-slate-200 overflow-hidden p-0.5"><img src="assets/logos/Logo14.png" alt="Logo" class="w-full h-full object-contain" onerror="this.style.display='none'"></div>
+                                            <span class="font-bold text-slate-900">Tegma Gestão Logística S.A.</span>
+                                        </div>
+                                    </td>
+                                    <td class="px-6 py-3 text-right"><span class="text-xs font-semibold text-slate-500 bg-slate-100 px-3 py-1 rounded-full">Reunión Confirmada</span></td>
+                                </tr>
+                                <tr class="hover:bg-slate-50 transition-colors">
+                                    <td class="px-6 py-3 font-medium text-slate-600">🇧🇷 Brasil</td>
+                                    <td class="px-6 py-3">
+                                        <div class="flex items-center gap-3">
+                                            <div class="w-8 h-8 rounded bg-slate-100 flex-shrink-0 border border-slate-200 overflow-hidden p-0.5"><img src="assets/logos/Logo15.png" alt="Logo" class="w-full h-full object-contain" onerror="this.style.display='none'"></div>
+                                            <span class="font-bold text-slate-900">Ferragens Negrão Comercial</span>
+                                        </div>
+                                    </td>
+                                    <td class="px-6 py-3 text-right"><span class="text-xs font-semibold text-slate-500 bg-slate-100 px-3 py-1 rounded-full">Reunión Confirmada</span></td>
+                                </tr>
+                                <!-- Chile rows -->
+                                <tr class="hover:bg-slate-50 transition-colors">
+                                    <td class="px-6 py-3 font-medium text-slate-600">🇨🇱 Chile</td>
+                                    <td class="px-6 py-3">
+                                        <div class="flex items-center gap-3">
+                                            <div class="w-8 h-8 rounded bg-slate-100 flex-shrink-0 border border-slate-200 overflow-hidden p-0.5"><img src="assets/logos/Logo16.png" alt="Logo" class="w-full h-full object-contain" onerror="this.style.display='none'"></div>
+                                            <span class="font-bold text-slate-900">ARAUCO</span>
+                                        </div>
+                                    </td>
+                                    <td class="px-6 py-3 text-right"><span class="text-xs font-semibold text-slate-500 bg-slate-100 px-3 py-1 rounded-full">Reunión Confirmada</span></td>
+                                </tr>
+                                <tr class="hover:bg-slate-50 transition-colors">
+                                    <td class="px-6 py-3 font-medium text-slate-600">🇨🇱 Chile</td>
+                                    <td class="px-6 py-3">
+                                        <div class="flex items-center gap-3">
+                                            <div class="w-8 h-8 rounded bg-slate-100 flex-shrink-0 border border-slate-200 overflow-hidden p-0.5"><img src="assets/logos/Logo17.png" alt="Logo" class="w-full h-full object-contain" onerror="this.style.display='none'"></div>
+                                            <span class="font-bold text-slate-900">Finning</span>
+                                        </div>
+                                    </td>
+                                    <td class="px-6 py-3 text-right"><span class="text-xs font-semibold text-slate-500 bg-slate-100 px-3 py-1 rounded-full">Reunión Confirmada</span></td>
+                                </tr>
+                                <!-- Colombia rows -->
+                                <tr class="hover:bg-slate-50 transition-colors">
+                                    <td class="px-6 py-3 font-medium text-slate-600">🇨🇴 Colombia</td>
+                                    <td class="px-6 py-3">
+                                        <div class="flex items-center gap-3">
+                                            <div class="w-8 h-8 rounded bg-slate-100 flex-shrink-0 border border-slate-200 overflow-hidden p-0.5"><img src="assets/logos/Logo18.png" alt="Logo" class="w-full h-full object-contain" onerror="this.style.display='none'"></div>
+                                            <span class="font-bold text-slate-900">Alpina</span>
+                                        </div>
+                                    </td>
+                                    <td class="px-6 py-3 text-right"><span class="text-xs font-semibold text-slate-500 bg-slate-100 px-3 py-1 rounded-full">Reunión Confirmada</span></td>
+                                </tr>
+                                <tr class="hover:bg-slate-50 transition-colors">
+                                    <td class="px-6 py-3 font-medium text-slate-600">🇨🇴 Colombia</td>
+                                    <td class="px-6 py-3">
+                                        <div class="flex items-center gap-3">
+                                            <div class="w-8 h-8 rounded bg-slate-100 flex-shrink-0 border border-slate-200 overflow-hidden p-0.5"><img src="assets/logos/Logo19.png" alt="Logo" class="w-full h-full object-contain" onerror="this.style.display='none'"></div>
+                                            <span class="font-bold text-slate-900">AGROSAVIA</span>
+                                        </div>
+                                    </td>
+                                    <td class="px-6 py-3 text-right"><span class="text-xs font-semibold text-slate-500 bg-slate-100 px-3 py-1 rounded-full">Reunión Confirmada</span></td>
+                                </tr>
+                                <tr class="hover:bg-slate-50 transition-colors">
+                                    <td class="px-6 py-3 font-medium text-slate-600">🇨🇴 Colombia</td>
+                                    <td class="px-6 py-3">
+                                        <div class="flex items-center gap-3">
+                                            <div class="w-8 h-8 rounded bg-slate-100 flex-shrink-0 border border-slate-200 overflow-hidden p-0.5"><img src="assets/logos/Logo20.png" alt="Logo" class="w-full h-full object-contain" onerror="this.style.display='none'"></div>
+                                            <span class="font-bold text-slate-900">Aqualia</span>
+                                        </div>
+                                    </td>
+                                    <td class="px-6 py-3 text-right"><span class="text-xs font-semibold text-slate-500 bg-slate-100 px-3 py-1 rounded-full">Reunión Confirmada</span></td>
+                                </tr>
+                                <tr class="hover:bg-slate-50 transition-colors">
+                                    <td class="px-6 py-3 font-medium text-slate-600">🇨🇴 Colombia</td>
+                                    <td class="px-6 py-3">
+                                        <div class="flex items-center gap-3">
+                                            <div class="w-8 h-8 rounded bg-slate-100 flex-shrink-0 border border-slate-200 overflow-hidden p-0.5"><img src="assets/logos/Logo21.png" alt="Logo" class="w-full h-full object-contain" onerror="this.style.display='none'"></div>
+                                            <span class="font-bold text-slate-900">POSTOBON S.A.</span>
+                                        </div>
+                                    </td>
+                                    <td class="px-6 py-3 text-right"><span class="text-xs font-semibold text-slate-500 bg-slate-100 px-3 py-1 rounded-full">Reunión Confirmada</span></td>
+                                </tr>
+                                <tr class="hover:bg-slate-50 transition-colors">
+                                    <td class="px-6 py-3 font-medium text-slate-600">🇨🇴 Colombia</td>
+                                    <td class="px-6 py-3">
+                                        <div class="flex items-center gap-3">
+                                            <div class="w-8 h-8 rounded bg-slate-100 flex-shrink-0 border border-slate-200 overflow-hidden p-0.5"><img src="assets/logos/Logo22.png" alt="Logo" class="w-full h-full object-contain" onerror="this.style.display='none'"></div>
+                                            <span class="font-bold text-slate-900">Porvenir Pensiones y Cesantías</span>
+                                        </div>
+                                    </td>
+                                    <td class="px-6 py-3 text-right"><span class="text-xs font-semibold text-slate-500 bg-slate-100 px-3 py-1 rounded-full">Reunión Confirmada</span></td>
+                                </tr>
+                                <tr class="hover:bg-slate-50/80 bg-emerald-50/20 transition-colors">
+                                    <td class="px-6 py-3 font-medium text-slate-600">🇨🇴 Colombia</td>
+                                    <td class="px-6 py-3">
+                                        <div class="flex items-center gap-3">
+                                            <div class="w-8 h-8 rounded bg-white flex-shrink-0 border border-slate-200 overflow-hidden p-0.5 shadow-sm"><img src="assets/logos/Logo23.png" alt="Logo" class="w-full h-full object-contain" onerror="this.style.display='none'"></div>
+                                            <span class="font-bold text-slate-900">Nutresa</span>
+                                        </div>
+                                    </td>
+                                    <td class="px-6 py-3 text-right">
+                                        <span class="inline-flex items-center text-xs font-extrabold text-emerald-500 bg-emerald-500/10 border border-emerald-500/20 shadow-[0_0_10px_rgba(16,185,129,0.3)] px-3 py-1 rounded-full">
+                                            <span class="w-1.5 h-1.5 rounded-full bg-emerald-500 animate-pulse mr-1.5"></span> Demo / Oportunidad
+                                        </span>
+                                    </td>
+                                </tr>
+                                <!-- México rows -->
+                                <tr class="hover:bg-slate-50 transition-colors">
+                                    <td class="px-6 py-3 font-medium text-slate-600">🇲🇽 México</td>
+                                    <td class="px-6 py-3">
+                                        <div class="flex items-center gap-3">
+                                            <div class="w-8 h-8 rounded bg-slate-100 flex-shrink-0 border border-slate-200 overflow-hidden p-0.5"><img src="assets/logos/Logo24.png" alt="Logo" class="w-full h-full object-contain" onerror="this.style.display='none'"></div>
+                                            <span class="font-bold text-slate-900">Grupo EULEN</span>
+                                        </div>
+                                    </td>
+                                    <td class="px-6 py-3 text-right"><span class="text-xs font-semibold text-slate-500 bg-slate-100 px-3 py-1 rounded-full">Reunión Confirmada</span></td>
+                                </tr>
+                                <tr class="hover:bg-slate-50/80 bg-emerald-50/20 transition-colors">
+                                    <td class="px-6 py-3 font-medium text-slate-600">🇲🇽 México</td>
+                                    <td class="px-6 py-3">
+                                        <div class="flex items-center gap-3">
+                                            <div class="w-8 h-8 rounded bg-white flex-shrink-0 border border-slate-200 overflow-hidden p-0.5 shadow-sm"><img src="assets/logos/Logo25.png" alt="Logo" class="w-full h-full object-contain" onerror="this.style.display='none'"></div>
+                                            <span class="font-bold text-slate-900">PiticoMx</span>
+                                        </div>
+                                    </td>
+                                    <td class="px-6 py-3 text-right">
+                                        <span class="inline-flex items-center text-xs font-extrabold text-emerald-500 bg-emerald-500/10 border border-emerald-500/20 shadow-[0_0_10px_rgba(16,185,129,0.3)] px-3 py-1 rounded-full">
+                                            <span class="w-1.5 h-1.5 rounded-full bg-emerald-500 animate-pulse mr-1.5"></span> Demo / Oportunidad
+                                        </span>
+                                    </td>
+                                </tr>
+                                <tr class="hover:bg-slate-50/80 bg-emerald-50/20 transition-colors">
+                                    <td class="px-6 py-3 font-medium text-slate-600">🇲🇽 México</td>
+                                    <td class="px-6 py-3">
+                                        <div class="flex items-center gap-3">
+                                            <div class="w-8 h-8 rounded bg-white flex-shrink-0 border border-slate-200 overflow-hidden p-0.5 shadow-sm"><img src="assets/logos/Logo26.png" alt="Logo" class="w-full h-full object-contain" onerror="this.style.display='none'"></div>
+                                            <span class="font-bold text-slate-900">Hágalo</span>
+                                        </div>
+                                    </td>
+                                    <td class="px-6 py-3 text-right">
+                                        <span class="inline-flex items-center text-xs font-extrabold text-emerald-500 bg-emerald-500/10 border border-emerald-500/20 shadow-[0_0_10px_rgba(16,185,129,0.3)] px-3 py-1 rounded-full">
+                                            <span class="w-1.5 h-1.5 rounded-full bg-emerald-500 animate-pulse mr-1.5"></span> Demo / Oportunidad
+                                        </span>
+                                    </td>
+                                </tr>
+                                <!-- Panamá rows -->
+                                <tr class="hover:bg-slate-50 transition-colors">
+                                    <td class="px-6 py-3 font-medium text-slate-600">🇵🇦 Panamá</td>
+                                    <td class="px-6 py-3">
+                                        <div class="flex items-center gap-3">
+                                            <div class="w-8 h-8 rounded bg-slate-100 flex-shrink-0 border border-slate-200 overflow-hidden p-0.5"><img src="assets/logos/Logo27.png" alt="Logo" class="w-full h-full object-contain" onerror="this.style.display='none'"></div>
+                                            <span class="font-bold text-slate-900">Grupo Rey</span>
+                                        </div>
+                                    </td>
+                                    <td class="px-6 py-3 text-right"><span class="text-xs font-semibold text-slate-500 bg-slate-100 px-3 py-1 rounded-full">Reunión Confirmada</span></td>
+                                </tr>
+                                <!-- Perú rows -->
+                                <tr class="hover:bg-slate-50 transition-colors">
+                                    <td class="px-6 py-3 font-medium text-slate-600">🇵🇪 Perú</td>
+                                    <td class="px-6 py-3">
+                                        <div class="flex items-center gap-3">
+                                            <div class="w-8 h-8 rounded bg-slate-100 flex-shrink-0 border border-slate-200 overflow-hidden p-0.5"><img src="assets/logos/Logo28.png" alt="Logo" class="w-full h-full object-contain" onerror="this.style.display='none'"></div>
+                                            <span class="font-bold text-slate-900">Cencosud Peru</span>
+                                        </div>
+                                    </td>
+                                    <td class="px-6 py-3 text-right"><span class="text-xs font-semibold text-slate-500 bg-slate-100 px-3 py-1 rounded-full">Reunión Confirmada</span></td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
+                <!-- Prospección -->
+                <div class="bg-white rounded-3xl p-8 border border-slate-200 shadow-sm flex flex-col h-full">
+                    <div class="flex justify-between items-start mb-6">
+                        <div>
+                            <h3 class="text-lg font-bold text-slate-900">Cuentas en Proceso Avanzado</h3>
+                            <span class="text-xs font-semibold text-slate-400 uppercase tracking-widest block mt-1">Origen: Prospección Directa</span>
+                        </div>
+                        <span class="text-3xl font-black text-brand-500 bg-brand-50 px-4 py-2 rounded-2xl">28</span>
+                    </div>
+                    
+                    <div class="mb-6 flex flex-wrap gap-2 text-xs font-semibold text-slate-600">
+                        <span class="bg-slate-100 px-2.5 py-1 rounded-lg">🇧🇷 BR: 10</span>
+                        <span class="bg-slate-100 px-2.5 py-1 rounded-lg">🇨🇴 CO: 6</span>
+                        <span class="bg-slate-100 px-2.5 py-1 rounded-lg">🇲🇽 MX: 4</span>
+                        <span class="bg-slate-100 px-2.5 py-1 rounded-lg">🇨🇱 CL: 3</span>
+                        <span class="bg-slate-100 px-2.5 py-1 rounded-lg">🇸🇻 SV: 2</span>
+                        <span class="bg-slate-100 px-2.5 py-1 rounded-lg">🇬🇹 GT: 1</span>
+                    </div>
+
+                    <div class="flex-grow border-2 border-dashed border-slate-200 rounded-2xl bg-slate-50 overflow-hidden relative flex items-center justify-center min-h-[250px] group">
+                        <img src="assets/logos/Avanzadas1.png" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';" alt="Logos Prospección" class="w-full h-full object-contain p-4 group-hover:scale-105 transition-transform duration-500">
+                        <div class="hidden flex-col items-center text-slate-400">
+                            <i data-lucide="image" class="w-8 h-8 mb-2"></i>
+                            <span class="text-xs font-medium">[Avanzadas1.png]</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Webinar -->
+                <div class="bg-white rounded-3xl p-8 border border-slate-200 shadow-sm flex flex-col h-full">
+                    <div class="flex justify-between items-start mb-6">
+                        <div>
+                            <h3 class="text-lg font-bold text-slate-900">Cuentas en Proceso Avanzado</h3>
+                            <span class="text-xs font-semibold text-slate-400 uppercase tracking-widest block mt-1">Origen: Webinar Nurturing</span>
+                        </div>
+                        <span class="text-3xl font-black text-indigo-500 bg-indigo-50 px-4 py-2 rounded-2xl">17</span>
+                    </div>
+                    
+                    <div class="mb-6 flex flex-wrap gap-2 text-xs font-semibold text-slate-600">
+                        <span class="bg-slate-100 px-2.5 py-1 rounded-lg">🇧🇷 BR: 17</span>
+                    </div>
+
+                    <div class="flex-grow border-2 border-dashed border-slate-200 rounded-2xl bg-slate-50 overflow-hidden relative flex items-center justify-center min-h-[250px] group">
+                        <img src="assets/logos/Avanzadas2.png" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';" alt="Logos Webinar" class="w-full h-full object-contain p-4 group-hover:scale-105 transition-transform duration-500">
+                        <div class="hidden flex-col items-center text-slate-400">
+                            <i data-lucide="image" class="w-8 h-8 mb-2"></i>
+                            <span class="text-xs font-medium">[Avanzadas2.png]</span>
+                        </div>
                     </div>
                 </div>
             </div>
